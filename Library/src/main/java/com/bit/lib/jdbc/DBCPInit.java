@@ -28,9 +28,9 @@ public class DBCPInit extends HttpServlet {
     private void initConnectionPool() {
         try {
         	//수정 해야됨...!!!
-            String jdbcDriver = "jdbc:mysql://127.0.0.1:3306/book_ex?useSSL=false";
-            String username ="zerock";
-            String pw = "zerock";
+            String jdbcDriver = "jdbc:mysql://mysql.cxwmjvbm4iat.ap-northeast-2.rds.amazonaws.com:3306/librarydb?useSSL=false";
+            String username ="lib2";
+            String pw = "bitcamp1234";
             ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcDriver, username, pw);
             // PoolableConnection을 생성하는 팩토리 생성.
             // DBCP는 커넥션을 보관할 때 PoolableConnection 을 사용
