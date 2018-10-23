@@ -36,6 +36,7 @@ public class HomeController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
+		//test
 	//db연동 test완료	
 /*		try {
 			Connection conn = ConnectionProvider.getConnection();
