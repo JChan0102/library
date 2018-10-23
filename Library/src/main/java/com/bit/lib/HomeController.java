@@ -38,6 +38,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		//ccccccccccccccccccccccccccccccccc
+		//sssssssswsssssss
 		//test
 	//db연동 test완료	
 /*		try {
