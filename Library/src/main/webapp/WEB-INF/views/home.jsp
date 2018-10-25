@@ -55,13 +55,6 @@ body {
 	vertical-align: middle;
 }
 
-#enterAdminHome {
-	display: inline;
-}
-
-#enterMemberHome {
-	display: inline;
-}
 /* COLOR Start */
 .color1 {
 	color: #E5FCC2;
@@ -176,12 +169,11 @@ body {
 			<h1 class="homeTitle color5">
 				사람은 책을 만들고,<br>책은 사람을 만든다.
 			</h1>
-			<form action="/admin/home" id="enterAdminHome">
-				<input type="submit" class="homeBigBtn color3_btn btn" value="관리자">
-			</form>
-			<form action="/member/home" id="enterMemberHome">
-				<input type="submit" class="homeBigBtn color4_btn btn" value="사용자">
-			</form>
+			<a href="${pageContext.request.contextPath}/admin/home"> <input
+				type="button" class="homeBigBtn color3_btn btn" value="관리자">
+			</a> <a href="${pageContext.request.contextPath}/member/home"> <input
+				type="submit" class="homeBigBtn color4_btn btn" value="사용자">
+			</a>
 		</div>
 	</div>
 </body>
