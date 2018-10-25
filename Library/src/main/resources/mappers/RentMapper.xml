@@ -7,4 +7,6 @@
 <select id="select"  resultType="hashMap">
 	select id from testtable where id = #{id}
 </select>
+
+
 </mapper>

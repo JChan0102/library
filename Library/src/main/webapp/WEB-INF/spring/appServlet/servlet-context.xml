@@ -46,6 +46,7 @@
 	<beans:bean id = "sqlSeesinonFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
 		<beans:property name="mapperLocations" value="classpath:mappers/*.xml"/>
+		<beans:property name="configLocation" value="classpath:/mybatis-config.xml" />
 	</beans:bean>
 
 	<!--SqlSessionTemplate 빈등록-->
@@ -53,10 +54,6 @@
 		<beans:constructor-arg index="0" ref="sqlSeesinonFactory"/>
 	</beans:bean>
 
-
-	
-	
-	
 	
 	<!-- PlatformTransactionManager -->
 	<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
