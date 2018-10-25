@@ -9,5 +9,6 @@
 </head>
 <body>
 	<h1>USER HOME</h1>
+	<h1><a href="home/listTest">게시판</a></h1>
 </body>
 </html>

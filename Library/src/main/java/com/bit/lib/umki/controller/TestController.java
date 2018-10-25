@@ -14,7 +14,7 @@ public class TestController {
 	@Autowired
 	TestService testService;
 	
-	@RequestMapping("/listTest")
+	@RequestMapping("/member/home/listTest")
 	public ModelAndView test() {
 		ModelAndView modelAndView = new ModelAndView();
 		ListInfo listInfo = testService.test(); 
