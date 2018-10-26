@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<update id="updateMember"
-		parameterType="com.bit.lib.member.model.MemberVO">>
+		parameterType="com.bit.lib.member.model.MemberVO">
 		UPDATE `librarydb`.`member` SET `password`=#{password},
 		`name`= #{name}, `availAmount`= #{availAmount}, `phone`= #{phone},
 		`totborrowDays`= #{totborrowDays},
@@ -51,14 +51,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<update id="updateByPossible"
-		parameterType="com.bit.lib.member.model.MemberVO">>
+		parameterType="com.bit.lib.member.model.MemberVO">
 		UPDATE `librarydb`.`member` SET
-		possibledate=#{possibledate} WHERE
+		possibledate='POSSIBLE' WHERE
 		member_id=#{member_id};
 	</update>
 
 	<update id="updateAvailAmount"
-		parameterType="com.bit.lib.member.model.MemberVO">>
+		parameterType="com.bit.lib.member.model.MemberVO">
 		UPDATE `librarydb`.`member` SET
 		availAmount=#{availAmount} WHERE
 		member_id=#{member_id};

@@ -47,11 +47,11 @@ public class MemberDao {
 	}
 
 	public int updateByPossible(MemberVO mv) {
-		return sqlSessionTemplate.update(mapperPath + "updateByPossible");
+		return sqlSessionTemplate.update(mapperPath + "updateByPossible",mv);
 	}
 
 	public int updateAvailAmount(MemberVO mv) {
-		return sqlSessionTemplate.update(mapperPath + "updateAvailAmount");
+		return sqlSessionTemplate.update(mapperPath + "updateAvailAmount",mv);
 	}
 
 }

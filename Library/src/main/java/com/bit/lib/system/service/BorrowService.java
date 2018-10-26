@@ -1,5 +1,7 @@
 package com.bit.lib.system.service;
 
+import com.bit.lib.member.dao.MemberDao;
+import com.bit.lib.member.model.MemberVO;
 import com.bit.lib.system.dao.BorrowDao;
 import com.bit.lib.system.model.Borrow;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,23 @@ import java.util.Date;
 public class BorrowService {
 
     @Autowired
-    private BorrowDao rentDao;
+    private BorrowDao borrowDao;
 
+    @Autowired
+    private MemberDao memberDao;
+
+    public MemberVO searchMember(String member_id){
+        MemberVO member = memberDao.selectOneMember(member_id);
+
+        return member;
+    }
+    public boolean isPossible(MemberVO member) {
+        boolean possible = false;
+        if("possible".toUpperCase().equals(member.getPossibledate().toUpperCase())&&member.getAvailAmount()>0){
+        possible=true;
+        }
+        return possible;
+    }
 
     @Transactional
     public boolean rent(Borrow borrow){
@@ -31,7 +48,7 @@ public class BorrowService {
         today.add(Calendar.DATE,7);
         borrow.setReturnDate(dateFormat.format(today));
 
-       int rentSuccess = rentDao.insert(borrow);
+       int rentSuccess = borrowDao.insert(borrow);
        if(rentSuccess==1){
            availAmountUpdate(borrow.getMember_id());
            book_existUpdate(borrow.getBook_code());
