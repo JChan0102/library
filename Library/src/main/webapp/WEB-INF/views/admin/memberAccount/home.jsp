@@ -3,7 +3,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
-<!-- 이곳이 body -->
+
 <h1>회원 계정 관련 기능</h1>
+
+<table>
+	<tr>
+		<td>회원 아이디</td>
+		<td>회원 비밀번호</td>
+		<td>회원 이름</td>
+		<td>대출 가능 권수</td>
+		<td>전화번호</td>
+		<td>총 대출일</td>
+		<td>총 연체일</td>
+		<td>대출 가능 일자</td>
+	</tr>
+	<c:forEach var="item" items="${members}">
+		<tr>
+			<td>${item.member_id}</td>
+			<td>${item.password}</td>
+			<td>${item.name}</td>
+			<td>${item.availAmount}</td>
+			<td>${item.phone}</td>
+			<td>${item.totborrowDays}</td>
+			<td>${item.totoverduedays}</td>
+			<td>${item.possibledate}</td>
+		</tr>
+	</c:forEach>
+</table>
+
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

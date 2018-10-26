@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateAdmin"
 		parameterType="com.bit.lib.admin.model.AdminVO">>
 		UPDATE `librarydb`.`admin` SET `password`=#{password},
-		`permission`= #{permission} WHERE admin_id = #{admin_id};
+		`permission`= #{permission} WHERE admin_id = #{admin_id}
 	</update>
 
 	<delete id="deleteAdmin">
