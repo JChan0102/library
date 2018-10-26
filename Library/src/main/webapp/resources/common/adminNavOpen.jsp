@@ -26,6 +26,8 @@
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/admin/borrow">4도서 대출 관련
 					기능</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="${pageContext.request.contextPath}/admin/memberAccount">5회원 관련 기능</a></li>
 		</ul>
 		<a href="${pageContext.request.contextPath}/admin/logout">
 			<button type="button" class="btn btn-dark">로그아웃</button>

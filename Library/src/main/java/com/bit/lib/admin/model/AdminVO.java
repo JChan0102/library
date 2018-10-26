@@ -12,7 +12,8 @@ public class AdminVO {
 	// 2 T/F) 공지사항 게시판 접근 기능
 	// 3 T/F) 도서 등록/삭제 기능
 	// 4 T/F) 도서 대출 관련 기능
-
+	// 5 T/F) 회원 등록/수정/삭제 기능
+	
 	public String getAdmin_id() {
 		return admin_id;
 	}
