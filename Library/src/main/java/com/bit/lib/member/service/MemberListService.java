@@ -9,7 +9,7 @@ import com.bit.lib.member.dao.MemberDao;
 import com.bit.lib.member.model.MemberVO;
 
 @Service
-public class GetMemberListService {
+public class MemberListService {
 
 	@Autowired
 	MemberDao memberDao;

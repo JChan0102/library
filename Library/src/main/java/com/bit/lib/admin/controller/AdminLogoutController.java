@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bit.lib.admin.service.GetAdminLoginService;
+import com.bit.lib.admin.service.AdminLoginService;
 
 @Controller
 @RequestMapping("/admin/logout")
 public class AdminLogoutController {
 
 	@Autowired
-	GetAdminLoginService getAdminLoginService;
+	AdminLoginService getAdminLoginService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getAdminLogout(HttpSession session) {

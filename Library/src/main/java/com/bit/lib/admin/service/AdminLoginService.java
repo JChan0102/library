@@ -11,7 +11,7 @@ import com.bit.lib.admin.dao.AdminDao;
 import com.bit.lib.admin.model.AdminVO;
 
 @Service
-public class GetAdminLoginService {
+public class AdminLoginService {
 
 	@Autowired
 	AdminDao adminDao;

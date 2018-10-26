@@ -11,19 +11,28 @@ import com.bit.lib.member.service.MemberListService;
 import com.bit.lib.member.service.MemberRegService;
 
 @Controller
-@RequestMapping("/admin/memberAccount")
-public class AdminMemberAccController {
+@RequestMapping("/admin/memberAccount/memberReg")
+public class AdminMemberAccRegController {
 
 	@Autowired
-	MemberListService getMemberListService;
+	MemberRegService memberRegService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getAdminLoginForm() {
+	public ModelAndView getAdmimMemberAccRegForm() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/admin/memberAccount/home");
-		modelAndView.addObject("members", getMemberListService.getAllmember());
-
+		modelAndView.setViewName("/admin/memberAccount/memberRegForm");
 		return modelAndView;
 	}
 
+	@RequestMapping(method = RequestMethod.POST)
+	public ModelAndView regAdmimMemberAcc(MemberVO mv) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/admin/memberAccount/memberReg");
+		int resultCnt = memberRegService.insertMember(mv);
+
+		if (resultCnt != 1) {
+			// 가입실패처리
+		}
+		return modelAndView;
+	}
 }

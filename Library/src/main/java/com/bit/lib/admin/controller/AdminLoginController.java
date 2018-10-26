@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bit.lib.admin.service.GetAdminLoginService;
+import com.bit.lib.admin.service.AdminLoginService;
 
 @Controller
 @RequestMapping("/admin/login")
 public class AdminLoginController {
 
 	@Autowired
-	GetAdminLoginService getAdminLoginService;
+	AdminLoginService getAdminLoginService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getAdminLoginForm() {

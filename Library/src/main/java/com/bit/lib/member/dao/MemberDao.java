@@ -30,11 +30,11 @@ public class MemberDao {
 	}
 
 	public int updateMember(MemberVO mv) {
-		return sqlSessionTemplate.update(mapperPath + "updateMember");
+		return sqlSessionTemplate.update(mapperPath + "updateMember", mv);
 	}
 
 	public int deleteMember(String member_id) {
-		return sqlSessionTemplate.update(mapperPath + "deleteMember");
+		return sqlSessionTemplate.update(mapperPath + "deleteMember", member_id);
 	}
 
 	public boolean matchPassword(String member_id, String password) {
@@ -47,11 +47,11 @@ public class MemberDao {
 	}
 
 	public int updateByPossible(MemberVO mv) {
-		return sqlSessionTemplate.update(mapperPath + "updateByPossible",mv);
+		return sqlSessionTemplate.update(mapperPath + "updateByPossible", mv);
 	}
 
 	public int updateAvailAmount(MemberVO mv) {
-		return sqlSessionTemplate.update(mapperPath + "updateAvailAmount",mv);
+		return sqlSessionTemplate.update(mapperPath + "updateAvailAmount", mv);
 	}
 
 }
