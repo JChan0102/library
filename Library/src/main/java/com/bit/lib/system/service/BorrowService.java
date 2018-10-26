@@ -60,15 +60,18 @@ public class BorrowService {
        return rentOk;
     }
 
-    private int book_existUpdate(String book_code) {
+    private void book_existUpdate(String book_code) {
         //책 book_exist 업데이트
-    return 0;
     }
 
-    private int availAmountUpdate(String member_id) {
+    private void availAmountUpdate(String member_id) {
+           MemberVO member =  memberDao.selectOneMember(member_id);
+             member.setAvailAmount(member.getAvailAmount()-1);
+             memberDao.updateAvailAmount(member);
+    }
 
-
-    return 0;
+    public String getBookCode(String bookname){
+        return borrowDao.getBook_code(bookname);
     }
 
 }

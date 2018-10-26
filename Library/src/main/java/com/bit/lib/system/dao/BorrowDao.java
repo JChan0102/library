@@ -24,5 +24,10 @@ public class BorrowDao {
         return sqlSessionTemplate.selectOne(mapperPath+".getDay",returnDate);
     }
 
+    // 책 검색
+    public String getBook_code(String bookname){
+
+        return sqlSessionTemplate.selectOne(mapperPath+".getBook_code","%"+bookname+"%");
+    }
 
 }

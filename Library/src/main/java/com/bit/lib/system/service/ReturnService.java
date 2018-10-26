@@ -1,5 +1,6 @@
 package com.bit.lib.system.service;
 
+import com.bit.lib.member.model.MemberVO;
 import com.bit.lib.system.dao.BorrowDao;
 import com.bit.lib.system.model.Borrow;
 import org.springframework.beans.factory.annotation.Autowired;

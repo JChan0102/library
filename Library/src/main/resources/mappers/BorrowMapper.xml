@@ -16,4 +16,8 @@
 	select to_days(sysdate())-to_days(STR_TO_DATE(#{returnDate},'%Y-%m-%d'))
 </select>
 
+	<select id="getBook_code" resultType="java.lang.String" >
+		select book_code from book where book_name Like #{bookname}
+	</select>
+
 </mapper>
