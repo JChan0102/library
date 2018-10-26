@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${listInfo}
-test
+write 페이지
 </body>
 </html>

@@ -19,6 +19,8 @@
 		
 	<!-- service 빈 등록 -->
 	<beans:bean id="testService" class="com.bit.lib.umki.service.TestService"/>
+	<beans:bean id="getListService" class="com.bit.lib.umki.service.GetListService" />
+	<beans:bean id="getListPageService" class="com.bit.lib.umki.service.GetListPageService"></beans:bean>
 	
 	
 
