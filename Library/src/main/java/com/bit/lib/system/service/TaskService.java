@@ -15,23 +15,20 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class TaskTestService {
+public class TaskService {
 
 @Autowired
     private MemberDao memberDao;
-
+@Autowired
+    private BorrowDao borrowDao;
         @Scheduled(cron = "0 0 10 * * *")
         public void Scheduler(){
 
             List<MemberVO> list = memberDao.selecAlltByPossible();
 
-            DateFormat dateFormat;
-            dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-            String today = dateFormat.format(new Date());
             for (int i=0; i<list.size();i++) {
                 MemberVO member = list.get(i);
-
-                if(today.equals(member.getPossibledate())){
+                if(borrowDao.getDay(member.getPossibledate())>=0){
                 memberDao.updateByPossible(member);
                 }
 

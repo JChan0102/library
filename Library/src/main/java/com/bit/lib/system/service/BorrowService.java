@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 @Service
 public class BorrowService {
@@ -22,10 +22,14 @@ public class BorrowService {
     @Autowired
     private MemberDao memberDao;
 
-    public MemberVO searchMember(String member_id){
-        MemberVO member = memberDao.selectOneMember(member_id);
+    public MemberVO selectMember(String member_id){
+        return memberDao.selectOneMember(member_id);
+    }
 
-        return member;
+    public List<MemberVO> searchMember(String member_id){
+        List<MemberVO> list = memberDao.selectSearchMember(member_id);
+
+        return list;
     }
     public boolean isPossible(MemberVO member) {
         boolean possible = false;
@@ -41,7 +45,6 @@ public class BorrowService {
 
         DateFormat dateFormat;
         dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-
 
         Calendar today = Calendar.getInstance();
         borrow.setBorrowDate(dateFormat.format(today));
@@ -63,7 +66,8 @@ public class BorrowService {
     }
 
     private int availAmountUpdate(String member_id) {
-        //회원 availAmount 업데이트
+
+
     return 0;
     }
 

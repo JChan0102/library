@@ -53,5 +53,8 @@ public class MemberDao {
 	public int updateAvailAmount(MemberVO mv) {
 		return sqlSessionTemplate.update(mapperPath + "updateAvailAmount", mv);
 	}
+	public List<MemberVO> selectSearchMember(String member_id){
+		return sqlSessionTemplate.selectList(mapperPath+"selectSearchMember","%"+member_id+"%");
+	}
 
 }

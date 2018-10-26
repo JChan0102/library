@@ -8,11 +8,15 @@
 <c:choose>
     <c:when test="${possible}">
         ${member.name}은 ${member.availAmount}만큼 대여 가능합니다.
+        <form method="post">
         <c:forEach begin="0" end="${member.availAmount-1}" step="1">
+
             <input type="text">
+
+
         </c:forEach>
-
-
+            <input type="submit" value="대여">
+        </form>
     </c:when>
     <c:otherwise>
         ${member.name}은 현재 대여 불가 상태입니다.<br/>
