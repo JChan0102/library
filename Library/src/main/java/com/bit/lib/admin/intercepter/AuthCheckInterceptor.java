@@ -17,7 +17,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession(false);
 
 		if (session != null) {
-			Object obj = session.getAttribute("adminLogin");
+			Object obj = session.getAttribute("adminLoginInfo");
 			if (obj != null) {
 				return true;
 			}

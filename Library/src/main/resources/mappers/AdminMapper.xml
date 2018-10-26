@@ -11,18 +11,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO `librarydb`.`admin` (`admin_id`, `password`,
 		`permission`) VALUES (#{admin_id}, #{password}, #{permission})
 	</insert>
-
-	<select id="selectOneAdmin"
+	<!-- 확인 -->
+	<select id="selectOneAdmin" parameterType="java.lang.String"
 		resultType="com.bit.lib.admin.model.AdminVO">
 		SELECT * FROM `librarydb`.`admin` WHERE admin_id =
 		#{admin_id}
 	</select>
-
+	<!-- 확인 -->
 	<select id="selectAllAdmin"
 		resultType="com.bit.lib.admin.model.AdminVO">
 		SELECT * FROM `librarydb`.`admin`
 	</select>
-
+	<!-- 확인 -->
 	<select id="selectAllAdminId" resultType="String">
 		SELECT admin_id FROM
 		`librarydb`.`admin`
