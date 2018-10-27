@@ -10,7 +10,13 @@
 			<option value="author">작가명</option>
 			<option value="publisher">출판사</option>
 		</select>
-		<!-- <input type="text" name="optionCode"> -->
+		<select name="listCnt">
+			<option value="10" seleted>10개씩</option>
+			<option value="15">15개씩</option>
+			<option value="20">20개씩</option>
+			<option value="30">30개씩</option>
+			<option value="40">40개씩</option>
+		</select>
 		<input type="text" name="keyword" /> <input type="submit" value="검색">
 	</form>
 	<hr>

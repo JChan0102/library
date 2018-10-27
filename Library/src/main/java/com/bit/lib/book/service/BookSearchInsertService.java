@@ -17,7 +17,7 @@ public class BookSearchInsertService {
 	@Autowired
 	private BookSearchInsertDao bookDao;
 
-	public List<BookInfo> bookList(String option, String keyword) throws Exception {
+	public List<BookInfo> bookList(String option, String keyword,int listCnt) throws Exception {
 		
 		List<BookInfo> bookList = new ArrayList<BookInfo>();
 

@@ -27,15 +27,15 @@ public class BookSearchInsertController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView searchBookList(@RequestParam("optionCode") String option,
-										@RequestParam("keyword")String keyword) {
+									   @RequestParam("keyword")String keyword,
+									   @RequestParam("listCnt")int listCnt) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		List<BookInfo> bookList;
-		List<BookInfo> bookInsertDB;//DB에 저장할 책 정보를 담고 있는 list
 		
 		try {
-			bookList = serivce.bookList(option, keyword);
+			bookList = serivce.bookList(option, keyword,listCnt);
 			modelAndView.addObject("bookList", bookList);
 			//bookInsertDB = serivce.bookRemoveHtml(bookList);
 			//modelAndView.addObject("bookInsertDB", bookInsertDB);
