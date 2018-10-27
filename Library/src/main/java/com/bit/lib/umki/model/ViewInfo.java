@@ -9,6 +9,8 @@ public class ViewInfo {
 	private List<ListInfo> messageList;
 	private int pageTotalCount;
 	private int messageCountPerPage;
+	private int startPageNum;
+	private int lastPageNum;
 	
 	public ViewInfo(int messageTotalCount, int currentPageNumber,  int messageCountPerPage) {
 		this.messageTotalCount = messageTotalCount;
@@ -25,6 +27,29 @@ public class ViewInfo {
 				pageTotalCount++;
 			}
 		}
+		
+		startPageNum = (currentPageNumber / 10) * 10 + 1;
+		if(currentPageNumber % 10 == 0) {
+			startPageNum-=10;
+		}
+		lastPageNum = startPageNum + 9;
+		if(lastPageNum>pageTotalCount) {
+			lastPageNum = pageTotalCount;
+		}
+		
+		
+	}
+	public int getStartPageNum() {
+		return startPageNum;
+	}
+	public void setStartPageNum(int startPageNum) {
+		this.startPageNum = startPageNum;
+	}
+	public int getLastPageNum() {
+		return lastPageNum;
+	}
+	public void setLastPageNum(int lastPageNum) {
+		this.lastPageNum = lastPageNum;
 	}
 	public int getMessageTotalCount() {
 		return messageTotalCount;
