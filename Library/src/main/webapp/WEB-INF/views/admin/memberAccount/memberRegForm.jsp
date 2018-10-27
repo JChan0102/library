@@ -3,14 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
-<form method="post">
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#phone").change(function() {
-				$("#password").val($("#phone").val());
-			});
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#phone").change(function() {
+			$("#password").val($("#phone").val());
 		});
-	</script>
+	});
+</script>
+<form method="post">
 	<div class="alert alert-light">
 		<h1 class="h3 mb-6 font-weight-normal">회원 등록</h1>
 

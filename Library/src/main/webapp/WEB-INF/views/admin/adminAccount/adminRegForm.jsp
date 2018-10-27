@@ -3,44 +3,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
-<form method="post">
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#phone").change(function() {
-				$("#password").val($("#phone").val());
+<script type="text/javascript">
+	var check = '';
+	$(document).ready(function() {
+		$('input:checkbox').change(function() {
+			check = '';
+			$('input:checkbox').each(function() {
+				if ($(this).is(':checked')) {
+					check = check + 'T';
+				} else {
+					check = check + 'F';
+				}
 			});
+			$('#permission').val(check);
 		});
-	</script>
+	});
+</script>
+<form method="post">
 	<div class="alert alert-light">
-		<h1 class="h3 mb-6 font-weight-normal">회원 등록</h1>
+		<h1 class="h3 mb-6 font-weight-normal">관리자 등록</h1>
 
 		<div class="form-group">
-			<label>아이디</label><input type="text" name="member_id"
+			<label>아이디</label><input type="text" name="admin_id"
 				class="form-control form-control-lg" placeholder="ID"
 				required="required" autofocus="autofocus" />
 		</div>
 		<div class="form-group">
 			<label>비밀번호</label><input type="text" id="password" name="password"
-				class="form-control form-control-lg" placeholder="초기값  : 전화번호"
-				required="required" readonly="readonly" />
+				class="form-control form-control-lg" placeholder="Password"
+				required="required" autofocus="autofocus" />
 		</div>
 		<div class="form-group">
-			<label>이름</label><input type="text" name="name"
-				class="form-control form-control-lg" placeholder="이름"
-				required="required" autofocus="autofocus">
+			<label>권한</label>
+			<div class="custom-control custom-checkbox">
+				<c:set var="count" value="0" scope="page" />
+				<c:forEach var="item" items="${permissions}">
+					<c:set var="count" value="${count+1}" scope="page" />
+					<input type="checkbox" id="permission${count}" value="T">
+					<label for="permission${count}"> ${item}</label>
+				</c:forEach>
+				<input type="text" id="permission" name="permission"
+					value="" />
+			</div>
 		</div>
-		<div class="form-group">
-			<label>전화번호</label><input type="text" id="phone" name="phone"
-				class="form-control form-control-lg" placeholder="전화번호"
-				required="required" autofocus="autofocus">
-		</div>
-		<!-- 초기값 -->
-		<input type="hidden" name="availAmount" value="5" /> <input
-			type="hidden" name="totborrowDays" value="0" /> <input type="hidden"
-			name="totoverduedays" value="0" /> <input type="hidden"
-			name="possibledate" value="POSSIBLE" />
-
-		<button class="btn btn-lg btn-primary btn-block" type="submit">회원
+		<button class="btn btn-lg btn-primary btn-block" type="submit">관리자
 			등록</button>
 	</div>
 </form>

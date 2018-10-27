@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM `librarydb`.`admin` ORDER BY admin_id
 	</select>
 	<!-- 확인 -->
-	<select id="selectAllAdminId" resultType="String">
+	<select id="selectAllAdminId" resultType="java.lang.String">
 		SELECT admin_id FROM
 		`librarydb`.`admin` ORDER BY admin_id
 	</select>
@@ -39,4 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		`librarydb`.`admin` WHERE admin_id =
 		#{admin_id}
 	</delete>
+
+	<select id="selectPermissionDetail"
+		resultType="java.lang.String">
+		SELECT permissionDetail FROM `librarydb`.`adminPermission`
+		ORDER BY permissionCode
+	</select>
 </mapper>
