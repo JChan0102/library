@@ -46,33 +46,12 @@ public class BookSearchInsertService {
 				
 				//리스트에 저장
 				bookList.add(bookInfo);
-				System.out.println(bookInfo);
 			}
 		}
 
 		return bookList;
 	}//end bookList()
-	
-	//받아온 api 값의 html 코드를 제거해주는 메서드
-/*	public List<BookInfo> bookRemoveHtml(List<BookInfo> bookList) {
-		
-		List<BookInfo> bookInsertDB = new ArrayList<>();
-		
-		for(int i = 0 ;i<bookList.size();i++) {
-			BookInfo book = bookList.get(i);
-			book.setTitle(book.getTitle().replaceAll("<b>", ""));
-			book.setTitle(book.getTitle().replaceAll("</b>", ""));
-			book.setAuthor(book.getAuthor().replaceAll("<b>", ""));
-			book.setAuthor(book.getAuthor().replaceAll("</b>", ""));
-			book.setPublisher(book.getPublisher().replaceAll("<b>", ""));
-			book.setPublisher(book.getPublisher().replaceAll("</b>", ""));
-			
-			System.out.println("html태그없는 :"+book);
-			bookInsertDB.add(book);
-		}
-		
-		return bookInsertDB;
-	}*/
+
 
 	// 검색할 범위 구하는 메서드
 	private String findOptionCode(String option) {

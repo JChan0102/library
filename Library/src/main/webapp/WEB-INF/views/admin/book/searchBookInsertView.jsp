@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Library</title>
-</head>
-<body>
-	<form method="post">
+<jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
+<jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
+<!-- 이곳이 body -->
+<form method="post">
 		<select name="optionCode">
 			<option value="title" seleted>책제목</option>
 			<option value="author">작가명</option>
@@ -33,7 +29,7 @@
 							type="hidden" name="book_image" value="${item.book_image}"></td>
 						<td rowspan="3" width="800">
 							${item.book_name}
-							<input type="hidden" name="image" value="${item.book_name}">
+							<input type="hidden" name="book_name" value="${item.book_name}">
 						</td>
 						<td width="200">
 							${item.book_writer}
@@ -70,6 +66,6 @@
 			</c:forEach>
 		</table>
 	</c:if>
+<jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
+<jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
 
-</body>
-</html>

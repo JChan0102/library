@@ -10,9 +10,7 @@ public class BookInfo {
 	private String book_publisher;// 출판사
 	private String book_isbn;// 도서번호 isbn
 	private String description;// 상세정보
-	private int exist;
-
-	
+	private int book_exist;
 
 	public String getBook_code() {
 		return book_code;
@@ -30,7 +28,6 @@ public class BookInfo {
 		this.book_name = book_name;
 	}
 
-	
 	public String getBook_image() {
 		return book_image;
 	}
@@ -71,12 +68,12 @@ public class BookInfo {
 		this.book_isbn = book_isbn;
 	}
 
-	public int getExist() {
-		return exist;
+	public int getBook_exist() {
+		return book_exist;
 	}
 
-	public void setExist(int exist) {
-		this.exist = exist;
+	public void setBook_exist(int book_exist) {
+		this.book_exist = book_exist;
 	}
 
 	public String getDescription() {
@@ -91,10 +88,7 @@ public class BookInfo {
 	public String toString() {
 		return "BookInfo [book_code=" + book_code + ", book_name=" + book_name + ", book_image=" + book_image
 				+ ", book_writer=" + book_writer + ", book_price=" + book_price + ", book_publisher=" + book_publisher
-				+ ", book_isbn=" + book_isbn + ", description=" + description + ", exist=" + exist + "]";
+				+ ", book_isbn=" + book_isbn + ", exist=" + book_exist + "]";
 	}
-
-	
-	
 
 }

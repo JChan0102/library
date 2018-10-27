@@ -16,5 +16,5 @@
 	<!-- book관련 서비스 및 Dao 등록 -->
 	<bean id="bookSearchInsertService" class="com.bit.lib.book.service.BookSearchInsertService"/>
 	<bean id="bookSerchInsertDao" class="com.bit.lib.book.dao.BookSearchInsertDao"/>
-
+	<bean id="bookInsertService" class="com.bit.lib.book.service.BookInsertService"/>
 </beans>
