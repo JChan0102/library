@@ -15,13 +15,13 @@ import com.bit.lib.member.service.MemberRegService;
 public class AdminMemberAccController {
 
 	@Autowired
-	MemberListService getMemberListService;
+	MemberListService memberListService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getAdminLoginForm() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/admin/memberAccount/home");
-		modelAndView.addObject("members", getMemberListService.getAllmember());
+		modelAndView.addObject("members", memberListService.getAllmember());
 
 		return modelAndView;
 	}
