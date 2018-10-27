@@ -35,7 +35,6 @@ public class BookInsertService {
 		bookInfo.setBook_publisher(bookInfo.getBook_publisher().replaceAll("<b>",""));
 		bookInfo.setBook_publisher(bookInfo.getBook_publisher().replaceAll("</b>",""));
 		
-		
 	}
 	
 }
