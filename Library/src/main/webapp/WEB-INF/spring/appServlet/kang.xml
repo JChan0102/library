@@ -12,7 +12,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-
-
+	
+	<!-- book관련 서비스 및 Dao 등록 -->
+	<bean id="bookSearchInsertService" class="com.bit.lib.book.service.BookSearchInsertService"/>
+	<bean id="bookSerchInsertDao" class="com.bit.lib.book.dao.BookSearchInsertDao"/>
 
 </beans>
