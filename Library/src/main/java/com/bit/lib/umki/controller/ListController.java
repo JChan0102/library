@@ -22,7 +22,7 @@ public class ListController {
 	GetListPageService pageService;
 	
 	@RequestMapping("/member/home/list")
-	public ModelAndView getList(@RequestParam("page") String pageStr) {
+	public ModelAndView getList(@RequestParam(value="page", required=false) String pageStr) {
 		ModelAndView modelAndView = new ModelAndView();
 		int pageNum = 1;
 		if (pageStr != null) {
@@ -30,7 +30,6 @@ public class ListController {
 		}
 		List<ListInfo> viewInfo = listService.getList(pageNum);
 		ViewInfo page = pageService.getPageTotalNum(pageNum);
-//		System.out.println(page);
 		modelAndView.setViewName("member/list/list");
 		modelAndView.addObject("viewInfo", viewInfo);
 		modelAndView.addObject("page", page);

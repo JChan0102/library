@@ -19,6 +19,7 @@ public class GetListPageService {
 
 	@Transactional
 	public ViewInfo getPageTotalNum(int pageNum) {
+		
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 
 		try {

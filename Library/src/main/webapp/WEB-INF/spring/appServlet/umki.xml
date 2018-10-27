@@ -18,9 +18,14 @@
 
 		
 	<!-- service 빈 등록 -->
-	<beans:bean id="testService" class="com.bit.lib.umki.service.TestService"/>
 	<beans:bean id="getListService" class="com.bit.lib.umki.service.GetListService" />
-	<beans:bean id="getListPageService" class="com.bit.lib.umki.service.GetListPageService"></beans:bean>
+	<beans:bean id="getListPageService" class="com.bit.lib.umki.service.GetListPageService" />
+	<beans:bean id="getWriteService" class="com.bit.lib.umki.service.GetWriteService"/>
+	<beans:bean id="getWriteContentService" class="com.bit.lib.umki.service.GetWriteContentService"/>
+	<beans:bean id="getContentService" class="com.bit.lib.umki.service.GetContentService"/>
+	<beans:bean id="getUpdateService" class="com.bit.lib.umki.service.GetUpdateService"/>
+	<beans:bean id="getDeleteService" class="com.bit.lib.umki.service.GetDeleteService"/>
+	<beans:bean id="getPageService" class="com.bit.lib.umki.service.GetPageService"/>
 	
 	
 

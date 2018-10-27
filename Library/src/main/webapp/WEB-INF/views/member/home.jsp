@@ -10,7 +10,8 @@
 </head>
 <body>
 	<h1>USER HOME</h1>
-	<h1><a href="home/list?page=1">게시판</a></h1>
+	<!-- <h1><a href="home/list?page=1">게시판</a></h1> -->
+	<h1><a href="home/list">게시판</a></h1>
 	
 </body>
 </html>

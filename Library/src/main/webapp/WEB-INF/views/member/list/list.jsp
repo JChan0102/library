@@ -54,13 +54,16 @@ h1 {
 	cursor: pointer;
 	margin: 10px;
 }
+#title{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
 <h1>자유 게시판</h1>
 
 	<div id="list">
-	 <button onclick="location.href='write'" id="write" type="button" class="btn btn-rounded btn-blue-grey"><i class="fa fa-floppy-o pr-2" aria-hidden="true"></i>글쓰기</button>
+	 <button onclick="location.href='writeForm'" id="write" type="button" class="btn btn-rounded btn-blue-grey"><i class="fa fa-floppy-o pr-2" aria-hidden="true"></i>글쓰기</button>
 		<table id="list" class="table table-striped table-hover text-center">
 			<thead>
 				<tr>
@@ -74,7 +77,7 @@ h1 {
 				<c:forEach var="message" items="${viewInfo}">
 					<tr>
 						<th scope="row">${message.idx}</th>
-						<td>${message.list_title}</td>
+						<td id="title" onclick="location.href='view/${message.idx}'">${message.list_title}</td>
 						<td>${message.list_name}</td>
 						<td>${message.list_date}</td>
 					</tr>
@@ -86,10 +89,10 @@ h1 {
 			<c:forEach var="num" begin="1" end="${page.pageTotalCount}">
 				<c:choose>
 					<c:when test="${page.currentPageNumber==num}">
-						<a style="color: red" href="listTest?page=${num}">[${num}]</a>
+						<a style="color: red" href="list?page=${num}">[${num}]</a>
 					</c:when>
 					<c:otherwise>
-						<a href="list?page=${num}">[${num}]</a>
+						<a style="color: black" href="list?page=${num}">[${num}]</a>
 				 	</c:otherwise>
 				</c:choose>
 			</c:forEach>
