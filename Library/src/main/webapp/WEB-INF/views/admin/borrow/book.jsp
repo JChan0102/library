@@ -14,22 +14,64 @@
         </form>
 
         <input type="text" id="booksearch" onblur="test1()">
+        <table>
+            <tr>
+            <td>
+                북코드
+            </td>
+                <td>
+                    책이름
+                </td>
+                <td>대여 선택</td>
+            </tr>
+            <tbody id="selectbook">
+
+
+            </tbody>
+        </table>
         <script>
+            var amount = ${member.availAmount};
+            var count = 0;
+
+            console.log(amount);
+
             function test1() {
+                $('#selectbook').text("");
                 $.ajax({
                     url:'${pageContext.request.contextPath}/admin/borrow/bookSearch?bookname='+$('#booksearch').val(),
                     type:'get',
                     datatype:'json',
                     success:function (data) {
-                        console.log(data.datatype);
-                        console.log(data);
+                        $(data).each(function (key,value) {
+                            console.log(value);
 
+
+                            var text='<td>대출중</td></tr>';
+                            var idcode= value.book_code;
+                            if(value.book_exist==1){
+                                text= '<td><button onclick="submitt(this)" value="'+idcode+'">선택</button></td> </tr>'
+                            }
+                            $('#selectbook').append('<tr> <td>'
+                                + value.book_code+'</td> <td>'
+                                + value.book_name+'</td>'+text
+                            );
+
+                        });
                     },
                     error:function () {
                         alert(error);
                     }
                 });
 
+            }
+            function submitt(obj) {
+                console.log(obj);
+                if(count<amount)
+                {
+                    $('#booksub').append('<input type="hidden" name="booklist['+count+']" value="'+obj.value+'" readonly >');
+                    count++;
+                    $('#selectbook').text("");
+                }
             }
         </script>
     </c:when>

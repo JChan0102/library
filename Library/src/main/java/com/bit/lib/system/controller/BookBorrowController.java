@@ -1,6 +1,7 @@
 package com.bit.lib.system.controller;
 
 import com.bit.lib.member.model.MemberVO;
+import com.bit.lib.system.model.Borrow;
 import com.bit.lib.system.model.BorrowBookList;
 import com.bit.lib.system.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,10 @@ public class BookBorrowController {
 
     @RequestMapping(value = "/admin/borrow/book", method = RequestMethod.POST)
     public String realBorrow(BorrowBookList borrowBookList){
-
         List<String> list= borrowBookList.getBooklist();
+        Borrow borrow = new Borrow();
+        borrow.setMember_id(borrowBookList.getMember().getMember_id());
+        service.rent(borrow,list);
         return "admin/borrow/book";
     }
 
