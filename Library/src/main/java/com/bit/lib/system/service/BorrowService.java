@@ -1,5 +1,6 @@
 package com.bit.lib.system.service;
 
+import com.bit.lib.book.model.BookInfo;
 import com.bit.lib.member.dao.MemberDao;
 import com.bit.lib.member.model.MemberVO;
 import com.bit.lib.system.dao.BorrowDao;
@@ -70,8 +71,9 @@ public class BorrowService {
              memberDao.updateAvailAmount(member);
     }
 
-    public String getBookCode(String bookname){
-        return borrowDao.getBook_code(bookname);
+    public List<BookInfo> getBookCode(String bookname){
+        List<BookInfo> list = borrowDao.getBook_code(bookname);
+        return list;
     }
 
 }

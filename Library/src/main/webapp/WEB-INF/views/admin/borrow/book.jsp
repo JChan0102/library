@@ -4,31 +4,34 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <h1>여기는 책을 진짜로 입력합니다.</h1>
 <c:choose>
     <c:when test="${possible}">
         ${member.name}은 ${member.availAmount}만큼 대여 가능합니다.
-        <form method="post" name="test">
+        <form method="post" id="booksub">
             <input type="hidden" name="member.member_id" value="${member.member_id}">
             <input type="submit" value="대여">
         </form>
 
-        <input type="text" id="booksearch" onblur="function test() {
-          $.ajax({
-          url:'${pageContext.request.contextPath}/admin/borrow/bookSearch?bookname=',
-                datatype:'get',
-                success:function(data) {
-                },
-                error:function () {
+        <input type="text" id="booksearch" onblur="test1()">
+        <script>
+            function test1() {
+                $.ajax({
+                    url:'${pageContext.request.contextPath}/admin/borrow/bookSearch?bookname='+$('#booksearch').val(),
+                    type:'get',
+                    datatype:'json',
+                    success:function (data) {
+                        console.log(data.datatype);
+                        console.log(data);
 
-        }
+                    },
+                    error:function () {
+                        alert(error);
+                    }
+                });
 
-          });
-        }">
-
-
-
+            }
+        </script>
     </c:when>
     <c:otherwise>
         ${member.name}은 현재 대여 불가 상태입니다.<br/>

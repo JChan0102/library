@@ -1,9 +1,12 @@
 package com.bit.lib.system.dao;
 
+import com.bit.lib.book.model.BookInfo;
 import com.bit.lib.system.model.Borrow;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class BorrowDao {
@@ -25,9 +28,8 @@ public class BorrowDao {
     }
 
     // 책 검색
-    public String getBook_code(String bookname){
-
-        return sqlSessionTemplate.selectOne(mapperPath+".getBook_code","%"+bookname+"%");
+    public List<BookInfo> getBook_code(String bookname){
+        return sqlSessionTemplate.selectList(mapperPath+".getBook_code","%"+bookname+"%");
     }
 
 }
