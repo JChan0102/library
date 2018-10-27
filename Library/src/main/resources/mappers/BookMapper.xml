@@ -10,6 +10,14 @@
 	</insert>
 	<select id="selectAllBook" resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
+		<where>
+			<if test="option.equals('title')">
+				book_name like '%#{option}%'
+			</if>
+			<if test="option.equals('author')">
+				AND book_writer like '%#{option}%'
+			</if>
+		</where>
 	</select>
 	<update id="updateBook_exist" parameterType="com.bit.lib.book.model.BookInfo">
 		 update book set book_exist= #{book_exist} where book_code=#{book_code}

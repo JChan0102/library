@@ -22,7 +22,7 @@ public class BookSearchInsertService {
 		List<BookInfo> bookList = new ArrayList<BookInfo>();
 
 		String optionCode = findOptionCode(option);
-		Document result = bookDao.bookSearchList(optionCode, keyword);
+		Document result = bookDao.bookSearchList(optionCode, keyword,listCnt);
 		
 		//root tag
 		result.getDocumentElement().normalize();
