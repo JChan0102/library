@@ -31,9 +31,9 @@
 			<td>${item.totoverduedays}</td>
 			<td>${item.possibledate}</td>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/memberAccount/memberEdit?member_id=${item.member_id}"><input
+				href="${pageContext.request.contextPath}/admin/memberAccount/memberEdit?member=${item.member_id}"><input
 					type="button" value="수정"></a><a
-				href="${pageContext.request.contextPath}/admin/memberAccount/memberDelete?member_id=${item.member_id}"><input
+				href="${pageContext.request.contextPath}/admin/memberAccount/memberDelete?member=${item.member_id}"><input
 					type="button" value="삭제"></a></td>
 		</tr>
 	</c:forEach>

@@ -20,12 +20,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 확인 -->
 	<select id="selectAllAdmin"
 		resultType="com.bit.lib.admin.model.AdminVO">
-		SELECT * FROM `librarydb`.`admin`
+		SELECT * FROM `librarydb`.`admin` ORDER BY admin_id
 	</select>
 	<!-- 확인 -->
 	<select id="selectAllAdminId" resultType="String">
 		SELECT admin_id FROM
-		`librarydb`.`admin`
+		`librarydb`.`admin` ORDER BY admin_id
 	</select>
 
 	<update id="updateAdmin"

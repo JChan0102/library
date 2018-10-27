@@ -4,23 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bit.lib.member.model.MemberVO;
-import com.bit.lib.member.service.MemberListService;
-import com.bit.lib.member.service.MemberRegService;
+import com.bit.lib.member.service.MemberEditService;
 
 @Controller
-@RequestMapping("/admin/memberAccount/memberReg")
-public class AdminMemberAccRegController {
+@RequestMapping("/admin/memberAccount/memberEdit")
+public class AdminMemberAccEditController {
 
 	@Autowired
-	MemberRegService memberRegService;
+	MemberEditService memberEditService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getAdmimMemberAccRegForm() {
+	public ModelAndView getAdmimMemberAccRegForm(@RequestParam("member") String member_id) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/admin/memberAccount/memberRegForm");
+		modelAndView.addObject("mv", memberEditService.getEditMember(member_id));
+		modelAndView.setViewName("/admin/memberAccount/memberEditForm");
 		return modelAndView;
 	}
 
@@ -28,12 +29,12 @@ public class AdminMemberAccRegController {
 	public ModelAndView regAdmimMemberAcc(MemberVO mv) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/memberAccount");
-		int resultCnt = memberRegService.insertMember(mv);
+		int resultCnt = memberEditService.editMember(mv);
 
-		// 회원가입에 실패했을 경우
+		// 회원수정에 실패했을 경우
 		if (resultCnt != 1) {
-			modelAndView.addObject("msg", "회원 등록에 실패하였슶니다.");
-			modelAndView.setViewName("/admin/memberAccount/memberRegForm");
+			modelAndView.addObject("msg", "회원 수정에 실패하였슶니다.");
+			modelAndView.setViewName("/admin/memberAccount/memberEditForm");
 		}
 		return modelAndView;
 	}

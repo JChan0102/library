@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 확인 -->
 	<select id="selectAllMember"
 		resultType="com.bit.lib.member.model.MemberVO">
-		SELECT * FROM `librarydb`.`member`
+		SELECT * FROM `librarydb`.`member` ORDER BY member_id
 	</select>
 
 	<update id="updateMember"
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selecAlltByPossible"
 		resultType="com.bit.lib.member.model.MemberVO">
 		SELECT member_id, possibledate FROM `librarydb`.`member`
-		WHERE possibledate NOT LIKE 'POSSIBLE'
+		WHERE possibledate NOT LIKE 'POSSIBLE' ORDER BY member_id
 	</select>
 
 	<update id="updateByPossible"
@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="selectSearchMember" parameterType="java.lang.String" resultType="com.bit.lib.member.model.MemberVO">
-		select * from member where member_id LIKE #{member_id}
+		select * from member where member_id LIKE #{member_id} ORDER BY member_id
 
 	</select>
 </mapper>
