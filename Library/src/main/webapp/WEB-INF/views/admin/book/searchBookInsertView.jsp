@@ -29,18 +29,18 @@
 						<td colspan="5" width="100%" bgcolor="pink"></td>
 					</tr>
 					<tr>
-						<td rowspan="2"><img src="${item.image}"> <input
-							type="hidden" name="image" value="${item.image}"></td>
+						<td rowspan="2"><img src="${item.book_image}"> <input
+							type="hidden" name="book_image" value="${item.book_image}"></td>
 						<td rowspan="3" width="800">
-							${item.title}
-							<input type="hidden" name="image" value="${item.title}">
+							${item.book_name}
+							<input type="hidden" name="image" value="${item.book_name}">
 						</td>
 						<td width="200">
-							${item.author}
-							<input type="hidden" name="author" value="${item.author}">
+							${item.book_writer}
+							<input type="hidden" name="book_writer" value="${item.book_writer}">
 						</td>
 						<td width="300">
-							<input type="text" name="bookCode" placeholder="북코드입력" requried>
+							<input type="text" name="book_code" placeholder="북코드입력" requried>
 						</td>
 						<td width="200">
 							<input type="submit" value="등록">
@@ -48,16 +48,16 @@
 					</tr>
 					<tr>
 						<td width="200">
-							${item.price}
-							<input type="hidden" name="price" value="${item.price}">
+							${item.book_price}
+							<input type="hidden" name="book_price" value="${item.book_price}">
 						</td>
 						<td width="200">
-							${item.publisher}
-							<input type="hidden" name="publisher" value="${item.publisher}">
+							${item.book_publisher}
+							<input type="hidden" name="book_publisher" value="${item.book_publisher}">
 						</td>
 						<td width="200">
-							${item.isbn}
-							<input type="hidden" name="isbn" value="${item.isbn}">
+							${item.book_isbn}
+							<input type="hidden" name="book_isbn" value="${item.book_isbn}">
 						</td>
 					</tr>
 					<tr>

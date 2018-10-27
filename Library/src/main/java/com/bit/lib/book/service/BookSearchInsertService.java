@@ -36,12 +36,12 @@ public class BookSearchInsertService {
 			if(node.getNodeType()== Node.ELEMENT_NODE) {
 				Element eElement = (Element) node;
 				BookInfo bookInfo = new BookInfo();
-				bookInfo.setTitle(getTagValue("title", eElement));
-				bookInfo.setImage(getTagValue("image", eElement));
-				bookInfo.setAuthor(getTagValue("author", eElement));
-				bookInfo.setPrice(Integer.parseInt(getTagValue("price", eElement)));
-				bookInfo.setPublisher(getTagValue("publisher", eElement));
-				bookInfo.setIsbn(getTagValue("isbn", eElement));
+				bookInfo.setBook_name(getTagValue("title", eElement));
+				bookInfo.setBook_image(getTagValue("image", eElement));
+				bookInfo.setBook_writer(getTagValue("author", eElement));
+				bookInfo.setBook_price(Integer.parseInt(getTagValue("price", eElement)));
+				bookInfo.setBook_publisher(getTagValue("publisher", eElement));
+				bookInfo.setBook_isbn(getTagValue("isbn", eElement));
 				bookInfo.setDescription(getTagValue("description", eElement));
 				
 				//리스트에 저장
