@@ -1,5 +1,6 @@
 package com.bit.lib.system.service;
 
+import com.bit.lib.member.dao.MemberDao;
 import com.bit.lib.member.model.MemberVO;
 import com.bit.lib.system.dao.BorrowDao;
 import com.bit.lib.system.model.Borrow;
@@ -17,6 +18,9 @@ public class ReturnService {
     @Autowired
     private BorrowDao borrowDao;
 
+    @Autowired
+    private MemberDao memberDao;
+
     public boolean returnOk(String book_code) throws ParseException {
 
         Borrow borrow = borrowDao.selectByBook_code(book_code);
@@ -27,17 +31,14 @@ public class ReturnService {
             DateFormat dateFormat;
             dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Calendar caldate = Calendar.getInstance();
-            //Member member = memberDao.select(borrow.getMember_id);
-            //if("possible".equals(member.getPossibledate()){
-
-            // }else{
-            //Date date = dateFormat.parse(member.getPossibleDate());
-            //caldate.setTime(date);
-        //}
-            //caldate.add(Calendar.Date,day);
-            //member.setPossibleDate(dateFormat.format(caldate);
-            // dao.updateByPossible(member);
-            //
+            MemberVO member = memberDao.selectOneMember(borrow.getMember_id());
+            if(!("possible".toUpperCase().equals(member.getPossibledate()))){
+               Date date = dateFormat.parse(member.getPossibledate());
+            caldate.setTime(date);
+            }
+            caldate.add(Calendar.DATE,day);
+            member.setPossibledate(dateFormat.format(new Date(caldate.getTimeInMillis())));
+             memberDao.updateByPossible(member);
              }
 
         return true;
