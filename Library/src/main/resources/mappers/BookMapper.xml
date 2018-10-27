@@ -13,5 +13,5 @@
 	</select>
 	<update id="updateBook_exist" parameterType="com.bit.lib.book.model.BookInfo">
 		 update book set book_exist= #{book_exist} where book_code=#{book_code}
-	</update>
+	</update> 
 </mapper>
