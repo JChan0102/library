@@ -12,4 +12,5 @@ public interface BookInterfaceDao {
 	public List<BookInfo> selectAllBook(@Param("searchWord")String searchWord,@Param("keyword")String keyword);
 	public int updateBook_exist(BookInfo bookInfo);
 	public int deleteBook(@Param("book_code")String book_code);
+	public List<BookInfo> selectUserBook(@Param("keyword")String keyword);
 }

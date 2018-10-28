@@ -30,10 +30,15 @@ public class BookInsertService {
 		//book_name,book_writer,book_publisher의 html요소 제거
 		bookInfo.setBook_name(bookInfo.getBook_name().replaceAll("<b>",""));
 		bookInfo.setBook_name(bookInfo.getBook_name().replaceAll("</b>",""));
+		bookInfo.setBook_name(bookInfo.getBook_name().replaceAll(" ",""));
+		
 		bookInfo.setBook_writer(bookInfo.getBook_writer().replaceAll("<b>",""));
 		bookInfo.setBook_writer(bookInfo.getBook_writer().replaceAll("</b>",""));
+		bookInfo.setBook_writer(bookInfo.getBook_writer().replaceAll(" ",""));
+		
 		bookInfo.setBook_publisher(bookInfo.getBook_publisher().replaceAll("<b>",""));
 		bookInfo.setBook_publisher(bookInfo.getBook_publisher().replaceAll("</b>",""));
+		
 		
 	}
 	

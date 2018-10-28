@@ -19,8 +19,8 @@
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/member/home/list">자유게시판</a></li>
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="text" placeholder="Book"
+		<form class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/member/book/searchBook" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Book" name="keyword"
 				aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 		</form>

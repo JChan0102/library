@@ -27,7 +27,8 @@ public class BookSearchDeleteController {
 	public ModelAndView resultBookList(@RequestParam("searchWord")String searchWord,
 									   @RequestParam("keyword")String keyword) {
 		
-		System.out.println("컨트롤러 :"+searchWord);
+		keyword = keyword.replaceAll(" ", "");
+		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.setViewName("admin/book/searchBookDeleteView");

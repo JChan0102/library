@@ -32,6 +32,11 @@
 		</where>
 	</select>
 	
+	<select id="selectUserBook" resultType="com.bit.lib.book.model.BookInfo">
+		select * from book where book_name like CONCAT('%',#{keyword},'%') OR
+		book_writer like CONCAT('%',#{keyword},'%') OR book_publisher like CONCAT('%',#{keyword},'%')
+	</select>
+	
 	<update id="updateBook_exist"
 		parameterType="com.bit.lib.book.model.BookInfo">
 		update book set book_exist= #{book_exist} where book_code=#{book_code}

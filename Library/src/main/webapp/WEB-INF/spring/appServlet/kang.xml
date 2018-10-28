@@ -19,4 +19,5 @@
 	<bean id="bookInsertService" class="com.bit.lib.book.service.BookInsertService"/>
 	<bean id="bookSearchDeleteService" class="com.bit.lib.book.service.BookSearchDeleteService"/>
 	<bean id="bookDeleteService" class="com.bit.lib.book.service.BookDeleteService"/>
+	<bean id="bookSearchUserService" class="com.bit.lib.book.service.BookSearchUserService"/>
 </beans>
