@@ -12,7 +12,7 @@
             <input type="hidden" name="member.member_id" value="${member.member_id}">
             <input type="submit" value="대여">
         </form>
-
+        <p id="countt"></p>
         <input type="text" id="booksearch" onblur="test1()">
         <table>
             <tr>
@@ -50,7 +50,7 @@
                             var idcode= value.book_code;
                             if(value.book_exist==1){
                                 text= '<td><button onclick="submitt(this)" value="'+idcode+'">선택</button></td> </tr>'
-                            }
+                    }
                             $('#selectbook').append('<tr> <td>'
                                 + value.book_code+'</td> <td>'
                                 + value.book_name+'</td>'+text
@@ -68,8 +68,10 @@
                 console.log(obj);
                 if(count<amount)
                 {
-                    $('#booksub').append('<input type="hidden" name="booklist['+count+']" value="'+obj.value+'" readonly >');
+                    $('#countt').text("");
+                    $('#booksub').append('<input type="text" name="booklist['+count+']" value="'+obj.value+'" readonly >');
                     count++;
+                    $('#countt').append('현재 '+count+'권 등록했습니다.');
                     $('#selectbook').text("");
                 }
             }
@@ -77,8 +79,16 @@
     </c:when>
     <c:otherwise>
         ${member.name}은 현재 대여 불가 상태입니다.<br/>
-        ${member.availAmount}<br/>
-        ${member.possibledate}까지 대여 불가임!
+        <c:if test="${member.availAmount==0}">
+
+            대여가능 권수가 0권이므로 대여가 불가합니다.
+
+        </c:if>
+
+        <c:if test="${member.possibledate ne 'POSSIBLE'}">
+            연체 패널티로 인해 ${member.possibledate}까지 대여 불가합니다!
+        </c:if>
+
     </c:otherwise>
 </c:choose>
 

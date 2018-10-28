@@ -25,4 +25,15 @@
         where book_name Like #{bookname}
     </select>
 
+    <delete id="delete" parameterType="com.bit.lib.system.model.Borrow">
+        delete from borrow where book_code=#{book_code}
+
+    </delete>
+
+    <update id="updatePossible"
+            parameterType="com.bit.lib.member.model.MemberVO">
+        UPDATE member SET
+                     possibledate=#{possibledate} WHERE
+                member_id=#{member_id};
+    </update>
 </mapper>

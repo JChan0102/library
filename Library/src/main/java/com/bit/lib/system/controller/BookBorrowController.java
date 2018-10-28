@@ -36,7 +36,7 @@ public class BookBorrowController {
         Borrow borrow = new Borrow();
         borrow.setMember_id(borrowBookList.getMember().getMember_id());
         service.rent(borrow,list);
-        return "admin/borrow/book";
+        return "admin/borrow/bookok";
     }
 
 }
