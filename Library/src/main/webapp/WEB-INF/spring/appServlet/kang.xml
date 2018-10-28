@@ -17,4 +17,6 @@
 	<bean id="bookSearchInsertService" class="com.bit.lib.book.service.BookSearchInsertService"/>
 	<bean id="bookSerchInsertDao" class="com.bit.lib.book.dao.BookSearchInsertDao"/>
 	<bean id="bookInsertService" class="com.bit.lib.book.service.BookInsertService"/>
+	<bean id="bookSearchDeleteService" class="com.bit.lib.book.service.BookSearchDeleteService"/>
+	<bean id="bookDeleteService" class="com.bit.lib.book.service.BookDeleteService"/>
 </beans>
