@@ -17,9 +17,9 @@ public class BookUserViewController {
 	@Autowired
 	private BookUserViewService service;
 	
-	@RequestMapping(method=RequestMethod.POST)
+	
+	@RequestMapping(method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView bookView(@RequestParam("book_isbn")String book_isbn) {
-		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.setViewName("member/book/bookView");
