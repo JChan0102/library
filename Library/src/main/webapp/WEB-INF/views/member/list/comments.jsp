@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div style="padding-top: 50px" class="media-body text-center text-md-left ml-md-3 ml-0" id="reply">
+	
+	</div>
 	<form method="post" class="my-5" id="form">
 		<div class="card-header border-0 font-weight-bold">4 comments</div>
 		<!-- Quick Reply -->
@@ -21,13 +24,14 @@
 
 		<input type="hidden" name="idx" value="${listInfo.idx}" /> <input
 			type="hidden" name="replyer" value="${memberLoginInfo.name}" />
-
 	</form>
 	<script>
 
         function subb() {
             
 			var form = $('#form').serialize();
+			var reply =$('#reply').html();
+			
             
             $.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
@@ -40,21 +44,21 @@
                        console.log(value.idx);
                        console.log(value.replytext);
                        console.log(value.replyer);
+                       
+                       reply += '<h5 class="font-weight-bold mt-0">';
+                       reply += '<a href="">'+value.replyer+'</a> </h5>';
+                       reply += '<h5>'+value.replytext+'</h5>'; 
+                       reply += '<hr />';
 					});
+                    $('#reply').html(reply);
                 },
 				error:function () {
-
+					alert("오류ㅠㅠ");
                 }
 			});
 			}
 
 	</script>
-	<hr />
-	<div class="media-body text-center text-md-left ml-md-3 ml-0">
-		<h5 class="font-weight-bold mt-0">
-			<a href="">Miley Steward</a>
-		</h5>
-		test
-	</div>
+	
 </body>
 </html>

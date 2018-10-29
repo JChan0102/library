@@ -57,5 +57,9 @@
 		#{replyer});
 	</insert>
 	
+	<select id="getReplyContent" resultType="ReplyInfo" parameterType="int">
+		select * from freelist_reply where idx=#{idx}
+	</select>
+	
 
 </mapper>

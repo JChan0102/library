@@ -22,6 +22,8 @@ public class ReplyWriteController {
 	@ResponseBody
 	public ReplyInfo write(ReplyInfo replyInfo) {
 		service1.replyWrite(replyInfo);
-		return replyInfo;
+		ReplyInfo replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
+//		System.out.println(replyInfo2);
+		return replyInfo2;
 	}
 }

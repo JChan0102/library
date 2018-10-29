@@ -6,8 +6,15 @@ public class ReplyInfo {
 	private String replytext;
 	private String replyer;
 	private String regdate;
+	private String updatedate;
 	
 	
+	public String getUpdatedate() {
+		return updatedate;
+	}
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
+	}
 	public int getR_idx() {
 		return r_idx;
 	}

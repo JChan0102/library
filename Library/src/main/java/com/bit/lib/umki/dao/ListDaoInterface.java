@@ -28,4 +28,6 @@ public interface ListDaoInterface {
 
 	public void replyWrite(ReplyInfo replyInfo) throws Exception;
 
+	public ReplyInfo getReplyContent(int idx) throws Exception;
+
 }

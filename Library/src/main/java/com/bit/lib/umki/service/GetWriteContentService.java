@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
+import com.bit.lib.umki.model.ReplyInfo;
 
 public class GetWriteContentService {
 
@@ -14,6 +15,7 @@ public class GetWriteContentService {
 	SqlSessionTemplate sqlSessionTemplate;
 	ListDaoInterface dao;
 	ListInfo listInfo = null;
+	ReplyInfo replyInfo = null;
 	
 	public ListInfo getContent(String list_name) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
@@ -24,6 +26,18 @@ public class GetWriteContentService {
 			e.printStackTrace();
 		}
 		return listInfo;
+	}
+
+	public ReplyInfo getReplyContent(int idx) {
+		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		
+		try {
+			replyInfo = dao.getReplyContent(idx);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return replyInfo;
 	}
 
 }
