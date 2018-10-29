@@ -3,7 +3,7 @@ package com.bit.lib.umki.model;
 public class ReplyInfo {
 	private int r_idx;
 	private	int idx;
-	private String replyText;
+	private String replytext;
 	private String replyer;
 	private String regdate;
 	public int getR_idx() {
@@ -19,10 +19,10 @@ public class ReplyInfo {
 		this.idx = idx;
 	}
 	public String getReplyText() {
-		return replyText;
+		return replytext;
 	}
 	public void setReplyText(String replyText) {
-		this.replyText = replyText;
+		this.replytext = replyText;
 	}
 	public String getReplyer() {
 		return replyer;
@@ -38,7 +38,7 @@ public class ReplyInfo {
 	}
 	@Override
 	public String toString() {
-		return "ReplyInfo [r_idx=" + r_idx + ", idx=" + idx + ", replyText=" + replyText + ", replyer=" + replyer
+		return "ReplyInfo [r_idx=" + r_idx + ", idx=" + idx + ", replytext=" + replytext + ", replyer=" + replyer
 				+ ", regdate=" + regdate + "]";
 	}
 

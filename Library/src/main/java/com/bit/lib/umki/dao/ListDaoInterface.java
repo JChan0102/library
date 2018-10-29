@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.bit.lib.umki.model.ListInfo;
+import com.bit.lib.umki.model.ReplyInfo;
 
 public interface ListDaoInterface {
 	public ListInfo test();
@@ -23,6 +24,8 @@ public interface ListDaoInterface {
 
 	public void delete(int idx) throws Exception;
 
-	public int page(int idx);
+	public int page(int idx) throws Exception;
+
+	public void replyWrite(ReplyInfo replyInfo) throws Exception;
 
 }
