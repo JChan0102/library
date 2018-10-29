@@ -23,6 +23,8 @@
 			</td>
 			<td width="200">${bookInfo.book_isbn} 
 			</td>
+			<td width="100">${bookExist} 
+			</td>
 		</tr>
 		<tr>
 			<td colspan="5">${bookInfo.description}</td>

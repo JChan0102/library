@@ -27,7 +27,10 @@ public class BookUserViewController {
 		try {
 			
 			BookInfo bookInfo = service.bookView(book_isbn);
+			String bookExist = service.bookExist(book_isbn);
+			
 			modelAndView.addObject("bookInfo", bookInfo);
+			modelAndView.addObject("bookExist", bookExist);
 			
 		} catch (Exception e) {}
 		

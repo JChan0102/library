@@ -13,4 +13,5 @@ public interface BookInterfaceDao {
 	public int updateBook_exist(BookInfo bookInfo);
 	public int deleteBook(@Param("book_code")String book_code);
 	public List<BookInfo> selectUserBook(@Param("keyword")String keyword);
+	public int bookBorrowOK(@Param("book_isbn")String book_isbn);
 }

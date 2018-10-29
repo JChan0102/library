@@ -6,21 +6,28 @@
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 
 <h3>"${keyword}"의 검색결과</h3>
-<form>
-	<select  name="searchWord">
+<form id="bookOrder" name="bookOrder">
+	<select  id="searchWord" name="searchWord">
 			<option value="title" seleted>책제목</option>
 			<option value="author">작가명</option>
 			<option value="publisher">출판사</option>
 			<option value="isbn">isbn번호</option>
 			<option value="bookcode">책코드</option>
 		</select>
-	<select name="orderBy">
+	<select name="orderBy" id="orderBy">
 		<option value="new" seleted>최신순</option>
-			<option value="">작가명</option>
+			<option value="title">책제목</option>
+			<option value="authour">작가명</option>
 			<option value="publisher">출판사</option>
-			<option value="isbn">isbn번호</option>
-			<option value="bookcode">책코드</option>
 	</select>
+	<select name="listCnt" id="listCnt">
+		<option value="5" seleted>5개씩</option>
+			<option value="10">10개씩</option>
+			<option value="15">15개씩</option>
+			<option value="20">20개씩</option>
+	</select>
+	<input type="text" name="keyword" id="keyword" value="${keyword}">
+	<input type="button" onclick="bookOrderFn()" value="검색">
 </form>
 <hr>
 	<c:if test="${bookList.isEmpty()}">
@@ -66,7 +73,13 @@
 		</table>
 	</c:if>
 
-
+<script>
+	function bookOrderFn(){
+		var value = $('#bookOrder').serialize();
+		console.log(value);
+	}
+	
+</script>
 <jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
 <!-- 네비 사용 끝 -->
 <jsp:include page="/resources/common/memberFooter.jsp"></jsp:include>
