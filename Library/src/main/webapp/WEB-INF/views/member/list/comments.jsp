@@ -29,15 +29,11 @@
             var replytext = $('#replyText').val();
             var idx = '${listInfo.idx}';
             var name = '${memberLoginInfo.name}';
-            var params='{replytext='+replytext+
-                ',name='+name+',idx='+idx+'}';
 
-
-      //      { name: "John", time: "2pm" }
             $.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
 				type:'POST',
-				data:{ replytext: replytext, name: name,idx:idx },
+				data:{ 'replytext': replytext,'name': name,'idx':idx },
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {
