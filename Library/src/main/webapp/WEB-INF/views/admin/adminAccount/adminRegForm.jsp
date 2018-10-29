@@ -17,6 +17,23 @@
 			});
 			$('#permission').val(check);
 		});
+		
+		$("#admin_id").keyup(function() {
+			$.ajax({
+				type : 'GET',
+				url : "${pageContext.request.contextPath}/admin/adminAccount/adminDuplCheck?admin=" + $('#admin_id').val(),
+				success : function(data) {
+					if(data == true){
+						$("#msg").html(" : 이미 존재하는 아이디입니다.");
+					} else {						
+						$("#msg").html(" : 사용가능한 아이디입니다.");
+					}
+				},
+				error : function(error) {
+					console.log("error : " + error);
+				}
+			});
+		});
 	});
 </script>
 <form method="post">
@@ -24,7 +41,7 @@
 		<h1 class="h3 mb-6 font-weight-normal">관리자 등록</h1>
 
 		<div class="form-group">
-			<label>아이디</label><input type="text" name="admin_id"
+			<label>아이디</label><label id="msg"></label><input type="text" name="admin_id" id="admin_id"
 				class="form-control form-control-lg" placeholder="ID"
 				required="required" autofocus="autofocus" />
 		</div>
