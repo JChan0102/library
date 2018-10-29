@@ -5,43 +5,39 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 
+<c:set var="permission" value="${adminLoginInfo.permission}" />
 
 <c:if test="${'T' eq fn:substring(permission, 0, 1)}">
-
 	<a class="nav-link
-					href="${pageContext.request.contextPath}/admin/adminAccount"><button
-			class="homeBigBtn color3_btn custom_btn">
-			<i class="fa fa-user-circle"></i></a>
-	</li>
+					href="${pageContext.request.contextPath}/admin/adminAccount"><input
+		type="button" class="adminHomeBigBtn color2_btn custom_btn"
+		value="관리자 계정 관리"> </a>
 </c:if>
 <c:if test="${'T' eq fn:substring(permission, 1, 2)}">
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/admin/notice"><i
-			class="fa fa-clipboard"></i> 공지사항 </a></li>
+	<a class="nav-link
+					href="${pageContext.request.contextPath}/admin/notice">
+		<input type="button" class="adminHomeBigBtn color2_btn custom_btn"
+		value="공지사항 작성">
+	</a>
 </c:if>
 <c:if test="${'T' eq fn:substring(permission, 2, 3)}">
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/admin/book"><i
-			class="fa fa-book"></i> 도서 관리 </a></li>
+	<a class="nav-link
+					href="${pageContext.request.contextPath}/admin/book"><input
+		type="button" class="adminHomeBigBtn color3_btn custom_btn"
+		value="도서 등록/삭제"> </a>
 </c:if>
 <c:if test="${'T' eq fn:substring(permission, 3, 4)}">
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/admin/borrow"><i
-			class="fa fa-pencil-square-o"></i> 도서 대출/반납 </a></li>
+	<a class="nav-link
+					href="${pageContext.request.contextPath}/admin/borrow"><input
+		type="button" class="adminHomeBigBtn color3_btn custom_btn"
+		value="도서 대출/반납"></a>
 </c:if>
 <c:if test="${'T' eq fn:substring(permission, 4, 5)}">
-	<li class="nav-item"><a class="nav-link"
-		href="${pageContext.request.contextPath}/admin/memberAccount"><i
-			class="fa fa-user"></i> 회원 관리 </a></li>
+	<a class="nav-link
+					href="${pageContext.request.contextPath}/admin/memberAccount"><input
+		type="button" class="adminHomeBigBtn color4_btn custom_btn"
+		value="회원 관리"></a>
 </c:if>
-
-
-<a href="${pageContext.request.contextPath}/admin/home"><input
-	type="button" class="homeBigBtn color3_btn custom_btn" value="관리자"></a>
-<a href="${pageContext.request.contextPath}/member/home"><input
-	type="submit" class="homeBigBtn color4_btn custom_btn" value="사용자"></a>
-
-
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

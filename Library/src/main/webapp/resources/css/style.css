@@ -31,6 +31,8 @@ body {
 	color: #F5FFD2 !important;
 }
 
+
+
 .homeTitle {
 	font-family: 'Nanum Myeongjo', serif;
 	font-size: 50px;
@@ -160,4 +162,13 @@ body {
 	max-width: 400px;
 	padding: 15px;
 	margin: auto;
+}
+
+
+.adminHomeBigBtn {
+	width: 100% !important;
+	height: 120px !important;
+	font-family: 'Nanum Myeongjo', serif !important;
+	font-size: 35px !important;
+	color: #F5FFD2 !important;
 }

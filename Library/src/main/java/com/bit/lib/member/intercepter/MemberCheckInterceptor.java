@@ -15,10 +15,17 @@ public class MemberCheckInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession(false);
 
-		if (session.getAttribute("memberLoginInfo") != null) {
-
-			return true;
+		if (session != null) {
+			Object obj = session.getAttribute("memberLoginInfo");
+			if (obj != null) {
+				return true;
+			}
 		}
+
+		/*if (session.getAttribute("memberLoginInfo") != null) {
+			return true;
+		}*/
+		
 		response.sendRedirect(request.getContextPath() + "/member/memberAccount/login");
 
 		return false;
