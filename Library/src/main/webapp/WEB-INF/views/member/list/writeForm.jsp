@@ -60,7 +60,7 @@
     <!-- Send button -->
     <button class="btn btn-info btn-block" type="submit">확인</button>
 
-    <input type="hidden" name="list_name" value="네이무"/>
+    <input type="hidden" name="list_name" value="${memberLoginInfo.name}"/>
     <!--  <input type="hidden" name="id" value="${idz}" />  -->
 
 </form>

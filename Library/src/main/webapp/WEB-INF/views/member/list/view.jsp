@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,7 @@ html, body {
 				id="exampleFormControlTextarea2" rows="3">${listInfo.list_content}</label>
 			<%-- <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea> --%>
 		</div>
-
+		<c:if test="${memberLoginInfo.name == listInfo.list_name}">
 		<!-- Send button -->
 		<button onclick="location.href='update?idx=${listInfo.idx}'"
 			id="write" type="button" class="btn btn-rounded btn-blue-grey">
@@ -68,12 +69,13 @@ html, body {
 			class="btn btn-rounded btn-danger">
 			<i class="fa fa-close" aria-hidden="true"></i> 삭제
 		</button>
+		</c:if>
 		<button onclick="location.href='page?idx=${listInfo.idx}'"
 			type="button" class="btn btn-rounded btn-amber" id="write">
 			<i class="fa fa-th-list pr-2" aria-hidden="true"></i> 목록
 		</button>
 
-		<input type="hidden" name="list_name" value="네이무" /> <input
+		<input type="hidden" name="list_name" value="${listInfo.list_name }" /> <input
 			type="hidden" name="idx" value="${listInfo.idx}" />
 		<!--  <input type="hidden" name="id" value="${idz}" />  -->
 
