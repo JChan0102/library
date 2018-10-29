@@ -29,11 +29,38 @@
 				class="com.bit.lib.admin.intercepter.AdminCheckInterceptor" />
 		</interceptor>
 		<interceptor>
+			<mapping path="/admin/adminAccount/**" />
+			<beans:bean
+				class="com.bit.lib.admin.intercepter.Permission1Interceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/notice/**" />
+			<beans:bean
+				class="com.bit.lib.admin.intercepter.Permission2Interceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/book/**" />
+			<beans:bean
+				class="com.bit.lib.admin.intercepter.Permission3Interceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/borrow/**" />
+			<beans:bean
+				class="com.bit.lib.admin.intercepter.Permission4Interceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/admin/memberAccount/**" />
+			<beans:bean
+				class="com.bit.lib.admin.intercepter.Permission5Interceptor" />
+		</interceptor>
+		<!-- 멤버 로그인 인터셉터 -->
+		<interceptor>
 			<mapping path="/member/memberAccount/**" />
 			<exclude-mapping path="/member/memberAccount/login"></exclude-mapping>
 			<beans:bean
 				class="com.bit.lib.member.intercepter.MemberCheckInterceptor" />
 		</interceptor>
+		<!-- 게시판 글쓰기 인터셉터 -->
 		<interceptor>
 			<mapping path="/member/home/writeForm" />
 			<beans:bean
