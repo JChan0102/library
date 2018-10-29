@@ -6,6 +6,7 @@
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 
 <h3>"${keyword}"의 검색결과</h3>
+<form></form>
 <hr>
 	<c:if test="${bookList.isEmpty()}">
 		<h3>해당결과글 찾을 수 없습니다.</h3>
@@ -33,9 +34,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="200">
-							${item.book_price}
-						</td>
+						
 						<td width="200">
 							${item.book_publisher}
 						</td>
