@@ -5,9 +5,9 @@
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
 <h1>여기는 유저를 검색합니다.</h1>
-<form method="post">
-    <input type="text" name="member_id">
-    <input type="submit" value="검색">
+<form method="post" >
+    <input type="text" name="member_id" class="form-control ">
+    <input type="submit" class="btn btn-dark" value="검색">
 </form>
 <c:if test="${!(empty memberList)}">
     <table>

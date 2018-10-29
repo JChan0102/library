@@ -13,7 +13,7 @@
             <input type="submit" value="대여">
         </form>
         <p id="countt"></p>
-        <input type="text" id="booksearch" onblur="test1()">
+        <input type="text" id="booksearch" onkeyup="test1()">
         <table>
             <tr>
             <td>
@@ -30,12 +30,15 @@
             </tbody>
         </table>
         <script>
+            var a = false;
             var amount = ${member.availAmount};
             var count = 0;
 
             console.log(amount);
 
             function test1() {
+                if(!a){
+                    a=true;
                 $('#selectbook').text("");
                 $.ajax({
                     url:'${pageContext.request.contextPath}/admin/borrow/bookSearch?bookname='+$('#booksearch').val(),
@@ -44,32 +47,38 @@
                     success:function (data) {
                         $(data).each(function (key,value) {
                             console.log(value);
-
-
                             var text='<td>대출중</td></tr>';
                             var idcode= value.book_code;
+                            var a = $('.booklist');
                             if(value.book_exist==1){
-                                text= '<td><button onclick="submitt(this)" value="'+idcode+'">선택</button></td> </tr>'
-                    }
+                                text= '<td><button onclick="submitt(this)" name="'+value.book_name+'" value="'+idcode+'">선택</button></td> </tr>'
+                                $.each(a,function (index, item) {
+                                    if(item.value==value.book_code){
+                                        text='<td><button onclick="submitt(this)" value="'+idcode+'" disabled>선택됨</button></td> </tr>'
+                                    }
+                                });
+                               }
                             $('#selectbook').append('<tr> <td>'
                                 + value.book_code+'</td> <td>'
                                 + value.book_name+'</td>'+text
                             );
 
                         });
+                    a=false;
                     },
                     error:function () {
                         alert(error);
                     }
                 });
-
+                }
             }
             function submitt(obj) {
                 console.log(obj);
                 if(count<amount)
                 {
                     $('#countt').text("");
-                    $('#booksub').append('<input type="text" name="booklist['+count+']" value="'+obj.value+'" readonly >');
+                    $('#booksub').append('<p>'+obj.name+'</p>' +
+                        '<input type="hidden" class="booklist" name="booklist['+count+']" value="'+obj.value+'" readonly >');
                     count++;
                     $('#countt').append('현재 '+count+'권 등록했습니다.');
                     $('#selectbook').text("");
