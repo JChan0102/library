@@ -8,7 +8,7 @@
 		parameterType="com.bit.lib.book.model.BookInfo">
 		insert into book
 		values(#{book_code},#{book_isbn},#{book_name},#{book_writer},
-		#{book_publisher},1,#{book_image},#{book_price},now())
+		#{book_publisher},1,#{book_image},#{book_price}))
 	</insert>
 	<select id="selectAllBook"
 		resultType="com.bit.lib.book.model.BookInfo">
