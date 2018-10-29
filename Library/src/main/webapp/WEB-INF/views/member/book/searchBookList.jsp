@@ -6,6 +6,22 @@
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 
 <h3>"${keyword}"의 검색결과</h3>
+<form>
+	<select  name="searchWord">
+			<option value="title" seleted>책제목</option>
+			<option value="author">작가명</option>
+			<option value="publisher">출판사</option>
+			<option value="isbn">isbn번호</option>
+			<option value="bookcode">책코드</option>
+		</select>
+	<select name="orderBy">
+		<option value="new" seleted>최신순</option>
+			<option value="">작가명</option>
+			<option value="publisher">출판사</option>
+			<option value="isbn">isbn번호</option>
+			<option value="bookcode">책코드</option>
+	</select>
+</form>
 <hr>
 	<c:if test="${bookList.isEmpty()}">
 		<h3>해당결과글 찾을 수 없습니다.</h3>
@@ -33,9 +49,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="200">
-							${item.book_price}
-						</td>
+						
 						<td width="200">
 							${item.book_publisher}
 						</td>
