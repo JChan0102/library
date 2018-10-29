@@ -15,8 +15,6 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-
-		
 	<!-- service 빈 등록 -->
 	<beans:bean id="getListService" class="com.bit.lib.umki.service.GetListService" />
 	<beans:bean id="getListPageService" class="com.bit.lib.umki.service.GetListPageService" />
@@ -26,7 +24,5 @@
 	<beans:bean id="getUpdateService" class="com.bit.lib.umki.service.GetUpdateService"/>
 	<beans:bean id="getDeleteService" class="com.bit.lib.umki.service.GetDeleteService"/>
 	<beans:bean id="getPageService" class="com.bit.lib.umki.service.GetPageService"/>
-	
-	
 
 </beans:beans>

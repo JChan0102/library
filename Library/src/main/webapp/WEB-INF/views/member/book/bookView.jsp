@@ -21,7 +21,7 @@
 			</td>
 			<td width="200">${bookInfo.book_publisher} 
 			</td>
-			<td width="200">${bookInfo.book_isbn} 
+			<td width="200">${bookInfo.book_isbn}
 			</td>
 		</tr>
 		<tr>
