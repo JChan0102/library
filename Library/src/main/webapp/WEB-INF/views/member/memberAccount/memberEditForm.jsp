@@ -10,22 +10,22 @@
 		<div class="form-group">
 			<label>아이디</label><input type="text" name="member_id"
 				class="form-control form-control-lg" required="required"
-				readonly="readonly" value="${memberLoginInfo.member_id}" />
+				readonly="readonly" value="${mv.member_id}" />
 		</div>
 		<div class="form-group">
 			<label>비밀번호</label><input type="password" name="password"
 				class="form-control form-control-lg" required="required"
-				readonly="readonly" value="${memberLoginInfo.password}" />
+				autofocus="autofocus" value="${mv.password}" />
 		</div>
 		<div class="form-group">
 			<label>이름</label><input type="text" name="name"
 				class="form-control form-control-lg" required="required"
-				autofocus="autofocus" value="${memberLoginInfo.name}">
+				autofocus="autofocus" value="${mv.name}">
 		</div>
 		<div class="form-group">
 			<label>전화번호</label><input type="text" id="phone" name="phone"
 				class="form-control form-control-lg" required="required"
-				autofocus="autofocus" value="${memberLoginInfo.phone}">
+				autofocus="autofocus" value="${mv.phone}">
 		</div>
 		<input type="hidden" name="availAmount" value="${mv.availAmount}" />
 		<input type="hidden" name="totborrowDays" value="${mv.totborrowDays}" />
@@ -33,8 +33,8 @@
 			value="${mv.totoverduedays}" /> <input type="hidden"
 			name="possibledate" value="${mv.possibledate}" />
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">회원
-			수정</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">
+			수정하기</button>
 	</div>
 </form>
 

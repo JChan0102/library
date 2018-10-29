@@ -26,8 +26,18 @@
 			<mapping path="/admin/**" />
 			<exclude-mapping path="/admin/login"></exclude-mapping>
 			<beans:bean
-				class="com.bit.lib.admin.intercepter.AuthCheckInterceptor" />
+				class="com.bit.lib.admin.intercepter.AdminCheckInterceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/member/memberAccount/**" />
+			<exclude-mapping path="/member/memberAccount/login"></exclude-mapping>
+			<beans:bean
+				class="com.bit.lib.member.intercepter.MemberCheckInterceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/member/home/writeForm" />
+			<beans:bean
+				class="com.bit.lib.member.intercepter.MemberCheckInterceptor" />
 		</interceptor>
 	</interceptors>
-
 </beans:beans>
