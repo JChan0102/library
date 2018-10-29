@@ -26,6 +26,10 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.css">
+<!-- ICON -->
+<!-- https://www.w3schools.com/icons/icons_reference.asp -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Library</title>
 </head>
 <body>

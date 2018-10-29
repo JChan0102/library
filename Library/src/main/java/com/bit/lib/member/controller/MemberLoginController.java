@@ -19,9 +19,14 @@ public class MemberLoginController {
 	MemberLoginService memberLoginService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getMemberLoginForm() {
+	public ModelAndView getMemberLoginForm(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/member/memberAccount/memberLoginForm");
+		// 로그인 된 상태에서 로그인 페이지 접속시 처리
+		if (session.getAttribute("memberLoginInfo") != null) {
+			modelAndView.setViewName("/member/home");
+		} else {
+			modelAndView.setViewName("/member/memberAccount/memberLoginForm");
+		}
 		return modelAndView;
 	}
 

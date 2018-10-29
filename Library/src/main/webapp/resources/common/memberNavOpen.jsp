@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="${pageContext.request.contextPath}/">Library</a>
+<nav class="navbar navbar-expand-md navbar-dark color5_back fixed-top">
+	<a class="navbar-brand" href="${pageContext.request.contextPath}/home">Library</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarsExampleDefault"
 		aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -12,9 +12,8 @@
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link"
-				href="${pageContext.request.contextPath}/member/home">Home<span
-					class="sr-only">(current)</span>
-			</a></li>
+				href="${pageContext.request.contextPath}/member/home"><i
+					class="fa fa-home"> Home</i> </a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/member/notice">공지사항</a></li>
 			<li class="nav-item"><a class="nav-link"

@@ -19,10 +19,15 @@ public class AdminLoginController {
 	AdminLoginService adminLoginService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getAdminLoginForm() {
+	public ModelAndView getAdminLoginForm(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/admin/loginForm");
-		modelAndView.addObject("adminIds", adminLoginService.getAllAdminId());
+		// 로그인 된 상태에서 로그인 페이지 접속시 처리
+		if (session.getAttribute("adminLoginInfo") != null) {
+			modelAndView.setViewName("/admin/home");
+		} else {
+			modelAndView.setViewName("/admin/loginForm");
+			modelAndView.addObject("adminIds", adminLoginService.getAllAdminId());
+		}
 		return modelAndView;
 	}
 
