@@ -15,11 +15,10 @@ public class BookUserViewService {
 
 	@Autowired
 	private BookSearchInsertDao bookDao;
-	
+
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-	
-	
+
 	private BookInterfaceDao interfaceDao;
 
 	public BookInfo bookView(String book_isbn) throws Exception {
@@ -29,7 +28,7 @@ public class BookUserViewService {
 		Document result = bookDao.bookSearchList(option, book_isbn, listCnt);
 
 		BookInfo bookInfo = new BookInfo();
-		
+
 		// 파싱할 tag
 		NodeList nList = result.getElementsByTagName("item");
 
@@ -49,7 +48,20 @@ public class BookUserViewService {
 		}
 		return bookInfo;
 	}// end bookView();
-	
+
+	public String bookExist(String book_isbn) {
+
+		interfaceDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
+
+		int bookExist = interfaceDao.bookBorrowOK(book_isbn);
+
+		String result = "대출가능";
+		if (bookExist < 1) {
+			result = "대출불가능";
+		}
+		return result;
+	}
+
 	// tag값의 정보를 가져오는 메서드
 	public String getTagValue(String tag, Element eElement) {
 		NodeList nList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
