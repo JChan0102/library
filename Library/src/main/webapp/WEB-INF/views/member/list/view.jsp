@@ -79,7 +79,7 @@ html, body {
 			type="hidden" name="idx" value="${listInfo.idx}" />
 
 		<!--Section: Comments-->
-		<form method="post" class="my-5">
+		<form action="${pageContext.request.contextPath}/reply" method="post" class="my-5">
 			<div class="card-header border-0 font-weight-bold">4 comments</div>
 			<!-- Quick Reply -->
 			<div class="form-group mt-4">
@@ -87,7 +87,8 @@ html, body {
 				<textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
 
 				<div class="text-center my-4">
-					<button onclick="location.href='reply'" class="btn btn-primary btn-sm" type="submit">Post</button>
+
+					<button  class="btn btn-primary btn-sm" type="submit">Post</button></a>
 				</div>
 			</div>
 <hr />

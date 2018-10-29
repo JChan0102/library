@@ -17,8 +17,9 @@ public class ReplyWriteController {
 	@Autowired
 	GetWriteContentService service2;
 	
-	@RequestMapping("/reply")
+	@RequestMapping(value = "/reply", method =RequestMethod.POST)
 	public void write() {
+
 		System.out.println("test");
 	}
 }
