@@ -80,15 +80,11 @@
     <c:otherwise>
         ${member.name}은 현재 대여 불가 상태입니다.<br/>
         <c:if test="${member.availAmount==0}">
-
             대여가능 권수가 0권이므로 대여가 불가합니다.
-
         </c:if>
-
         <c:if test="${member.possibledate ne 'POSSIBLE'}">
             연체 패널티로 인해 ${member.possibledate}까지 대여 불가합니다!
         </c:if>
-
     </c:otherwise>
 </c:choose>
 

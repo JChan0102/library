@@ -4,10 +4,10 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-
-<a href="borrow/membersearch"><button>대여</button></a>
-<a href="return/home"><button>반납</button></a>
-<h1>대출 관련 기능</h1>
+<h1 >Library Service</h1>
+<div class="container text-center">
+<a href="borrow/membersearch"><button class="btn btn-dark ">책 대출</button></a>
+<a href="return/home"><button class="btn btn-dark">책 반납</button></a>
+</div>
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
-

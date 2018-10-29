@@ -3,6 +3,7 @@ package com.bit.lib.system.dao;
 import com.bit.lib.book.model.BookInfo;
 import com.bit.lib.member.model.MemberVO;
 import com.bit.lib.system.model.Borrow;
+import com.bit.lib.system.model.MybookList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,4 +42,7 @@ public class BorrowDao {
         sqlSessionTemplate.update(mapperPath+".updatePossible",member);
     }
 
+    public List<MybookList> myBookList(String member_id){
+       return sqlSessionTemplate.selectList(mapperPath+".myBookList",member_id);
+    }
 }

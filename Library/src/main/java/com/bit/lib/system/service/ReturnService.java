@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 @Service
 public class ReturnService {
@@ -37,31 +36,34 @@ public class ReturnService {
         HashMap<String, String> map = new HashMap<String, String>();
 
         Borrow borrow = borrowDao.selectByBook_code(book_code);
-        int day = borrowDao.getDay(borrow.getReturnDate());
-        MemberVO member = memberDao.selectOneMember(borrow.getMember_id());
-            map.put("username",member.getName());
-        if (day > 0) {
-            map.put("day", day + "");
-            DateFormat dateFormat;
-            dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Calendar caldate = Calendar.getInstance();
+        if(borrow!=null) {
+            int day = borrowDao.getDay(borrow.getReturnDate());
+            MemberVO member = memberDao.selectOneMember(borrow.getMember_id());
+            map.put("username", member.getName());
 
-            if (!("possible".toUpperCase().equals(member.getPossibledate().toUpperCase()))) {
-                Date date = dateFormat.parse(member.getPossibledate());
-                caldate.setTime(date);
+            if (day > 0) {
+                map.put("msg", day + "일 연체되었으며");
+                DateFormat dateFormat;
+                dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Calendar caldate = Calendar.getInstance();
+
+                if (!("possible".toUpperCase().equals(member.getPossibledate().toUpperCase()))) {
+                    Date date = dateFormat.parse(member.getPossibledate());
+                    caldate.setTime(date);
+                }
+                caldate.add(Calendar.DATE, day);
+                member.setPossibledate(dateFormat.format(new Date(caldate.getTimeInMillis())));
+                map.put("msg", day + "일 연체되었으며"+member.getPossibledate()+"에 대여가능합니다.");
+                borrowDao.updatePossible(member);
+            } else {
+                map.put("msg", "정상적으로 반납이 완료 되었습니다 ");
             }
-            caldate.add(Calendar.DATE, day);
-            member.setPossibledate(dateFormat.format(new Date(caldate.getTimeInMillis())));
-            System.out.println(member.getPossibledate());
-            map.put("possibledate", member.getPossibledate());
-            borrowDao.updatePossible(member);
-        } else {
-            map.put("day", "0");
+            availAmountUpdate(member);
+            book_existUpdate(book_code);
+            borrowDao.delete(borrow);
+        }else{
+            map.put("msg","대여 중인 북코드가 아닙니다.");
         }
-        availAmountUpdate(member);
-        book_existUpdate(book_code);
-        borrowDao.delete(borrow);
-
         return map;
 
     }

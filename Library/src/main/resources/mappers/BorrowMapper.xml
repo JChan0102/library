@@ -36,4 +36,8 @@
                      possibledate=#{possibledate} WHERE
                 member_id=#{member_id};
     </update>
+
+    <select id="myBookList" resultType="com.bit.lib.system.model.MybookList">
+        select b.book_name , bo.borrowdate , bo.returndate from book b inner join borrow bo on b.book_code = bo.book_code where member_id=#{member_id};
+    </select>
 </mapper>

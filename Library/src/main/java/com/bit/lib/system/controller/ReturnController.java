@@ -26,16 +26,11 @@ public class ReturnController {
 
     @RequestMapping(value = "/admin/return/home", method = RequestMethod.POST)
     public ModelAndView getReturn(Borrow borrow) throws ParseException {
-        String msg = "";
        Map<String,String> map = returnService.returnOk(borrow.getBook_code());
-        if(map.get("day").equals("0")){
-            msg="반납이 완료 되었습니다. 연체되지 않았습니다";
-        } else{
-            msg=map.get("day")+"일 연체되었으며 "+map.get("possibledate")+" 에 대여가능합니다";
-        }
+
         ModelAndView view = new ModelAndView();
         view.addObject("username",map.get("username"));
-        view.addObject("msg",msg);
+        view.addObject("msg",map.get("msg"));
         view.setViewName("admin/borrow/return");
         return view;
     }
