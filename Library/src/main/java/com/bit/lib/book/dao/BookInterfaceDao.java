@@ -16,4 +16,6 @@ public interface BookInterfaceDao {
 	public List<BookInfo> selectUserBook(@Param("keyword")String keyword);
 	public int bookBorrowOK(@Param("book_isbn")String book_isbn);
 	public List<BookInfo> selectBookOrder(OrderParam orderParam);
+	public List<BookInfo> afterDelete();
+	public List<BookInfo> selectNewTopTen();
 }
