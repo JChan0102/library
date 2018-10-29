@@ -60,45 +60,26 @@ html, body {
 			<%-- <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea> --%>
 		</div>
 		<c:if test="${memberLoginInfo.name == listInfo.list_name}">
-		<!-- Send button -->
-		<button onclick="location.href='update?idx=${listInfo.idx}'"
-			id="write" type="button" class="btn btn-rounded btn-blue-grey">
-			<i class="fa fa-eraser" aria-hidden="true"></i> 수정
-		</button>
-		<button onclick="delchk()" id="write" type="button"
-			class="btn btn-rounded btn-danger">
-			<i class="fa fa-close" aria-hidden="true"></i> 삭제
-		</button>
+			<!-- Send button -->
+			<button onclick="location.href='update?idx=${listInfo.idx}'"
+				id="write" type="button" class="btn btn-rounded btn-blue-grey">
+				<i class="fa fa-eraser" aria-hidden="true"></i> 수정
+			</button>
+			<button onclick="delchk()" id="write" type="button"
+				class="btn btn-rounded btn-danger">
+				<i class="fa fa-close" aria-hidden="true"></i> 삭제
+			</button>
 		</c:if>
 		<button onclick="location.href='page?idx=${listInfo.idx}'"
 			type="button" class="btn btn-rounded btn-amber" id="write">
 			<i class="fa fa-th-list pr-2" aria-hidden="true"></i> 목록
 		</button>
 
-		<input type="hidden" name="list_name" value="${listInfo.list_name }" /> <input
-			type="hidden" name="idx" value="${listInfo.idx}" />
+		<input type="hidden" name="list_name" value="${listInfo.list_name }" />
+		<input type="hidden" name="idx" value="${listInfo.idx}" />
 
-		<!--Section: Comments-->
-		<form action="${pageContext.request.contextPath}/reply" method="post" class="my-5">
-			<div class="card-header border-0 font-weight-bold">4 comments</div>
-			<!-- Quick Reply -->
-			<div class="form-group mt-4">
-				<label for="quickReplyFormComment">Your comment</label>
-				<textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
 
-				<div class="text-center my-4">
-
-					<button  class="btn btn-primary btn-sm" type="submit">Post</button></a>
-				</div>
-			</div>
-<hr />
-			<div class="media-body text-center text-md-left ml-md-3 ml-0">
-				<h5 class="font-weight-bold mt-0">
-					<a href="">Miley Steward</a>
-				</h5>
-				test
-			</div>
-		</form>
+		<%@ include file="comments.jsp"%>
 	</div>
 </body>
 </html>

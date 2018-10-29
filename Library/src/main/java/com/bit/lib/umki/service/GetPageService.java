@@ -15,16 +15,17 @@ public class GetPageService {
 
 	public String getPage(int idx) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
-		rank = dao.page(idx);
+		try {
+			rank = dao.page(idx);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		page = rank / 15;
-		
 		if(rank % 15 > 0) {
 			page++;
 		}
-		
 		String pageStr = String.valueOf(page);
-
 		
 		return pageStr;
 	}

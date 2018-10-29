@@ -51,7 +51,6 @@
     <input name="list_title" type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="제목">
 
 
-    <!-- Subject -->
     <!-- Message -->
     <div class="form-group">
         <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용"></textarea>

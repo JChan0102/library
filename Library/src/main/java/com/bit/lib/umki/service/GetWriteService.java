@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
+import com.bit.lib.umki.model.ReplyInfo;
 
 
 public class GetWriteService {
@@ -20,6 +21,16 @@ public class GetWriteService {
 		
 		try {
 			dao.write(listInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void replyWrite(ReplyInfo replyInfo) {
+		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		
+		try {
+			dao.replyWrite(replyInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

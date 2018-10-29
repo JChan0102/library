@@ -43,5 +43,19 @@
 	
 	
 	
+	<!-- 댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글 -->
+	
+	<insert id="replyWrite" parameterType="ReplyInfo">
+		INSERT INTO freelist_reply
+		(idx,
+		replytext,
+		replyer
+		)
+		VALUES
+		(#{idx},
+		#{replytext},
+		#{replyer});
+	</insert>
+	
 
 </mapper>

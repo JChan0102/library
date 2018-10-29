@@ -21,7 +21,7 @@ public class BookSearchController {
     @RequestMapping(value = "admin/borrow/bookSearch", method = RequestMethod.GET, produces="application/json")
     @ResponseBody
     public List<BookInfo> Search(@RequestParam("bookname") String bookname) {
-        System.out.println(bookname);
+
         return borrowService.getBookCode(bookname);
     }
 
