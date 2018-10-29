@@ -12,67 +12,89 @@
 	</insert>
 	<select id="selectAllBook"
 		resultType="com.bit.lib.book.model.BookInfo">
-		select * from book 
+		select * from book
 		<where>
-		<if test='searchWord.equals("title")'>
-			 book_name like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("author")'>
-			AND book_writer like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("publisher")'>
-			AND book_publisher like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("isbn")'>
-			AND book_isbn like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("bookcode")'>
-			AND book_code like CONCAT('%',#{keyword},'%')
-		</if>
+			<if test='searchWord.equals("title")'>
+				book_name like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("author")'>
+				AND book_writer like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("publisher")'>
+				AND book_publisher like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("isbn")'>
+				AND book_isbn like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("bookcode")'>
+				AND book_code like CONCAT('%',#{keyword},'%')
+			</if>
 		</where>
 	</select>
-	<select id="selectBookOrder" parameterType="com.bit.lib.book.model.OrderParam" resultType="com.bit.lib.book.model.BookInfo">
-		select book_code,book_isbn,book_name,book_writer,book_publisher,book_image from book
+	<select id="selectBookOrder"
+		parameterType="com.bit.lib.book.model.OrderParam"
+		resultType="com.bit.lib.book.model.BookInfo">
+		select
+		book_code,book_isbn,book_name,book_writer,book_publisher,book_image
+		from book
 		<where>
-		<if test='searchWord.equals("title")'>
-			 book_name like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("author")'>
-			AND book_writer like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("publisher")'>
-			AND book_publisher like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("isbn")'>
-			AND book_isbn like CONCAT('%',#{keyword},'%')
-		</if>
-		<if test='searchWord.equals("bookcode")'>
-			AND book_code like CONCAT('%',#{keyword},'%')
-		</if>
+			<if test='searchWord.equals("title")'>
+				book_name like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("author")'>
+				AND book_writer like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("publisher")'>
+				AND book_publisher like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("isbn")'>
+				AND book_isbn like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test='searchWord.equals("bookcode")'>
+				AND book_code like CONCAT('%',#{keyword},'%')
+			</if>
 		</where>
 		group by book_isbn
-		order by #{orderBy} desc
+		<trim prefix="ORDER BY">
+			<if test="orderBy == 'book_time'"> book_time DESC </if>
+			<if test="orderBy == 'book_name'"> book_name ASC </if>
+			<if test="orderBy == 'book_writer'"> book_writer ASC </if>
+			<if test="orderBy == 'book_publisher'"> book_publisher ASC </if>
+		</trim>
+
 		limit 0,#{listCnt}
 	</select>
-	
-	<select id="selectUserBook" resultType="com.bit.lib.book.model.BookInfo">
-		select book_isbn,book_code,book_name,book_writer,book_image,book_publisher
-		from book 
-		where (book_name like CONCAT('%',#{keyword},'%') OR book_writer like CONCAT('%',#{keyword},'%') OR 
+
+	<select id="selectUserBook"
+		resultType="com.bit.lib.book.model.BookInfo">
+		select
+		book_isbn,book_code,book_name,book_writer,book_image,book_publisher
+		from book
+		where (book_name like CONCAT('%',#{keyword},'%') OR book_writer like
+		CONCAT('%',#{keyword},'%') OR
 		book_publisher like CONCAT('%',#{keyword},'%'))
 		group by book_isbn
+		order by book_name
 	</select>
-	
+
 	<update id="updateBook_exist"
 		parameterType="com.bit.lib.book.model.BookInfo">
-		update book set book_exist= #{book_exist} where book_code=#{book_code}
+		update book set book_exist= #{book_exist} where
+		book_code=#{book_code}
 	</update>
-	
+
 	<delete id="deleteBook">
 		delete from book where book_code = #{book_code}
 	</delete>
 	<select id="bookBorrowOK" resultType="int">
 		select count(*) from book
 		where book_isbn = #{book_isbn} AND book_exist = 1
+	</select>
+	<select id="afterDelete" resultType="com.bit.lib.book.model.BookInfo">
+		select * from book order by book_time
+	</select>
+	<select id="selectNewTopTen" resultType="com.bit.lib.book.model.BookInfo">
+		select * from book
+		order by book_time limit 0,10
 	</select>
 </mapper>
