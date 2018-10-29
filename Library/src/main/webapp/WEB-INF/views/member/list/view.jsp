@@ -77,10 +77,9 @@ html, body {
 
 		<input type="hidden" name="list_name" value="${listInfo.list_name }" /> <input
 			type="hidden" name="idx" value="${listInfo.idx}" />
-		<!--  <input type="hidden" name="id" value="${idz}" />  -->
 
 		<!--Section: Comments-->
-		<section class="my-5">
+		<form method="post" class="my-5">
 			<div class="card-header border-0 font-weight-bold">4 comments</div>
 			<!-- Quick Reply -->
 			<div class="form-group mt-4">
@@ -88,17 +87,17 @@ html, body {
 				<textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
 
 				<div class="text-center my-4">
-					<button class="btn btn-primary btn-sm" type="submit">Post</button>
+					<button onclick="location.href='reply'" class="btn btn-primary btn-sm" type="submit">Post</button>
 				</div>
 			</div>
-
+<hr />
 			<div class="media-body text-center text-md-left ml-md-3 ml-0">
 				<h5 class="font-weight-bold mt-0">
 					<a href="">Miley Steward</a>
 				</h5>
 				test
 			</div>
-		</section>
+		</form>
 	</div>
 </body>
 </html>

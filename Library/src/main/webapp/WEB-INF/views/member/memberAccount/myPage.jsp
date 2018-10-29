@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
-<form method="post">
+<form>
 	<div class="alert alert-light">
 		<h1 class="h3 mb-6 font-weight-normal">내 정보 보기</h1>
 		<table>
@@ -36,8 +36,9 @@
 				<td>${memberLoginInfo.possibledate}</td>
 			</tr>
 		</table>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">회원
-			수정</button>
+		<a
+			href="${pageContext.request.contextPath}/member/memberAccount/editMember?member=${memberLoginInfo.member_id}"><input
+			type="button" value="회원 수정"> </a>
 	</div>
 </form>
 

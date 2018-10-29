@@ -6,11 +6,7 @@
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 
 <h1>USER HOME</h1>
-로그인이 필요한 페이지
-~ 인터`셉터`~
-마이 페이지/
-로그아웃/
-자유게시판 글쓰기/
+
 
 
 
