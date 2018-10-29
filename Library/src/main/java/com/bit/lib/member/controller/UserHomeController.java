@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserHomeController {
-	@RequestMapping("member/home")
+	@RequestMapping("/member/home")
 	public ModelAndView getMemberHome() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/member/home");
