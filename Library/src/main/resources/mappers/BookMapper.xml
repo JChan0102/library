@@ -31,6 +31,29 @@
 		</if>
 		</where>
 	</select>
+	<select id="selectBookOrder" parameterType="com.bit.lib.book.model.OrderParam" resultType="com.bit.lib.book.model.BookInfo">
+		select book_code,book_isbn,book_name,book_writer,book_publisher,book_image from book
+		<where>
+		<if test='searchWord.equals("title")'>
+			 book_name like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchWord.equals("author")'>
+			AND book_writer like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchWord.equals("publisher")'>
+			AND book_publisher like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchWord.equals("isbn")'>
+			AND book_isbn like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchWord.equals("bookcode")'>
+			AND book_code like CONCAT('%',#{keyword},'%')
+		</if>
+		</where>
+		group by book_isbn
+		order by #{orderBy} desc
+		limit 0,#{listCnt}
+	</select>
 	
 	<select id="selectUserBook" resultType="com.bit.lib.book.model.BookInfo">
 		select book_isbn,book_code,book_name,book_writer,book_image,book_publisher

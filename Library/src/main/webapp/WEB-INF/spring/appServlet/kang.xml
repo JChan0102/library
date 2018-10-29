@@ -21,4 +21,5 @@
 	<bean id="bookDeleteService" class="com.bit.lib.book.service.BookDeleteService"/>
 	<bean id="bookSearchUserService" class="com.bit.lib.book.service.BookSearchUserService"/>
 	<bean id="bookUserViewService" class="com.bit.lib.book.service.BookUserViewService"/>
+	<bean id="bookSearchUserOrderService" class="com.bit.lib.book.service.BookSearchUserOrderService"/>
 </beans>

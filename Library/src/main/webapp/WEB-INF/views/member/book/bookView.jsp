@@ -14,7 +14,7 @@
 			<td rowspan="2"><img src="${bookInfo.book_image}"></td>
 			<td rowspan="3" width="800">${bookInfo.book_name} </td>
 			<td width="200">${bookInfo.book_writer} </td>
-			<td width="300">${bookInfo.book_code}</td>
+			<td width="200"><b>${bookExist}</b> </td>
 		</tr>
 		<tr>
 			<td width="200">${bookInfo.book_price} 
@@ -23,8 +23,7 @@
 			</td>
 			<td width="200">${bookInfo.book_isbn}
 			</td>
-			<td width="100">${bookExist} 
-			</td>
+			
 		</tr>
 		<tr>
 			<td colspan="5">${bookInfo.description}</td>
