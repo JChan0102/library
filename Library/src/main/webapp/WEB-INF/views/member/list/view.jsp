@@ -86,6 +86,7 @@ html, body {
 
 
 <script>
+replyList();
 	function delchk() {
 		if (confirm("삭제하시겠습니까?")) {
 			location.href = "delete?idx=${listInfo.idx}";

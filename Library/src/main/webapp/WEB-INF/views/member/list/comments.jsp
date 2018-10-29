@@ -18,7 +18,7 @@
 			<textarea name="replytext" class="form-control"
 				id="replyText" rows="5"></textarea>
 			<div class="text-center my-4">
-				<button type="button" class="btn btn-primary btn-sm"  onclick="subb()">Post</button>
+				<button type="button" class="btn btn-primary btn-sm"  onclick="replyInsert()">Post</button>
 			</div>
 		</div>
 
@@ -27,12 +27,12 @@
 	</form>
 	<script>
 
-        function subb() {
+        function replyInsert() {
             
 			var form = $('#form').serialize();
-			var reply =$('#reply').html();
 			
-            
+			var reply = '';
+			
             $.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
 				type:'POST',
@@ -41,10 +41,6 @@
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {
-                       console.log(value.idx);
-                       console.log(value.replytext);
-                       console.log(value.replyer);
-                       
                        reply += '<h5 class="font-weight-bold mt-0">';
                        reply += '<a href="">'+value.replyer+'</a> </h5>';
                        reply += '<h5>'+value.replytext+'</h5>'; 
@@ -57,6 +53,26 @@
                 }
 			});
 			}
+        
+        function replyList() {
+        	var idx = '${listInfo.idx}';
+        	$.ajax({
+        		url:'${pageContext.request.contextPath}/member/home/view',
+        		type:'GET',
+        		data:{'idx':idx},
+        		success:function(data){
+        			$(data).each(function (key, value){
+        				console.log(data);
+        				reply += '<h5 class="font-weight-bold mt-0">';
+                        reply += '<a href="">'+value.replyer+'</a> </h5>';
+                        reply += '<h5>'+value.replytext+'</h5>'; 
+                        reply += '<hr />';
+ 					});
+                     $('#reply').html(reply);
+        		}
+        	});
+        }
+        	
 
 	</script>
 	

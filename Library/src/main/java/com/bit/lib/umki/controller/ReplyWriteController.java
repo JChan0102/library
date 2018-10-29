@@ -1,5 +1,7 @@
 package com.bit.lib.umki.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +22,9 @@ public class ReplyWriteController {
 
 	@RequestMapping(value = "/member/home/view/reply", method =RequestMethod.POST)
 	@ResponseBody
-	public ReplyInfo write(ReplyInfo replyInfo) {
+	public List<ReplyInfo> write(ReplyInfo replyInfo) {
 		service1.replyWrite(replyInfo);
-		ReplyInfo replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
-//		System.out.println(replyInfo2);
+		List<ReplyInfo> replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
 		return replyInfo2;
 	}
 }

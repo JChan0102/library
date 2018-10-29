@@ -15,7 +15,7 @@ public class GetWriteContentService {
 	SqlSessionTemplate sqlSessionTemplate;
 	ListDaoInterface dao;
 	ListInfo listInfo = null;
-	ReplyInfo replyInfo = null;
+	List<ReplyInfo> replyInfo = null;
 	
 	public ListInfo getContent(String list_name) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
@@ -28,7 +28,7 @@ public class GetWriteContentService {
 		return listInfo;
 	}
 
-	public ReplyInfo getReplyContent(int idx) {
+	public List<ReplyInfo> getReplyContent(int idx) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
 		try {

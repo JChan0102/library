@@ -84,7 +84,7 @@ h1 {
 				<c:forEach var="message" items="${viewInfo}">
 					<tr>
 						<th scope="row">${message.idx}</th>
-						<td id="title" onclick="location.href='view/${message.idx}'">${message.list_title}</td>
+						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}</td>
 						<td>${message.list_name}</td>
 						<td>${message.list_date}</td>
 					</tr>
