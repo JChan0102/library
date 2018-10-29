@@ -16,13 +16,14 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession(false);
 
-		if (session != null) {
-			Object obj = session.getAttribute("adminLoginInfo");
-			if (obj != null) {
-				return true;
-			}
-		}
+		/*
+		 * if (session != null) { Object obj = session.getAttribute("adminLoginInfo");
+		 * if (obj != null) { return true; } }
+		 */
 
+		if (session.getAttribute("adminLoginInfo") != null) {
+			return true;
+		}
 		response.sendRedirect(request.getContextPath() + "/admin/login");
 
 		return false;

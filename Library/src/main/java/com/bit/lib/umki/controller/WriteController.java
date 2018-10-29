@@ -29,7 +29,8 @@ public class WriteController {
 		ModelAndView modelAndView = new ModelAndView();
 		service1.write(listInfo);
 		ListInfo listInfo2 = service2.getContent(listInfo.getList_name());
-		modelAndView.setViewName("member/list/view");
+		System.out.println(listInfo2.getIdx());
+		modelAndView.setViewName("redirect:/member/home/view/"+listInfo2.getIdx());
 		modelAndView.addObject("listInfo", listInfo2);
 		return modelAndView;
 	}

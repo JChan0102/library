@@ -18,7 +18,7 @@ public class AdminMemberAccEditController {
 	MemberEditService memberEditService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getAdmimMemberAccRegForm(@RequestParam("member") String member_id) {
+	public ModelAndView getAdmimMemberAccEditForm(@RequestParam("member") String member_id) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("mv", memberEditService.getEditMember(member_id));
 		modelAndView.setViewName("/admin/memberAccount/memberEditForm");
@@ -26,7 +26,7 @@ public class AdminMemberAccEditController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView regAdmimMemberAcc(MemberVO mv) {
+	public ModelAndView editAdmimMemberAcc(MemberVO mv) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/memberAccount");
 		int resultCnt = memberEditService.editMember(mv);
