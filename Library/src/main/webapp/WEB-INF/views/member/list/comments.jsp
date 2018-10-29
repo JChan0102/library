@@ -21,6 +21,7 @@
 
 		<input type="hidden" name="idx" value="${listInfo.idx}" /> <input
 			type="hidden" name="replyer" value="${memberLoginInfo.name}" />
+
 	</form>
 	<script>
 
@@ -28,13 +29,14 @@
             var replytext = $('#replyText').val();
 			var idx = ${listInfo.idx};
 			var name = ${memberLoginInfo.name};
-			
-            console.log(replytext);
+            var params='replytext='+replytext+
+			'name='+name+'idx'+idx;
+
 
 			$.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
 				type:'post',
-				data:{'replytext':replytext/* , 'idx':idx, 'name': name */},
+				data:params,
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {
