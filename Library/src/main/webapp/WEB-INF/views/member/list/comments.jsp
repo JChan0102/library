@@ -27,16 +27,17 @@
 
         function subb() {
             var replytext = $('#replyText').val();
-			var idx = ${listInfo.idx};
-			var name = ${memberLoginInfo.name};
-            var params='replytext='+replytext+
-			'name='+name+'idx'+idx;
+            var idx = '${listInfo.idx}';
+            var name = '${memberLoginInfo.name}';
+            var params='{replytext='+replytext+
+                ',name='+name+',idx='+idx+'}';
 
 
-			$.ajax({
+      //      { name: "John", time: "2pm" }
+            $.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
-				type:'post',
-				data:params,
+				type:'POST',
+				data:{ replytext: replytext, name: name,idx:idx },
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {

@@ -22,15 +22,18 @@ public class ReplyWriteController {
 	
 	@RequestMapping(value = "/member/home/view/reply", method =RequestMethod.POST)
 	@ResponseBody
-	public ReplyInfo write(@RequestParam("replytext") String replytext) {
+	public ReplyInfo write(@RequestParam("replytext") String replytext, @RequestParam("idx") String idx, @RequestParam("name") String name) {
 
 		System.out.println(replytext);
-		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(idx);
+		System.out.println(name);
+
+//		ModelAndView modelAndView = new ModelAndView();
 		System.out.println("ㅎㅇㅎㅇ");
 		ReplyInfo replyInfo = new ReplyInfo();
-		replyInfo.setReplyText(replytext);
-		System.out.println(replyInfo.toString());
-		service1.replyWrite(replyInfo);
+//		replyInfo.setReplyText(replytext);
+//		System.out.println(replyInfo.toString());
+//		service1.replyWrite(replyInfo);
 
 		return replyInfo;
 		
