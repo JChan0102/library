@@ -22,13 +22,10 @@ public class GetPageService {
 		}
 		
 		page = rank / 15;
-		
 		if(rank % 15 > 0) {
 			page++;
 		}
-		
 		String pageStr = String.valueOf(page);
-
 		
 		return pageStr;
 	}

@@ -26,13 +26,15 @@
 
         function subb() {
             var replytext = $('#replyText').val();
-
+			var idx = ${listInfo.idx};
+			var name = ${memberLoginInfo.name};
+			
             console.log(replytext);
 
 			$.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
 				type:'post',
-				data:{'replytext':replytext},
+				data:{'replytext':replytext/* , 'idx':idx, 'name': name */},
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {
