@@ -6,6 +6,8 @@ public class ReplyInfo {
 	private String replytext;
 	private String replyer;
 	private String regdate;
+	
+	
 	public int getR_idx() {
 		return r_idx;
 	}
@@ -18,11 +20,11 @@ public class ReplyInfo {
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getReplyText() {
+	public String getReplytext() {
 		return replytext;
 	}
-	public void setReplyText(String replyText) {
-		this.replytext = replyText;
+	public void setReplytext(String replytext) {
+		this.replytext = replytext;
 	}
 	public String getReplyer() {
 		return replyer;
@@ -41,5 +43,5 @@ public class ReplyInfo {
 		return "ReplyInfo [r_idx=" + r_idx + ", idx=" + idx + ", replytext=" + replytext + ", replyer=" + replyer
 				+ ", regdate=" + regdate + "]";
 	}
-
+	
 }

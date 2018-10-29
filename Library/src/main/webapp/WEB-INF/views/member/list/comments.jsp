@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="my-5">
+	<form method="post" class="my-5" id="form">
 		<div class="card-header border-0 font-weight-bold">4 comments</div>
 		<!-- Quick Reply -->
 		<div class="form-group mt-4">
@@ -15,7 +15,7 @@
 			<textarea name="replytext" class="form-control"
 				id="replyText" rows="5"></textarea>
 			<div class="text-center my-4">
-				<button class="btn btn-primary btn-sm"  onclick="subb()">Post</button>
+				<button type="button" class="btn btn-primary btn-sm"  onclick="subb()">Post</button>
 			</div>
 		</div>
 
@@ -26,26 +26,28 @@
 	<script>
 
         function subb() {
-            var replytext = $('#replyText').val();
-            var idx = '${listInfo.idx}';
-            var name = '${memberLoginInfo.name}';
-
+            
+			var form = $('#form').serialize();
+            
             $.ajax({
 				url:'${pageContext.request.contextPath}/member/home/view/reply',
 				type:'POST',
-				data:{ 'replytext': replytext,'name': name,'idx':idx },
+				data:form,
+				contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 				datatype:'json',
 				success:function (data) {
                     $(data).each(function (key,value) {
                        console.log(value.idx);
+                       console.log(value.replytext);
+                       console.log(value.replyer);
 					});
                 },
 				error:function () {
 
                 }
 			});
-
 			}
+
 	</script>
 	<hr />
 	<div class="media-body text-center text-md-left ml-md-3 ml-0">
