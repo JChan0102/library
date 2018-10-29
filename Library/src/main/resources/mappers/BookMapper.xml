@@ -48,8 +48,5 @@
 	<delete id="deleteBook">
 		delete from book where book_code = #{book_code}
 	</delete>
-	<select id="bookBorrowOK" resultType="int">
-		select count(*) from book
-		where book_isbn = #{book_isbn} AND book_exist = 1
-	</select>
+	
 </mapper>

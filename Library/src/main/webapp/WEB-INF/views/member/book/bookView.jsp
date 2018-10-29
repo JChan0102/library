@@ -29,7 +29,7 @@
 		<tr>
 			<td colspan="5">${bookInfo.description}</td>
 		</tr>
-		<tr>
+		//<tr>
 			<td colspan="5" width="100%" bgcolor="pink"></td>
 		</tr>
 </table>
