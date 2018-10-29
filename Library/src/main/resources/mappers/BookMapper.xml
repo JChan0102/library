@@ -33,8 +33,12 @@
 	</select>
 	
 	<select id="selectUserBook" resultType="com.bit.lib.book.model.BookInfo">
-		select * from book where book_name like CONCAT('%',#{keyword},'%') OR
-		book_writer like CONCAT('%',#{keyword},'%') OR book_publisher like CONCAT('%',#{keyword},'%')
+		select book_isbn,book_code,book_name,book_writer,book_image,book_publisher
+		from book 
+		where (book_name like CONCAT('%',#{keyword},'%') OR book_writer like CONCAT('%',#{keyword},'%') OR 
+		book_publisher like CONCAT('%',#{keyword},'%'))
+		AND book_exist = 1
+		group by book_isbn
 	</select>
 	
 	<update id="updateBook_exist"
