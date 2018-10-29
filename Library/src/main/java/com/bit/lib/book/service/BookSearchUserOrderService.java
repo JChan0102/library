@@ -21,7 +21,7 @@ public class BookSearchUserOrderService {
 		
 		bookDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
 		
-		List<BookInfo> bookList = new ArrayList<>();
+		List<BookInfo> bookList = new ArrayList<BookInfo>();
 		
 		bookList = bookDao.selectBookOrder(orderParam);
 		
