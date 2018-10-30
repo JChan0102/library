@@ -1,4 +1,4 @@
-package com.bit.lib.admin.controller;
+/*package com.bit.lib.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,3 +17,4 @@ public class AdminNoticeController {
 	}
 
 }
+*/
