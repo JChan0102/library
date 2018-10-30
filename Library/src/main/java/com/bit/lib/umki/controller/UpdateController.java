@@ -12,7 +12,7 @@ import com.bit.lib.umki.service.GetContentService;
 import com.bit.lib.umki.service.GetUpdateService;
 
 @Controller
-@RequestMapping("/member/home/view/update")
+@RequestMapping("/member/home/update")
 public class UpdateController {
 	
 	@Autowired

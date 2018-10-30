@@ -28,16 +28,11 @@ public class ViewController {
 	public ModelAndView view(@RequestParam("idx") int idx) {
 		ModelAndView modelAndView = new ModelAndView();
 		ListInfo listInfo = service.getContentIdx(idx);
+		List<ReplyInfo> replyInfo = service2.getReplyContent(idx); //댓글처리
 		modelAndView.setViewName("member/list/view");
 		modelAndView.addObject("listInfo", listInfo);
+		modelAndView.addObject("replyInfo", replyInfo);
 		
 		return modelAndView;
 	}
-	
-/*	@RequestMapping("member/home/view")
-	@ResponseBody
-	public List<ReplyInfo> reply(@RequestParam("idx") int idx) {
-		List<ReplyInfo> replyInfo = service2.getReplyContent(idx); //댓글처리
-		return replyInfo;
-	}*/
 }

@@ -70,7 +70,7 @@ html, body {
 				<i class="fa fa-close" aria-hidden="true"></i> 삭제
 			</button>
 		</c:if>
-		<button onclick="location.href='page?idx=${listInfo.idx}'"
+		<button onclick="location.href='view/page/${listInfo.idx}'"
 			type="button" class="btn btn-rounded btn-amber" id="write">
 			<i class="fa fa-th-list pr-2" aria-hidden="true"></i> 목록
 		</button>
@@ -86,7 +86,6 @@ html, body {
 
 
 <script>
-replyList();
 	function delchk() {
 		if (confirm("삭제하시겠습니까?")) {
 			location.href = "delete?idx=${listInfo.idx}";
