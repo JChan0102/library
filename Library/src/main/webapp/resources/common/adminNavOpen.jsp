@@ -32,7 +32,7 @@
 			</c:if>
 			<c:if test="${'T' eq fn:substring(permission, 3, 4)}">
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/admin/borrow"><i class="fa fa-pencil-square-o"></i> 도서 대출/반납 
+					href="${pageContext.request.contextPath}/admin/borrow"><i class="fas fa-book-reader"></i> 도서 대출/반납
 						</a></li>
 			</c:if>
 			<c:if test="${'T' eq fn:substring(permission, 4, 5)}">
