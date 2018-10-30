@@ -3,10 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
+<hr class="my-4">
+<h1 class="page_title color5">회원 수정</h1>
+<hr class="my-4">
 <form method="post">
 	<div class="alert alert-light">
-		<h1 class="h3 mb-6 font-weight-normal">회원 수정</h1>
-
 		<div class="form-group">
 			<label>아이디</label><input type="text" name="member_id"
 				class="form-control form-control-lg" required="required"

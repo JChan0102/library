@@ -4,6 +4,9 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
+<hr class="my-4">
+<h1 class="page_title color5">도서 관리 : 등록</h1>
+<hr class="my-4">
 <form method="post">
 	<select name="optionCode" class="jc_select_left selectfont" >
 		<option value="title" seleted>책제목</option>
@@ -17,12 +20,12 @@
 		<option value="30">30개씩</option>
 		<option value="40">40개씩</option>
 	</select>
-		<input type="text" class="inputtext_color4" style="margin-left: -6px; border-radius:0px 7px 7px 0px; width: 65% " name="keyword" />
+		<input type="text" class="inputtext_color4" style="margin-left: -6px; border-radius:0px 7px 7px 0px; width: 65% " name="keyword" required />
 	<button type="submit" class="color4_btn custom_btn" style="width:9%"> <i class="fas fa-search"></i></button>
 	</form>
 	<hr>
 	<c:if test="${bookList.isEmpty()}">
-		<h1>해당결과글 찾을 수 없습니다.</h1>
+		<h1>해당결과를 찾을 수 없습니다.</h1>
 	</c:if>
 	<c:if test="${!bookList.isEmpty()}">
 		<table class="jc_table">

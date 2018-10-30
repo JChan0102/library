@@ -27,9 +27,11 @@
 		});
 	});
 </script>
+<hr class="my-4">
+<h1 class="page_title color5">회원 등록</h1>
+<hr class="my-4">
 <form method="post">
 	<div class="alert alert-light">
-		<h1 class="h3 mb-6 font-weight-normal">회원 등록</h1>
 
 		<div class="form-group">
 			<label>아이디</label><label id="msg"></label><input type="text" id="member_id" name="member_id"

@@ -5,9 +5,15 @@
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 
 <!-- 기능 구현부분 -->
-<h1>등록되었습니다.</h1>
-<a href="${pageContext.request.contextPath}/admin/book/searchInsertBook">책등록</a>
+<hr class="my-4">
+<h1 class="page_title color5">책 등록에 성공하였습니다.</h1>
+<hr class="my-4">
 
+<a href="${pageContext.request.contextPath}/admin/book/searchInsertBook">
+	<button class="color4_btn custom_btn btn_borrow">
+		<i class="fas fa-plus-square"></i> 책 등록
+	</button>
+</a>
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

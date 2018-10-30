@@ -4,7 +4,9 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1 >Book Service</h1>
+<hr class="my-4">
+<h1 class="page_title color5">도서 관리</h1>
+<hr class="my-4">
 <div class="container text-center">
 
 	<a href="${pageContext.request.contextPath}/admin/book/searchInsertBook">

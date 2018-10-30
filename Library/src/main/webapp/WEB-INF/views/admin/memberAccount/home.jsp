@@ -4,7 +4,9 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 
-<h1>회원 계정 관련 기능</h1>
+<hr class="my-4">
+<h1 class="page_title color5">회원 관리</h1>
+<hr class="my-4">
 <a
 	href="${pageContext.request.contextPath}/admin/memberAccount/memberReg">
 	<button class="btn"><i class="fas fa-user-plus"></i> 회원 등록</button>
