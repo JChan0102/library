@@ -38,6 +38,19 @@
     </update>
 
     <select id="myBookList" resultType="com.bit.lib.system.model.MybookList">
-        select b.book_name , bo.borrowdate , bo.returndate from book b inner join borrow bo on b.book_code = bo.book_code where member_id=#{member_id};
+        select b.book_name , bo.borrowdate , bo.returndate, bo.extension, bo.book_code from book b inner join borrow bo on b.book_code = bo.book_code where member_id=#{member_id};
+    </select>
+
+    <update id="updateExtension" parameterType="com.bit.lib.system.model.MybookList">
+        update borrow set extension=#{extension} where book_code=#{book_code}
+    </update>
+
+    <select id="selectListExtension" resultType="com.bit.lib.system.model.Borrow">
+        select * from borrow where extension=1;
+    </select>
+
+    <select id="countExtension" resultType="int">
+
+        select count(*) from borrow where extension=1;
     </select>
 </mapper>

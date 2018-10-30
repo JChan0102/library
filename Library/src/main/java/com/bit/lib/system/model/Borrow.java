@@ -7,7 +7,7 @@ public class Borrow {
     private String member_id;
     private String borrowDate;
     private String returnDate;
-
+    private int extention;
 
     public Borrow(){}
 
@@ -22,6 +22,16 @@ public class Borrow {
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
+
+
+    public int getExtention() {
+        return extention;
+    }
+
+    public void setExtention(int extention) {
+        this.extention = extention;
+    }
+
 
     public String getBook_code() {
         return book_code;

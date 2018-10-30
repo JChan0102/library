@@ -11,6 +11,7 @@
 <div class="container text-center">
 <a href="borrow/membersearch"><button class="color4_btn custom_btn btn_borrow"><i class="fab fa-stack-overflow fa-flip-horizontal"></i> 책 대출</button></a>
 <a href="return/home"><button  class="color4_btn custom_btn btn_borrow"><i class="fab fa-stack-overflow"></i> 책 반납</button></a>
+	<a href="/borrow/extension"><button  class="color4_btn custom_btn btn_borrow" style="width: 250px"><i class="fas fa-clock"></i> 기간 연장(${count})</button></a>
 </div>
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

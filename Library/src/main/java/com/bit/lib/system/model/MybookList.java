@@ -4,6 +4,8 @@ public class MybookList {
     private String book_name;
     private String borrowDate;
     private String returnDate;
+   private int extension;
+    private String book_code;
 
     public MybookList() {
     }
@@ -13,6 +15,31 @@ public class MybookList {
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
+
+    public MybookList(String book_name, String borrowDate, String returnDate, int extension, String book_code) {
+        this.book_name = book_name;
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
+        this.extension = extension;
+        this.book_code = book_code;
+    }
+
+    public int getExtension() {
+        return extension;
+    }
+
+    public void setExtension(int extension) {
+        this.extension = extension;
+    }
+
+    public String getBook_code() {
+        return book_code;
+    }
+
+    public void setBook_code(String book_code) {
+        this.book_code = book_code;
+    }
+
 
     public String getBook_name() {
         return book_name;
