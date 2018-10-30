@@ -19,7 +19,7 @@ public class UserHomeService {
 	public List<BookInfo> bookNewList(){
 		
 		bookDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
-		List<BookInfo> list = new ArrayList<>();
+		List<BookInfo> list = new ArrayList<BookInfo>();
 		list = bookDao.selectNewTopTen();
 		return list;
 	}
