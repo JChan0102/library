@@ -4,9 +4,9 @@
 <jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
 <!-- 네비 사용 시작  -->
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
-
-<h1>신간도서</h1>
-
+<hr class="my-4">
+<h1 class="page_title color5">신간도서</h1>
+<hr class="my-4">
 <div style="width: 100%; margin: auto;">
 	<div class="mySlides">
 		<table style="width: 100%; border: none;">
@@ -18,6 +18,7 @@
 				<td id="thumb5" width="20%"></td>
 			</tr>
 		</table>
+		<hr class="my-4">
 		<table style="width: 100%;" class="jc_table">
 			<tr>
 				<th>책 제목</th>
@@ -61,6 +62,7 @@
 				<td id="thumb10" width="20%"></td>
 			</tr>
 		</table>
+		<hr class="my-4">
 		<table style="width: 100%;" class="jc_table">
 			<tr>
 				<th>책 제목</th>
@@ -102,30 +104,13 @@
 	<script>
 		$('#thumb${count}')
 				.html(
-						'<img src="${item.book_image}" style="width: 100%; padding-right: 20px; text-align: center;" id="img${count}">');
+						'<img src="${item.book_image}" style="width: 100%; padding-left: 10px; padding-right: 10px; text-align: center;" id="img${count}">');
 		$('#img${count}').height($('#thumb1').width() * 1.3);
 		$('#detail_name_${count}').html('${item.book_name}');
 		$('#detail_writer_${count}').html('${item.book_writer}');
 		$('#detail_publisher_${count}').html('${item.book_publisher}');
 	</script>
 </c:forEach>
-
-<%-- <div style="width: 100%; margin: auto;">
-	<c:forEach var="item" items="${bookList}">
-		<div class="mySlides">
-			<table style="width: 100%; border: none;">
-				<tr>
-					<td width="30%"><img src="${item.book_image}"
-						style="width: 100%; padding-right: 20px; text-align: center;"></td>
-					<td><span class="badge badge-warning">신간</span>
-						<h2>${item.book_name}</h2>
-						<h3>${item.book_writer}</h3>
-						<h3>${item.book_publisher}</h3></td>
-				</tr>
-			</table>
-		</div>
-	</c:forEach>
-</div> --%>
 
 <script>
 	var myIndex = 0;

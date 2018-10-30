@@ -36,7 +36,7 @@ public class MemberLoginController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		if (memberLoginService.memberLogin(member_id, password, session)) {
-			modelAndView.setViewName("/member/home");
+			modelAndView.setViewName("redirect:/member/home");
 		} else {
 			modelAndView.setViewName("redirect:/member/memberAccount/login");
 		}

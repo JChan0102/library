@@ -5,6 +5,12 @@
 	font-family: 'Nanum Gothic', sans-serif;
 	font-family: 'Nanum Myeongjo', serif;
 	font-family: 'Montserrat Subrayada', sans-serif; 영어 */
+	
+.page_title {
+	font-family: 'Noto Serif KR', sans-serif;
+	font-weight: bold;
+}
+
 body {
 	margin: 0px 0px 0px 0px;
 	background-color: #E5FCC2;
@@ -30,8 +36,6 @@ body {
 	font-size: 35px !important;
 	color: #F5FFD2 !important;
 }
-
-
 
 .homeTitle {
 	font-family: 'Nanum Myeongjo', serif;
@@ -163,7 +167,6 @@ body {
 	padding: 15px;
 	margin: auto;
 }
-
 
 .adminHomeBigBtn {
 	width: 100% !important;
