@@ -36,9 +36,11 @@
 		});
 	});
 </script>
+<hr class="my-4">
+<h1 class="page_title color5">관리자 계정 등록</h1>
+<hr class="my-4">
 <form method="post">
 	<div class="alert alert-light">
-		<h1 class="h3 mb-6 font-weight-normal">관리자 등록</h1>
 
 		<div class="form-group">
 			<label>아이디</label><label id="msg"></label><input type="text" name="admin_id" id="admin_id"
@@ -59,8 +61,8 @@
 					<input type="checkbox" id="permission${count}" value="T">
 					<label for="permission${count}"> ${item}</label>
 				</c:forEach>
-				<input type="text" id="permission" name="permission"
-					value="" />
+				<input type="hidden" id="permission" name="permission"
+					value="FFFFF" />
 			</div>
 		</div>
 		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2" type="submit">관리자

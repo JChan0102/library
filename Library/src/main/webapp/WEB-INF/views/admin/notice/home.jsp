@@ -4,6 +4,8 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1>공지 관련 기능</h1>
+<hr class="my-4">
+<h1 class="page_title color5">공지사항</h1>
+<hr class="my-4">
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

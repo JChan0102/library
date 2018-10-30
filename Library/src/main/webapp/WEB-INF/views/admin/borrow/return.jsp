@@ -4,7 +4,9 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1>이곳은 반납 기능을 합니다</h1>
+<hr class="my-4">
+<h1 class="page_title color5">도서 반납</h1>
+<hr class="my-4">
 
 <div id="formchange">
     <form method="post">
