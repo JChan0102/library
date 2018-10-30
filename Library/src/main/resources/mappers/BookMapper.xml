@@ -96,6 +96,6 @@
 	</select>
 	<select id="selectNewTopTen" resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
-		order by book_time desc limit 0,10
+		order by book_time a limit 0,10
 	</select>
 </mapper>
