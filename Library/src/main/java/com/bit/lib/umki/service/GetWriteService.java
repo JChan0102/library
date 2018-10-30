@@ -16,6 +16,8 @@ public class GetWriteService {
 	
 	ListDaoInterface dao;
 	
+	int check = 0;
+	
 	public void write(ListInfo listInfo) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
@@ -26,13 +28,14 @@ public class GetWriteService {
 		}
 	}
 
-	public void replyWrite(ReplyInfo replyInfo) {
+	public int replyWrite(ReplyInfo replyInfo) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
 		try {
-			dao.replyWrite(replyInfo);
+			check = dao.replyWrite(replyInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return check;
 	}
 }
