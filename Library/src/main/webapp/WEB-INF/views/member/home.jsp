@@ -18,11 +18,11 @@
 				<td id="thumb5" width="20%"></td>
 			</tr>
 		</table>
-		<table style="width: 100%; border: none;">
+		<table style="width: 100%;" class="jc_table">
 			<tr>
-				<td>책 제목</td>
-				<td>작가</td>
-				<td>출판사</td>
+				<th>책 제목</th>
+				<th>작가</th>
+				<th>출판사</th>
 			</tr>
 			<tr>
 				<td id="detail_name_1"></td>
@@ -61,11 +61,11 @@
 				<td id="thumb10" width="20%"></td>
 			</tr>
 		</table>
-		<table style="width: 100%; border: none;">
+		<table style="width: 100%;" class="jc_table">
 			<tr>
-				<td>책 제목</td>
-				<td>작가</td>
-				<td>출판사</td>
+				<th>책 제목</th>
+				<th>작가</th>
+				<th>출판사</th>
 			</tr>
 			<tr>
 				<td id="detail_name_6"></td>
@@ -95,19 +95,15 @@
 		</table>
 	</div>
 </div>
-<script>
-$('calImgSize')val($('thumb1').width()); // 이미지 세로 크기 계산
 
-</script>
 <c:set var="count" value="0" scope="page" />
 <c:forEach var="item" items="${bookList}">
 	<c:set var="count" value="${count + 1}" scope="page" />
 	<script>
-	
 		$('#thumb${count}')
 				.html(
 						'<img src="${item.book_image}" style="width: 100%; padding-right: 20px; text-align: center;" id="img${count}">');
-		$('#img${count}').height($('thumb1').width()*1.5);
+		$('#img${count}').height($('#thumb1').width() * 1.3);
 		$('#detail_name_${count}').html('${item.book_name}');
 		$('#detail_writer_${count}').html('${item.book_writer}');
 		$('#detail_publisher_${count}').html('${item.book_publisher}');
