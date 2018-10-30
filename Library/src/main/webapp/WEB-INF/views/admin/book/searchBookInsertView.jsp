@@ -87,6 +87,7 @@
 			}
 		});
 	}
+	//주석
 	</script>
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

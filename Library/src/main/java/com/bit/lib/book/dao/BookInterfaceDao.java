@@ -21,3 +21,4 @@ public interface BookInterfaceDao {
 	public List<BookInfo> selectAllBookList();
 	public int bookCodeCheck(@Param("book_code")String book_code);
 }
+//주석

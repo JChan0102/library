@@ -106,4 +106,5 @@
 		select count(*) from book
 		where book_code = #{book_code}
 	</select>
+	<!-- 주석 -->
 </mapper>
