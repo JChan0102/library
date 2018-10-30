@@ -18,4 +18,5 @@ public interface BookInterfaceDao {
 	public List<BookInfo> selectBookOrder(OrderParam orderParam);
 	public List<BookInfo> afterDelete();
 	public List<BookInfo> selectNewTopTen();
+	public List<BookInfo> selectAllBookList();
 }
