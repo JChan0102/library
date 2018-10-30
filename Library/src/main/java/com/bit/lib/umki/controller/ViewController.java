@@ -34,10 +34,10 @@ public class ViewController {
 		return modelAndView;
 	}
 	
-	@RequestMapping("member/home/view")
+/*	@RequestMapping("member/home/view")
 	@ResponseBody
 	public List<ReplyInfo> reply(@RequestParam("idx") int idx) {
 		List<ReplyInfo> replyInfo = service2.getReplyContent(idx); //댓글처리
 		return replyInfo;
-	}
+	}*/
 }
