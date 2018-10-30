@@ -22,4 +22,14 @@ public class GetUpdateService {
 		}
 	}
 
+//	public void ReplyUpdate(int r_idx) {
+//		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+//		
+//		try {
+//			dao.replyUpdate(r_idx);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+
 }

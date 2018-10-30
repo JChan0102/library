@@ -30,4 +30,11 @@ public interface ListDaoInterface {
 
 	public List<ReplyInfo> getReplyContent(int idx) throws Exception;
 
+	public int replyDelete(int r_idx) throws Exception;
+	
+	public void replyUpdate(int r_idx) throws Exception;
+
+	public List<ReplyInfo> getReplyList(int idx) throws Exception;
+
+
 }

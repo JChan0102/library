@@ -61,5 +61,17 @@
 		select * from freelist_reply where idx=#{idx}
 	</select>
 	
+	
+	<delete id="replyDelete" parameterType="int">
+		DELETE FROM freelist_reply WHERE r_idx=#{r_idx};
+	</delete>
+	
+	<update id="replyUpdate" parameterType="int">
+		UPDATE freelist_reply SET replytext = '${list_title}', list_content = '${list_content}' WHERE idx = ${idx}
+	</update>
+	
+	<select id="getReplyList" resultType="ReplyInfo" parameterType="int">
+		select * from freelist_reply where idx=#{idx}
+	</select>
 
 </mapper>

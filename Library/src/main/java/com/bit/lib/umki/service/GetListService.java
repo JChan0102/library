@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
+import com.bit.lib.umki.model.ReplyInfo;
 
 public class GetListService {
 	
@@ -17,6 +18,7 @@ public class GetListService {
 	int num1 = 0;
 	int num2 = 0;
 	List<ListInfo> list = null;
+	List<ReplyInfo> replyInfo = null;
 
 	public List<ListInfo> getList(int page) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
@@ -30,5 +32,16 @@ public class GetListService {
 		}
 		
 		return list;
+	}
+
+	public List<ReplyInfo> getReplyList(int idx) {
+		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		try {
+			replyInfo = dao.getReplyList(idx);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return replyInfo;
 	}
 }
