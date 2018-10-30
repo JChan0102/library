@@ -38,7 +38,12 @@
 							${item.book_code}
 						</td>
 						<td width="200">
+							<c:if test="${item.book_exist eq 0}">
+								<b>대출 중인 도서입니다.</b>
+							</c:if>
+							<c:if test="${item.book_exist eq 1}">
 							<input type="button" value="삭제"  onclick="deleteBook('${item.book_code}')">
+							</c:if>
 						</td>
 					</tr>
 					<tr>
@@ -74,12 +79,21 @@
 					var bookListView = '';
 					var url = '${pageContext.request.contextPath}/admin/book/bookDelete';
 					$.each(data,function(index,item){
+						
+						var exist = '';
+						if(item.book_exist == 1){
+							exist = '<input type="button" value="삭제" onclick="deleteBook(\''+item.book_code+'\')">';
+							
+						}else{
+							exist = '<b>대출 중인 도서 입니다.</b>'
+						}
+						
 						bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
 						bookListView += '<tr><td rowspan="2"><img src="'+item.book_image+'" alt="이미지 없음"> </td>';
 						bookListView += '<td rowspan="3" width="800">'+item.book_name+'</td>';
 						bookListView +=	'<td width="200">'+item.book_writer+'</td>';
 						bookListView +=	'<td width="300">'+item.book_code+'</td>';
-						bookListView += '<td width="200"><input type="button" value="삭제" onclick="deleteBook(\''+item.book_code+'\')"></td></tr>';
+						bookListView += '<td width="200">'+exist+'</td></tr>';
 						bookListView += '<tr><td width="200">'+item.book_publisher+'</td>';
 						bookListView +=	'<td width="200">'+item.book_isbn+'</td>';
 						bookListView += '</tr>'
