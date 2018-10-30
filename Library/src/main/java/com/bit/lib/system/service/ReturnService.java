@@ -38,6 +38,7 @@ public class ReturnService {
         Borrow borrow = borrowDao.selectByBook_code(book_code);
         if(borrow!=null) {
             int day = borrowDao.getDay(borrow.getReturnDate());
+            int allBorrwDay = borrowDao.getDay(borrow.getBorrowDate());
             MemberVO member = memberDao.selectOneMember(borrow.getMember_id());
             map.put("username", member.getName());
 
@@ -46,7 +47,7 @@ public class ReturnService {
                 DateFormat dateFormat;
                 dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Calendar caldate = Calendar.getInstance();
-
+                member.setTotoverduedays(member.getTotoverduedays()+day);
                 if (!("possible".toUpperCase().equals(member.getPossibledate().toUpperCase()))) {
                     Date date = dateFormat.parse(member.getPossibledate());
                     caldate.setTime(date);
@@ -58,6 +59,7 @@ public class ReturnService {
             } else {
                 map.put("msg", "정상적으로 반납이 완료 되었습니다 ");
             }
+            member.setTotborrowDays(member.getTotoverduedays()+allBorrwDay);
             availAmountUpdate(member);
             book_existUpdate(book_code);
             borrowDao.delete(borrow);

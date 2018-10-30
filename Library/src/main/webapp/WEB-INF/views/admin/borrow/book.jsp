@@ -14,7 +14,7 @@
         </div>
         <form style="float: left" method="post" id="booksub">
             <input type="hidden" name="member.member_id" value="${member.member_id}">
-            <button type="submit"class="color3_btn custom_btn btn_borrow" STYLE="width: 70px" > <i class="fas fa-clipboard-check"></i> </button>
+            <button type="submit"class="color3_btn custom_btn" STYLE="width: 70px" > <i class="fas fa-clipboard-check"></i> </button>
         </form>
         </div>
 
