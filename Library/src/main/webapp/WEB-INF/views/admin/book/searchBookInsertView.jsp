@@ -40,7 +40,7 @@
 							<input type="hidden" name="book_writer" value="${item.book_writer}">
 						</td>
 						<td width="300">
-							<input type="text" class="form-control" name="book_code" placeholder="북코드입력" requried>
+							<input type="text" class="form-control" name="book_code" placeholder="북코드입력" onblur="checkBookCode(this)" requried>
 						</td>
 						<td width="200" class="td_middle">
 							<button type="submit" class="color3_btn btn" style="color:white" ><i class="fas fa-book"></i> 등록</button>
@@ -71,6 +71,23 @@
 			</c:forEach>
 		</table>
 	</c:if>
+	<script>
+	function checkBookCode(code){
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/admin/book/bookCodeCheck?book_code='+code.value,
+			type:'GET',
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+			dataType: 'json',
+			success:function(data){
+				alert(data.result);
+			},
+			error:function(){
+				alert('오류발생');
+			}
+		});
+	}
+	</script>
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
 

@@ -23,4 +23,5 @@
 	<bean id="bookUserViewService" class="com.bit.lib.book.service.BookUserViewService"/>
 	<bean id="bookSearchUserOrderService" class="com.bit.lib.book.service.BookSearchUserOrderService"/>
 	<bean id="userHomeService" class="com.bit.lib.member.service.UserHomeService"/>
+	<bean id="bookCheckCodeService" class="com.bit.lib.book.service.BookCheckCodeService"/>
 </beans>

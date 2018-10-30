@@ -37,8 +37,6 @@ public class BookSearchInsertController {
 		try {
 			bookList = serivce.bookList(option, keyword,listCnt);
 			modelAndView.addObject("bookList", bookList);
-			//bookInsertDB = serivce.bookRemoveHtml(bookList);
-			//modelAndView.addObject("bookInsertDB", bookInsertDB);
 			modelAndView.setViewName("admin/book/searchBookInsertView");
 		} catch (Exception e) {
 			modelAndView.setViewName("admin/book/searchBookInsertFail");
