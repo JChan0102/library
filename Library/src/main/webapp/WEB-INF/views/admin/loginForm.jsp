@@ -19,7 +19,7 @@
 				class="form-control form-control-lg" placeholder="Password"
 				required="required" autofocus="autofocus">
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+		<button class="btn btn-lg btn-dark btn-block" type="submit">로그인</button>
 	</div>
 </form>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

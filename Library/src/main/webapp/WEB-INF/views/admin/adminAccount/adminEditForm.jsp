@@ -28,10 +28,11 @@
 		});
 	});
 </script>
+<hr class="my-4">
+<h1 class="page_title color5">관리자 계정 수정</h1>
+<hr class="my-4">
 <form method="post">
 	<div class="alert alert-light">
-		<h1 class="h3 mb-6 font-weight-normal">관리자 수정</h1>
-
 		<div class="form-group">
 			<label>아이디</label><input type="text" name="admin_id"
 				class="form-control form-control-lg" value="${av.admin_id}"
@@ -45,7 +46,7 @@
 		<c:choose>
 			<c:when test="${'admin' eq av.admin_id}">
 							관리자 'admin' 계정의 경우 권한을 수정할 수 없습니다.
-						</c:when>
+			</c:when>
 			<c:otherwise>
 				<div class="form-group">
 					<label>권한</label> ${av.permission}
@@ -60,15 +61,15 @@
 								value="${fn:substring(permission, count-1, count)}">
 							<label for="permission${count}"> ${item}</label>
 						</c:forEach>
-						<input type="text" id="permission" name="permission"
+						<input type="hidden" id="permission" name="permission"
 							value="${av.permission}" />
 					</div>
 				</div>
 			</c:otherwise>
 		</c:choose>
 
-		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2"  type="submit">관리자
-			등록</button>
+		<button class="color4_btn custom_btn btn-block" style="color: #F5FFD2"
+			type="submit">관리자 등록</button>
 	</div>
 </form>
 

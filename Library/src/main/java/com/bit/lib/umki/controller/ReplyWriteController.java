@@ -22,9 +22,10 @@ public class ReplyWriteController {
 
 	@RequestMapping(value = "/member/home/view/reply", method =RequestMethod.POST)
 	@ResponseBody
-	public List<ReplyInfo> write(ReplyInfo replyInfo) {
-		service1.replyWrite(replyInfo);
-		List<ReplyInfo> replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
-		return replyInfo2;
+	public int write(ReplyInfo replyInfo) {
+		int check = service1.replyWrite(replyInfo);
+		System.out.println(check);
+//		List<ReplyInfo> replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
+		return check;
 	}
 }

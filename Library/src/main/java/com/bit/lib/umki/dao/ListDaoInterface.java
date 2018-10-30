@@ -26,7 +26,7 @@ public interface ListDaoInterface {
 
 	public int page(int idx) throws Exception;
 
-	public void replyWrite(ReplyInfo replyInfo) throws Exception;
+	public int replyWrite(ReplyInfo replyInfo) throws Exception;
 
 	public List<ReplyInfo> getReplyContent(int idx) throws Exception;
 

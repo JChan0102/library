@@ -19,6 +19,24 @@ public class BookSearchUserController {
 	@Autowired
 	private BookSearchUserService service;
 	
+	// -추가시작-
+	@RequestMapping(method=RequestMethod.GET)
+	public ModelAndView bookSearchGet(@RequestParam("keyword")String keyword) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		//공백제거
+		keyword = keyword.replaceAll(" ", "");
+		
+		List<BookInfo> list = service.searchBook(keyword);
+		
+		modelAndView.addObject("bookList", list);
+		modelAndView.addObject("keyword", keyword);
+		modelAndView.setViewName("member/book/searchBookList");
+		
+		return modelAndView;
+	}
+	// -추가끝-
+
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView bookSearch(@RequestParam("keyword")String keyword) {
 		

@@ -3,8 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
+<hr class="my-4">
+<h1 class="page_title color5">관리자 계정 관리</h1>
+<hr class="my-4">
 
-<h1>관리자 계정 관련 기능</h1>
 <a href="${pageContext.request.contextPath}/admin/adminAccount/adminReg">
 	<button class="btn"><i class="fas fa-user-plus"></i> 관리자 등록</button></a>
 <table class="jc_table">

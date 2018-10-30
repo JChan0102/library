@@ -4,7 +4,9 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1 >Library Service</h1>
+<hr class="my-4">
+<h1 class="page_title color5">도서 대출/반납</h1>
+<hr class="my-4">
 
 <div class="container text-center">
 <a href="borrow/membersearch"><button class="color4_btn custom_btn btn_borrow"><i class="fab fa-stack-overflow fa-flip-horizontal"></i> 책 대출</button></a>
