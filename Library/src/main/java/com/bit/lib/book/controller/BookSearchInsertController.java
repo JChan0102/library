@@ -39,7 +39,7 @@ public class BookSearchInsertController {
 			modelAndView.addObject("bookList", bookList);
 			modelAndView.setViewName("admin/book/searchBookInsertView");
 		} catch (Exception e) {
-			modelAndView.setViewName("admin/book/searchBookInsertFail");
+			
 		}
 		
 		return modelAndView;

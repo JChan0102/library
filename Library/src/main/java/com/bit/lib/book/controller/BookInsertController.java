@@ -21,9 +21,7 @@ public class BookInsertController {
 		String url = "/admin/book/bookInsertOk";
 
 		int resultCnt = service.bookInsert(bookInfo);
-		if (resultCnt < 1) {
-			url = "/admin/book/bookInsertFail";
-		}
+		
 		return url;
 	}
 
