@@ -20,7 +20,7 @@
                         <%-- <h6 id= " ${status.index} " >${info.replytext}</h6> --%>
                             <input type="text" readonly style="border: 0px" id="${status.index}" value="${info.replytext}">
                             <button type="button" class="btn btn-primary btn-sm" onclick="replyDelete(${info.idx},${info.r_idx})">삭제</button>
-                            <button type="button" class="btn btn-primary btn-sm" onclick="replyUpdate(this, ${status.index})">수정</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="replyUpdate(this, ${status.index}, ${info.idx}, ${info.r_idx})">수정</button>
                             <hr />
                 </c:forEach>
 
@@ -59,10 +59,10 @@
                                             value.replyer +
                                             '</a> </h5>';
 
-                                        reply += '<input type="text" readonly style="border: 0px" id=' + key + ' value= ' + value.replytext + '>';
+                                        reply += '<input type="text" readonly style="border: 0px" id=' + key + ' value= "' + value.replytext + '">';
                                         reply += '<button type="button" class="btn btn-primary btn-sm"';
                                         reply += 'onclick="replyDelete(' + value.idx + ',' + value.r_idx + ')">삭제</button>';
-                                        reply += '<button type="button" class="btn btn-primary btn-sm" onclick="replyUpdate(this, ' + key + ')">수정</button>'
+                                        reply += '<button type="button" class="btn btn-primary btn-sm" onclick="replyUpdate(this, ' + key + ','+ value.idx + ',' + value.r_idx + ')">수정</button>'
                                         reply += '<hr />';
                                     });
                             $('#reply').html(reply);
@@ -109,31 +109,34 @@
                     });
                 }
 
-                function replyUpdate(obj, key) {
+                function replyUpdate(obj, key, idx, r_idx) {
                 	/* alert($(obj).html()); */
                     /* obj.innerHTML = "수정하기"; */
                     
                     $(obj).text("수정하기");
                     $('#' + key).attr("readonly", false);
                     $('#' + key).focus();
-                    /* $(obj).removeAttr("onclick"); 
-                    $(obj).attr("onclick", function(
-                    alert("test");		
-                    );)  */
+                    $(obj).removeAttr("onclick");
+
+                    $(obj).attr("onclick",'replyUpdateAjax('+idx+','+r_idx+')');
+                    
+
+                    
                     
                     /* $(obj).css("background" , "red"); */
                     /* $('#' + key).css("border", "1px solid black"); */
                     /* obj.style. = "red";  */
                     /* console.log(obj.toString()); */
                     /* $('#'+key).after('<button onclick=""> </button>'); */
-
                     /* console.log($('#'+key).text()); */
                 }
 
-                function replyUpdateAjax() {
-                    $.ajax({
-
-                    });
+                function replyUpdateAjax(idx, r_idx) {
+                	alert(idx);
+                	alert(r_idx);
+                    /* $.ajax({
+                    	replyList(idx);
+                    }); */
                 }
 
             </script>
