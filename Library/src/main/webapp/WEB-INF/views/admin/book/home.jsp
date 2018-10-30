@@ -4,8 +4,17 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1>책 관련 기능</h1>
-<a href="${pageContext.request.contextPath}/admin/book/searchInsertBook">책등록</a>
-<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook">책삭제</a>
+<h1 >Book Service</h1>
+<div class="container text-center">
+
+	<a href="${pageContext.request.contextPath}/admin/book/searchInsertBook">
+		<button class="color4_btn custom_btn btn_borrow"><i class="fas fa-plus-square"></i> 책 등록</button>
+		</a>
+	<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook">
+		<button class="color4_btn custom_btn btn_borrow"><i class="fas fa-minus-square"></i> 책 삭제</button></a>
+
+</div>
+
+
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

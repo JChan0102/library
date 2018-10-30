@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateAvailAmount"
 		parameterType="com.bit.lib.member.model.MemberVO">
 		UPDATE `librarydb`.`member` SET
-		availAmount=#{availAmount} WHERE
+		availAmount=#{availAmount}, totborrowDays=#{totborrowDays}, totoverduedays=#{totoverduedays} WHERE
 		member_id=#{member_id};
 	</update>
 
