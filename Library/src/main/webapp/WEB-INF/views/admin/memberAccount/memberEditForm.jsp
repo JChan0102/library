@@ -33,8 +33,7 @@
 			value="${mv.totoverduedays}" /> <input type="hidden"
 			name="possibledate" value="${mv.possibledate}" />
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">회원
-			수정</button>
+		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2"  type="submit">회원 수정</button>
 	</div>
 </form>
 

@@ -57,8 +57,7 @@
 			name="totoverduedays" value="0" /> <input type="hidden"
 			name="possibledate" value="POSSIBLE" />
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">회원
-			등록</button>
+		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2"  type="submit">회원 등록</button>
 	</div>
 </form>
 

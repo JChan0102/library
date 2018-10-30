@@ -60,8 +60,7 @@ html {
 	
 }
 
-@
--ms-viewport {
+@-ms-viewport {
 	width: device-width;
 }
 
@@ -500,18 +499,7 @@ mark, .mark {
 
 )
 {
-margin-right
-
-
-:
-
- 
-
-0
-.5rem
-
-
-;
+margin-right: 0.5rem;
 }
 .initialism {
 	font-size: 90%;
@@ -2559,7 +2547,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-warning {
 	color: #212529;
-	background-color: #ffc107;
+	background-color: #ffa625;
 	border-color: #ffc107;
 }
 
@@ -2595,7 +2583,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-danger {
 	color: #fff;
-	background-color: #dc3545;
+	background-color: #ab1714;
 	border-color: #dc3545;
 }
 
@@ -4052,71 +4040,10 @@ border-bottom-left-radius
 	color: #495057;
 	background-color: #fff;
 }
-
-.custom-select
-
-
-[
-multiple
-]
-,
-.custom-select
-
-
-[
-size
-]
-
-
-:not
-
- 
-
-(
-[
-size
-=
-"1"
-]
-
- 
-
-)
-{
-height
-
-
-:
-
- 
-
-auto
-
-
-;
-padding-right
-
-
-:
-
- 
-
-0
-.75rem
-
-
-;
-background-image
-
-
-:
-
- 
-
-none
-
-
-;
+.custom-select [multiple], .custom-select [size] :not([size="1"]) {
+height:auto;
+padding-right: 0.75rem;
+background-image: none;
 }
 .custom-select:disabled {
 	color: #6c757d;
@@ -5664,8 +5591,7 @@ pointer
 	color: #040505;
 }
 
-@
--webkit-keyframes progress-bar-stripes {from { background-position:1rem0;
+@-webkit-keyframes progress-bar-stripes {from { background-position:1rem0;
 	
 }
 
@@ -5674,8 +5600,7 @@ to {
 }
 
 }
-@
-keyframes progress-bar-stripes {from { background-position:1rem0;
+@keyframes progress-bar-stripes {from { background-position:1rem0;
 	
 }
 
@@ -6582,9 +6507,7 @@ margin-right
 	transform: translateX(0);
 }
 
-@
-supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d
-	 )) { .carousel-item-next .carousel-item-left, .carousel-item-prev.carousel-item-right
+@supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d  )) { .carousel-item-next .carousel-item-left, .carousel-item-prev.carousel-item-right
 	{
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -6596,9 +6519,7 @@ supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-
 	transform: translateX(100%);
 }
 
-@
-supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d
-	 )) { .carousel-item-next, .active.carousel-item-right {
+@supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d  )) { .carousel-item-next, .active.carousel-item-right {
 	-webkit-transform: translate3d(100%, 0, 0);
 	transform: translate3d(100%, 0, 0);
 }
@@ -6609,9 +6530,7 @@ supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-
 	transform: translateX(-100%);
 }
 
-@
-supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d
-	 )) { .carousel-item-prev, .active.carousel-item-left {
+@supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d  )) { .carousel-item-prev, .active.carousel-item-left {
 	-webkit-transform: translate3d(-100%, 0, 0);
 	transform: translate3d(-100%, 0, 0);
 }
@@ -6640,8 +6559,7 @@ supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-
 	transform: translateX(0);
 }
 
-@
-supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d
+@supports ((-webkit-transform-style: preserve-3d ) or (transform-style: preserve-3d
 	 )) { .carousel-fade .carousel-item-next, .carousel-fade
 	.carousel-item-prev, .carousel-fade .carousel-item.active,
 	.carousel-fade .active.carousel-item-left, .carousel-fade
@@ -8046,8 +7964,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus
 	z-index: 1030;
 }
 
-@
-supports ((position: -webkit-sticky ) or (position: sticky )) {
+@supports ((position: -webkit-sticky ) or (position: sticky )) {
 	.sticky-top {
 	position: -webkit-sticky;
 	position: sticky;
