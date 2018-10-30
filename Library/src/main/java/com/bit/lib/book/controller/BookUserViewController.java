@@ -20,8 +20,8 @@ public class BookUserViewController {
 	
 	@RequestMapping(method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView bookView(@RequestParam("book_isbn")String book_isbn) {
-		ModelAndView modelAndView = new ModelAndView();
 		
+		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("member/book/bookView");
 		
 		try {

@@ -30,6 +30,7 @@
 				AND book_code like CONCAT('%',#{keyword},'%')
 			</if>
 		</where>
+		order by book_time desc
 	</select>
 	<select id="selectBookOrder"
 		parameterType="com.bit.lib.book.model.OrderParam"
@@ -91,10 +92,10 @@
 		where book_isbn = #{book_isbn} AND book_exist = 1
 	</select>
 	<select id="afterDelete" resultType="com.bit.lib.book.model.BookInfo">
-		select * from book order by book_time
+		select * from book order by book_time desc
 	</select>
 	<select id="selectNewTopTen" resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
-		order by book_time limit 0,10
+		order by book_time desc limit 0,10
 	</select>
 </mapper>

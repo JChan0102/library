@@ -21,8 +21,8 @@
 	</c:if>
 	<c:if test="${!bookList.isEmpty()}">
 		<table>
+			<tbody  id="bookListView">
 			<c:forEach var="item" items="${bookList}">
-				<form action="${pageContext.request.contextPath}/admin/book/bookDelete" method="post">
 					<tr>
 						<td colspan="5" width="100%" bgcolor="pink"></td>
 					</tr>
@@ -36,10 +36,9 @@
 						</td>
 						<td width="300">
 							${item.book_code}
-							<input type="hidden" name="book_code" value="${item.book_code}">
 						</td>
 						<td width="200">
-							<input type="submit" value="삭제">
+							<input type="button" value="삭제"  onclick="deleteBook('${item.book_code}')">
 						</td>
 					</tr>
 					<tr>
@@ -56,11 +55,45 @@
 					<tr>
 						<td colspan="5" width="100%" bgcolor="pink"></td>
 					</tr>
-				</form>
 			</c:forEach>
+			</tbody>
 		</table>
 	</c:if>
 	
+	<script>
+		function deleteBook(code){
+			
+			console.log(code);
+			$.ajax({
+				url : '${pageContext.request.contextPath}/admin/book/bookDelete?book_code='+code,
+				type:'GET',
+				contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+				dataType: 'json',
+				success:function(data){
+					alert('삭제하였습니다');
+					var bookListView = '';
+					var url = '${pageContext.request.contextPath}/admin/book/bookDelete';
+					$.each(data,function(index,item){
+						bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
+						bookListView += '<tr><td rowspan="2"><img src="'+item.book_image+'" alt="이미지 없음"> </td>';
+						bookListView += '<td rowspan="3" width="800">'+item.book_name+'</td>';
+						bookListView +=	'<td width="200">'+item.book_writer+'</td>';
+						bookListView +=	'<td width="300">'+item.book_code+'</td>';
+						bookListView += '<td width="200"><input type="button" value="삭제" onclick="deleteBook(\''+item.book_code+'\')"></td></tr>';
+						bookListView += '<tr><td width="200">'+item.book_publisher+'</td>';
+						bookListView +=	'<td width="200">'+item.book_isbn+'</td>';
+						bookListView += '</tr>'
+						bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
+						
+					});
+					$('#bookListView').html(bookListView);
+				},
+				error:function(){
+					alert('오류발생');
+				}
+			});
+		}
+	</script>
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
 

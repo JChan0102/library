@@ -76,7 +76,7 @@
 <script>
    function bookOrderFn(){
       var value = $('#bookOrder').serialize();
-      
+      coonsole.log(value);
       $.ajax({
          url:'${pageContext.request.contextPath}/member/book/bookOrderBy',
          type:'POST',
@@ -93,13 +93,13 @@
                bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
                bookListView += '<tr><td rowspan="2"><img src="'+item.book_image+'" alt="이미지 없음"> </td>';
                bookListView += '<td rowspan="3" width="800">'+item.book_name+'</td>';
-               bookListView +=   '<td width="200">'+item.book_writer+'</td>';
-               bookListView +=   '<td width="300">'+item.book_code+'</td>';
-               bookListView += '<td width="200"><a href="'+url+'?book_isbn='+item.book_isbn+'"><input type="button" name="book_isbn" value="상세보기"></a></td></tr>';
-               bookListView += '<tr><td width="200">'+item.book_publisher+'</td>';
-               bookListView +=   '<td width="200">'+item.book_isbn+'</td>';
-               bookListView += '</tr>'
-               bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
+               bookListView +=  '<td width="200">'+item.book_writer+'</td>';
+               bookListView +=  '<td width="300">'+item.book_code+'</td>';
+               bookListView +=  '<td width="200"><a href="'+url+'?book_isbn='+item.book_isbn+'"><input type="button" name="book_isbn" value="상세보기"></a></td></tr>';
+               bookListView +=  '<tr><td width="200">'+item.book_publisher+'</td>';
+               bookListView +=  '<td width="200">'+item.book_isbn+'</td>';
+               bookListView +=  '</tr>'
+               bookListView +=  '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
                
             });
             $('#bookListView').html(bookListView);
