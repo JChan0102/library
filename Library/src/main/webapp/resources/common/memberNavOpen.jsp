@@ -24,7 +24,7 @@
 			method="post">
 			<input class="form-control mr-sm-2" type="text" placeholder="Book"
 				name="keyword" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+			<button class="btn btn-dark mr-sm-2" type="submit">검색</button>
 		</form>
 		<c:choose>
 			<c:when test="${empty memberLoginInfo}">

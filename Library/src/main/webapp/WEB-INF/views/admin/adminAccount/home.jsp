@@ -5,14 +5,14 @@
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 
 <h1>관리자 계정 관련 기능</h1>
-<a href="${pageContext.request.contextPath}/admin/adminAccount/adminReg"><input
-	type="button" value="관리자 등록"></a>
-<table>
+<a href="${pageContext.request.contextPath}/admin/adminAccount/adminReg">
+	<button class="btn"><i class="fas fa-user-plus"></i> 관리자 등록</button></a>
+<table class="jc_table">
 	<tr>
-		<td>관리자 아이디</td>
-		<td>관리자 비밀번호</td>
-		<td>관리자 권한</td>
-		<td>수정/삭제</td>
+		<th>관리자 아이디</th>
+		<th>관리자 비밀번호</th>
+		<th>관리자 권한</th>
+		<th>수정/삭제</th>
 	</tr>
 	<c:forEach var="item" items="${admins}">
 		<c:if test="${'admin' ne item.admin_id}">
@@ -22,11 +22,23 @@
 			<td>${item.password}</td>
 			<td>${item.permission}</td>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/adminAccount/adminEdit?admin=${item.admin_id}"><input
-					type="button" value="수정"></a><a
-				href="${pageContext.request.contextPath}/admin/adminAccount/adminDelete?admin=${item.admin_id}"><input
-					type="button" value="삭제"
-					<c:if test="${'admin' eq item.admin_id}">disabled</c:if>></a></td>
+				href="${pageContext.request.contextPath}/admin/adminAccount/adminEdit?admin=${item.admin_id}">
+			<button class="btn btn-warning"><i class="fas fa-user-edit"></i></button></a>
+
+				<c:choose>
+					<c:when test="${'admin' eq item.admin_id}">
+						<button  type="button" class="btn btn-danger" disabled>
+							<i class="fas fa-user-slash"></i>
+						</button>
+					</c:when>
+					<c:otherwise>
+						<a href="${pageContext.request.contextPath}/admin/adminAccount/adminDelete?admin=${item.admin_id}">
+							<button  type="button" class="btn btn-danger">
+								<i class="fas fa-user-slash"></i>
+							</button></a>
+					</c:otherwise>
+				</c:choose>
+			</td>
 		</tr>
 	</c:forEach>
 </table>

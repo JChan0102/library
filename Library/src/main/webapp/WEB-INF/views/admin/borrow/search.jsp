@@ -4,21 +4,22 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <!-- 이곳이 body -->
-<h1>여기는 유저를 검색합니다.</h1>
+<h1>회원 검색(폰트 먹이는법 모르겟읍니다)</h1>
+
 <form method="post" >
-    <input type="text" name="member_id" class="form-control ">
-    <input type="submit" class="btn btn-dark" value="검색">
+    <input type="text" name="member_id" class="inputtext width_400">
+    <button type="submit" class="color3_btn custom_btn"> <i class="fas fa-search"></i></button>
 </form>
 <c:if test="${!(empty memberList)}">
-    <table>
+    <table class="jc_table width_486">
         <tr>
-            <td> id</td>
+            <th> id</th>
 
         </tr>
         <c:forEach var="member" items="${memberList}">
             <tr>
                 <td>
-                    <a href="book?id=${member.member_id}">${member.member_id}</a>
+                    <a class="tag_a" href="book?id=${member.member_id}">${member.member_id}</a>
                 </td>
             </tr>
         </c:forEach>

@@ -63,7 +63,7 @@
 					value="" />
 			</div>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">관리자
+		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2" type="submit">관리자
 			등록</button>
 	</div>
 </form>

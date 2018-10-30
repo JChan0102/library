@@ -13,7 +13,7 @@ public class DeleteController {
 	@Autowired
 	GetDeleteService service;
 	
-	@RequestMapping("/member/home/view/delete")
+	@RequestMapping("/member/home/delete")
 	public String delete(@RequestParam("idx") int idx) {
 		service.delete(idx);
 		

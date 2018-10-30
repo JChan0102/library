@@ -6,19 +6,20 @@
 
 <h1>회원 계정 관련 기능</h1>
 <a
-	href="${pageContext.request.contextPath}/admin/memberAccount/memberReg"><input
-	type="button" value="회원 등록"></a>
-<table>
+	href="${pageContext.request.contextPath}/admin/memberAccount/memberReg">
+	<button class="btn"><i class="fas fa-user-plus"></i> 회원 등록</button>
+</a>
+<table class="jc_table">
 	<tr>
-		<td>회원 아이디</td>
-		<td>회원 비밀번호</td>
-		<td>회원 이름</td>
-		<td>대출 가능 권수</td>
-		<td>전화번호</td>
-		<td>총 대출일</td>
-		<td>총 연체일</td>
-		<td>대출 가능 일자</td>
-		<td>수정/삭제</td>
+		<th>회원 아이디</th>
+		<th>회원 비밀번호</th>
+		<th>회원 이름</th>
+		<th>대출 가능 권수</th>
+		<th>전화번호</th>
+		<th>총 대출일</th>
+		<th>총 연체일</th>
+		<th>대출 가능 일자</th>
+		<th>수정/삭제</th>
 	</tr>
 	<c:forEach var="item" items="${members}">
 		<tr>
@@ -31,10 +32,12 @@
 			<td>${item.totoverduedays}</td>
 			<td>${item.possibledate}</td>
 			<td><a
-				href="${pageContext.request.contextPath}/admin/memberAccount/memberEdit?member=${item.member_id}"><input
-					type="button" value="수정"></a><a
-				href="${pageContext.request.contextPath}/admin/memberAccount/memberDelete?member=${item.member_id}"><input
-					type="button" value="삭제"></a></td>
+				href="${pageContext.request.contextPath}/admin/memberAccount/memberEdit?member=${item.member_id}"><button class="btn btn-warning"><i class="fas fa-user-edit"></i></button></a>
+				<a
+				href="${pageContext.request.contextPath}/admin/memberAccount/memberDelete?member=${item.member_id}">
+				<button  type="button" class="btn btn-danger">
+					<i class="fas fa-user-slash"></i>
+				</button></a></td>
 		</tr>
 	</c:forEach>
 </table>
