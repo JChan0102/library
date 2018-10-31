@@ -96,11 +96,12 @@
 	</select>
 	<select id="selectNewTopTen" resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
+		group by book_isbn
 		order by book_time desc limit 0,10
 	</select>
 	<select id="selectAllBookList" resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
-		order by book_time desc
+		order by book_time desc 
 	</select>
 	<select id="bookCodeCheck" resultType="int">
 		select count(*) from book
