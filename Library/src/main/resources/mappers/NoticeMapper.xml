@@ -11,7 +11,7 @@
 	</insert>
 	<select id="selectnotice"
 		resultType="com.bit.lib.notice.model.NoticeModel">
-		select * from notice
+		select * from notice order by bId desc
 	</select>
 	<select id="selectviewLink"
 		resultType="com.bit.lib.notice.model.NoticeModel">
@@ -21,7 +21,9 @@
 	<!-- 	resultType="com.bit.lib.notice.model.NoticeModel"> -->
 		delete  from notice where bId = #{bId}
 	</delete>
-
+	<update id="update" parameterType="com.bit.lib.notice.model.NoticeModel">
+		update notice set bTitle = #{bTitle}, bContent=#{bContent},bDate=now()  where bId=#{bId}
+	</update>
 </mapper>      
         
         

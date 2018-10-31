@@ -20,7 +20,7 @@ public class NoticeDeleteController {
 		
 		service.deleteLink(bId);
 		
-		return"admin/notice/list";
+		return "redirect:/admin/notice";
 	}
 
 }

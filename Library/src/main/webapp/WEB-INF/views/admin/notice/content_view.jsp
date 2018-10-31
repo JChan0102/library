@@ -30,7 +30,7 @@
 		type="button" class="btn btn-dark">목록보기</button></a>
 &nbsp;&nbsp;
 <a
-	href=""><button
+	href="${pageContext.request.contextPath}/admin/notice/update?bId=${viewLink.bId}"><button
 		type="button" class="btn btn-dark">수정</button></a>
 &nbsp;&nbsp;
 <a

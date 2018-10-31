@@ -11,20 +11,20 @@
 		style="border-top: 2px solid #547980; border-bottom: 2px solid #547980;">
 		<tr>
 			<th width="120">이름</th>
-			<td><input type="text" name="bName" size="50"
+			<td>관리자<input type="hidden" value="관리자" name="bName" size="50"
 				class="form-control"></td>
 		</tr>
 		<tr>
 			<th>제목</th>
 			<td><input type="text" name="bTitle" size="50"
-				class="form-control"></td>
+				class="form-control" required="required"></td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea name="bContent" rows="10" class="form-control"></textarea></td>
+			<td><textarea name="bContent" rows="10" class="form-control" required="required"></textarea></td>
 		</tr>
 	</table>
-	<br> <input type="submit" value="입력" class="btn btn-dark">
+	<br> <input type="submit" value="입력" class="btn btn-dark" >
 </form>
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>

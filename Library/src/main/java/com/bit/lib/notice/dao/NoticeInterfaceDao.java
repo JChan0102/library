@@ -13,4 +13,8 @@ public interface NoticeInterfaceDao {
   public NoticeModel selectviewLink (int bId);
   
   public void deleteLink(int bId);
+  
+  public void update(NoticeModel noticeModel);
+  
+
 }
