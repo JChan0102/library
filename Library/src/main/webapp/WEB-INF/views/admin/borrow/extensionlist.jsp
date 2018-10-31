@@ -37,7 +37,12 @@
                 <td>
                     <form method="post">
                         <input type="hidden" name="book_code" value="${item.book_code}">
+                        <input type="hidden" name="ok" value="true">
                     <button type="submit" class="btn btn-warning"><i class="fas fa-check-circle"></i> 승인 </button></form>
+                    <form method="post">
+                        <input type="hidden" name="book_code" value="${item.book_code}">
+                        <input type="hidden" name="ok" value="false">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-check-circle"></i> 거부 </button></form>
                 </td>
 
             </tr>

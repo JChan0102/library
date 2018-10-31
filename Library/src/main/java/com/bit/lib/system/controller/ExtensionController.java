@@ -27,7 +27,7 @@ public class ExtensionController {
         mybookList.setBook_code(book_id);
         model.addAttribute("check",service.extension(mybookList));
 
-        return "member/memberAccount/extensionOk";
+        return "redirect:/member/memberAccount/myBook";
     }
 
 @RequestMapping(value = "admin/borrow/extension", method=RequestMethod.GET)
@@ -40,8 +40,12 @@ public class ExtensionController {
 
 
     @RequestMapping(value = "admin/borrow/extension", method=RequestMethod.POST)
-    public String updateapproved(@RequestParam("book_code") String code){
-        service.extensionOk(code);
+    public String updateapproved(@RequestParam("book_code") String code,@RequestParam("ok") boolean ok){
+       if(ok) {
+           service.extensionOk(code);
+       }else{
+           service.extensionNo(code);
+       }
         return "redirect:/admin/borrow/extension";
     }
 }

@@ -23,7 +23,12 @@ public class ExtensionService {
         mybookList.setExtension(1);
         return borrowDao.updateExtension(mybookList);
     }
-
+    public int extensionNo(String book_code) {
+        MybookList mybookList = new MybookList();
+        mybookList.setBook_code(book_code);
+        mybookList.setExtension(0);
+        return borrowDao.updateExtension(mybookList);
+    }
     public List<MybookList> getList() {
         return borrowDao.selectListExtension();
     }
