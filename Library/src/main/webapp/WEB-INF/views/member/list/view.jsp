@@ -22,7 +22,7 @@ html, body {
 </style>
 
 	<div id="wrap"
-		class="text-center border border-light p-5 smooth-scroll">
+		class="border border-light p-5 smooth-scroll">
 		<!-- Default form contact -->
 
 		<p class="h4 mb-4">글 보기</p>

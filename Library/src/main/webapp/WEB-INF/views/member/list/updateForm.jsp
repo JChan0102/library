@@ -19,10 +19,17 @@ html, body{
 	transform:translate(-50%, -50%)
 }
 </style>
-
+<script>
+$(document).ready(function() {
+	$('#submitBtn').click(function() {
+		$('#list_content').val($('#list_content').val().replace(/\n/g, '<br>'));
+		$('#target').submit();
+	});
+});
+</script>
 <div id="wrap">	
 <!-- Default form contact -->
-<form method="post" class="text-center border border-light p-5">
+<form method="post" class="border border-light p-5" id="target">
 
     <p class="h4 mb-4">수정하기</p>
 
@@ -33,11 +40,11 @@ html, body{
     <!-- Subject -->
     <!-- Message -->
     <div class="form-group">
-        <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea>
+        <textarea name="list_content" id="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea>
     </div>
 
     <!-- Send button -->
-    <button class="btn btn-info btn-block" type="submit">수정하기</button>
+    <button class="btn btn-info btn-block" id="submitBtn">수정하기</button>
 
     <input type="hidden" name="list_name" value="네이무"/>
     <input type="hidden" name="idx" value="${listInfo.idx}"/>

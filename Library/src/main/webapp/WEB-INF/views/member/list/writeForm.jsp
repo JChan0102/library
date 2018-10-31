@@ -18,10 +18,17 @@ html, body{
 	transform:translate(-50%, -50%)
 }
 </style>
-
+<script>
+$(document).ready(function() {
+	$('#submitBtn').click(function() {
+		$('#list_content').val($('#list_content').val().replace(/\n/g, '<br>'));
+		$('#target').submit();
+	});
+});
+</script>
 <div id="wrap">	
 <!-- Default form contact -->
-<form method="post" class="text-center border border-light p-5">
+<form method="post" class="border border-light p-5" id="target">
 
     <p class="h4 mb-4">글쓰기</p>
 
@@ -31,11 +38,11 @@ html, body{
 
     <!-- Message -->
     <div class="form-group">
-        <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용"></textarea>
+        <textarea name="list_content" id="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용"></textarea>
     </div>
 
     <!-- Send button -->
-    <button class="btn btn-info btn-block" type="submit">확인</button>
+    <button class="btn btn-info btn-block" id="submitBtn">확인</button>
 
     <input type="hidden" name="list_name" value="${memberLoginInfo.name}"/>
     <!--  <input type="hidden" name="id" value="${idz}" />  -->

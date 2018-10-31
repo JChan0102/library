@@ -46,22 +46,22 @@ h1 {
 			class="btn btn-rounded btn-blue-grey">
 			<i class="far fa-edit" aria-hidden="true"></i> 글쓰기
 		</button>
-		<table id="list" class="table table-striped table-hover text-center">
+		<table id="list" class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th scope="col" style="width: 10%">#</th>
-					<th scope="col" style="width: 50%">제목</th>
-					<th scope="col" style="width: 20%">작성자</th>
-					<th scope="col" style="width: 20%">작성일</th>
+					<th scope="col" style="width: 10%; text-align: center;">#</th>
+					<th scope="col" style="width: 60%; text-align: center;">제목</th>
+					<th scope="col" style="width: 12%; text-align: center;">작성자</th>
+					<th scope="col" style="width: 18%; text-align: center;">작성일</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="message" items="${viewInfo}" varStatus="status">
 					<tr>
-						<td scope="row">${message.idx}</td>
+						<td scope="row" style="text-align: center;">${message.idx}</td>
 						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}&nbsp[${message.cnt}]</td>
-						<td>${message.list_name}</td>
-						<td>${message.list_date}</td>
+						<td style="text-align: center;">${message.list_name}</td>
+						<td style="text-align: center;">${message.list_date}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
