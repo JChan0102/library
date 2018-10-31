@@ -32,7 +32,7 @@ public class GetWriteContentService {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
 		try {
-			replyInfo = dao.getReplyContent(idx);
+			replyInfo = dao.getReplyList(idx);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

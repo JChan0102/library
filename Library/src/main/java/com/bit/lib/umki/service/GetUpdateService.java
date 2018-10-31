@@ -11,6 +11,7 @@ public class GetUpdateService {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	ListDaoInterface dao;
+	int check = 0;
 	
 	public void update(ListInfo listInfo) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
@@ -22,14 +23,18 @@ public class GetUpdateService {
 		}
 	}
 
-//	public void ReplyUpdate(int r_idx) {
-//		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
-//		
-//		try {
-//			dao.replyUpdate(r_idx);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public int replyUpdate(int r_idx, String val) {
+		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		
+		try {
+			
+			check = dao.replyUpdate(r_idx, val);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return check;
+	}
+
 
 }
