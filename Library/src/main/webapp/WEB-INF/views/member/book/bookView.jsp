@@ -13,20 +13,20 @@
 		<td rowspan="2" width="800">${bookInfo.book_name}</td>
 		<td width="200">${bookInfo.book_writer}</td>
 		<td>${bookExist}</td>
-		<td width="430">
-			<select name="bookcode" class="form-control">
-			
-			<c:forEach var="item" items="${bookCodeList}">
-				<c:if test="${item.book_exist eq 1 }">
-					<option>${item.book_code}(대출가능)</option>
-				</c:if>
-				<c:if test="${item.book_exist eq 0 }">
-					<option>${item.book_code}(대출블가능)</option>
-				</c:if>
-			</c:forEach>
-			</select>
-		</td>
-		
+		<td width="430"><select name="bookcode" class="form-control">
+
+				<c:forEach var="item" items="${bookCodeList}">
+					<c:choose>
+						<c:when test="${item.book_exist eq 1 }">
+							<option>${item.book_code}(대출가능)</option>
+						</c:when>
+						<c:otherwise>
+							<option>${item.book_code}(대출블가능)</option>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+		</select></td>
+
 	</tr>
 	<tr>
 		<td width="200">${bookInfo.book_price}</td>
