@@ -28,13 +28,11 @@ public interface ListDaoInterface {
 
 	public int replyWrite(ReplyInfo replyInfo) throws Exception;
 
-	public List<ReplyInfo> getReplyContent(int idx) throws Exception;
+//	public List<ReplyInfo> getReplyContent(int idx) throws Exception;
 
 	public int replyDelete(int r_idx) throws Exception;
 	
-	public void replyUpdate(int r_idx) throws Exception;
-
 	public List<ReplyInfo> getReplyList(int idx) throws Exception;
-
-
+	
+	public int replyUpdate(@Param("r_idx") int r_idx, @Param("val") String val) throws Exception;
 }

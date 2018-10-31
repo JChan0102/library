@@ -22,9 +22,6 @@ public class ReplyListController {
 	public List<ReplyInfo> getReplyList(@RequestParam("idx") int idx) {
 		List<ReplyInfo> replyInfo = listService.getReplyList(idx);
 		
-		System.out.println(idx);
-		System.out.println(replyInfo);
-		
 		return replyInfo;
 	}
 }
