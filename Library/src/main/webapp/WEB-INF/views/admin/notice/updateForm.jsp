@@ -6,7 +6,15 @@
 <hr class="my-4">
 <h1 class="page_title color5">공지사항 : 작성</h1>
 <hr class="my-4">
-<form method="post">
+<script>
+$(document).ready(function() {
+	$('#submitBtn').click(function() {
+		$('#bContent').val($('#bContent').val().replace(/\n/g, '<br>'));
+		$('#target').submit();
+	});
+});
+</script>
+<form method="post" id="target">
 	<table class="jc_table" width="100%"
 		style="border-top: 2px solid #547980; border-bottom: 2px solid #547980;">
 		<tr>
@@ -21,10 +29,10 @@
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea name="bContent" rows="10" class="form-control" required="required">${updateBoard.bContent}</textarea></td>
+			<td><textarea name="bContent" id="bContent" rows="10" class="form-control" required="required">${updateBoard.bContent}</textarea></td>
 		</tr>
 	</table>
-	<br> <input type="submit" value="수정" class="btn btn-dark" >
+	<br> <input type="button" id="submitBtn" value="수정" class="btn btn-dark" >
 </form>
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
