@@ -25,7 +25,7 @@
 		<i class="fas fa-search"></i>
 	</button>
 </form>
-<span id="msg">초기값</span>
+<span id="msg"></span>
 <hr>
 <c:if test="${bookList.isEmpty()}">
 	<h1>해당결과를 찾을 수 없습니다.</h1>
