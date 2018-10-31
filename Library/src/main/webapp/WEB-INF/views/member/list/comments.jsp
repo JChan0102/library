@@ -29,7 +29,7 @@
             <c:choose>
 			<c:when test="${memberLoginInfo != null}">
             <form method="post" class="my-5" id="form">
-                <div class="card-header border-0 font-weight-bold">4 comments</div>
+                <div id="num" class="card-header border-0 font-weight-bold"></div>
                 <!-- Quick Reply -->
                 <div class="form-group mt-4">
                     <label for="replyText">Your comment</label>
@@ -45,7 +45,7 @@
             </c:when>
             <c:otherwise>
             <form>
-                <div class="card-header border-0 font-weight-bold">4 comments</div>
+                <div id="num" class="card-header border-0 font-weight-bold"></div>
                 <!-- Quick Reply -->
                 <div class="form-group mt-4">
                     <label for="replyText">Your comment</label>
@@ -63,6 +63,7 @@
             <script>
                 function replyList(idx) {
                     var reply = '';
+                    
                     $.ajax({
                         url: '${pageContext.request.contextPath}/member/home/view/replyList',
                         type: 'GET',
@@ -73,6 +74,7 @@
                         success: function(data) {
                             $(data).each(
                                     function(key, value) {
+                                    	$('#num').html(data.length + ' comments')
                                         reply += '<h5 class="font-weight-bold mt-0">';
                                         reply += '<a href="">' +
                                             value.replyer +
@@ -87,6 +89,7 @@
                                         reply += '<hr />';
                                     });
                             $('#reply').html(reply);
+                            $('#replyText').val('');
                         },
                         error: function() {
                             alert("리스트 생성 오류ㅠㅠ");
