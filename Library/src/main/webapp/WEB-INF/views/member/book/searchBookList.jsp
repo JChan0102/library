@@ -14,18 +14,18 @@
 <hr class="my-4">
 
 <form id="bookOrder" name="bookOrder" class="form-inline my-2 my-lg-0">
-	<select id="searchWord" name="searchWord" class="custom-select">
+	<select  name="searchWord" class="custom-select">
 		<option value="title" seleted>책제목</option>
 		<option value="author">작가명</option>
 		<option value="publisher">출판사</option>
 		<option value="isbn">isbn번호</option>
 		<option value="bookcode">책코드</option>
-	</select> <select name="orderBy" id="orderBy" class="custom-select">
+	</select> <select name="orderBy"  class="custom-select">
 		<option value="book_time" seleted>최신순</option>
 		<option value="book_name">책제목</option>
 		<option value="book_writer">작가명</option>
 		<option value="book_publisher">출판사</option>
-	</select> <select name="listCnt" id="listCnt" class="custom-select">
+	</select> <select name="listCnt"  class="custom-select">
 		<option value="5" seleted>5개씩</option>
 		<option value="10">10개씩</option>
 		<option value="15">15개씩</option>
@@ -35,10 +35,9 @@
 	<input type="text" class="form-control mr-sm-2" name="keyword"
 		id="keyword" value="${keyword}" />
 	<!-- <input type="button" onclick="bookOrderFn()" value="검색"> -->
-	<button class="btn btn-dark mr-sm-2" onclick="bookOrderFn()"
-		type="submit">
-		<i class="fas fa-search"></i> 검색
-	</button>
+	<input type="button" class="btn btn-dark mr-sm-2" onclick="bookOrderFn()" value="검색"/>
+		<!-- <i class="fas fa-search"></i> 검색 -->
+
 </form>
 <br>
 <c:if test="${bookList.isEmpty()}">
@@ -81,7 +80,6 @@
 <script>
 	function bookOrderFn() {
 		var value = $('#bookOrder').serialize();
-		coonsole.log(value);
 		$
 				.ajax({
 					url : '${pageContext.request.contextPath}/member/book/bookOrderBy',
@@ -93,34 +91,23 @@
 						console.log(data);
 						var bookListView = '';
 						var url = '${pageContext.request.contextPath}/member/book/bookView';
-						$
-								.each(
-										data,
-										function(index, item) {
+						$.each(data,function(index, item) {
+							bookListView += '<tr><td rowspan="2" width="90"><img src="'+item.book_image+'"alt="이미지 없음"></td>';
+							bookListView += '<td>'+item.book_name+'</td>';
+							bookListView += '<td width="170">'+item.book_code+'</td>';
+							bookListView += '<td width="150">';
+							bookListView += '<a href="'+url+'?book_isbn='+item.book_isbn+'">';
+							bookListView += '<button  class="color3_btn btn"';
+							bookListView += 'style="color: white"><i class="fas fa-book"></i> 상세보기</button></a></td>';
+							bookListView += '</tr><tr>';
+							bookListView += '<td>'+item.book_writer+'</td>';
+							bookListView += '<td>'+item.book_publisher+'</td>';
+							bookListView += '<td>'+item.book_isbn+'</td>';
+							bookListView += '</tr>';
+							bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
+						
 
-											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
-											bookListView += '<tr><td rowspan="2"><img src="'+item.book_image+'" alt="이미지 없음"> </td>';
-											bookListView += '<td rowspan="3" width="800">'
-													+ item.book_name + '</td>';
-											bookListView += '<td width="200">'
-													+ item.book_writer
-													+ '</td>';
-											bookListView += '<td width="300">'
-													+ item.book_code + '</td>';
-											bookListView += '<td width="200"><a href="'
-													+ url
-													+ '?book_isbn='
-													+ item.book_isbn
-													+ '"><input type="button" name="book_isbn" value="상세보기"></a></td></tr>';
-											bookListView += '<tr><td width="200">'
-													+ item.book_publisher
-													+ '</td>';
-											bookListView += '<td width="200">'
-													+ item.book_isbn + '</td>';
-											bookListView += '</tr>'
-											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
-
-										});
+						});
 						$('#bookListView').html(bookListView);
 					},
 					error : function() {

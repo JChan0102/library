@@ -6,6 +6,7 @@ public class MybookList {
     private String returnDate;
    private int extension;
     private String book_code;
+    private String member_id;
 
     public MybookList() {
     }
@@ -22,6 +23,14 @@ public class MybookList {
         this.returnDate = returnDate;
         this.extension = extension;
         this.book_code = book_code;
+    }
+
+    public String getMember_id() {
+        return member_id;
+    }
+
+    public void setMember_id(String member_id) {
+        this.member_id = member_id;
     }
 
     public int getExtension() {

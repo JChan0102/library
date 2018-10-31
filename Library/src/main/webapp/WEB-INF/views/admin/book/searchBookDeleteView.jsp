@@ -8,22 +8,25 @@
 <h1 class="page_title color5">도서 관리 : 삭제</h1>
 <hr class="my-4">
 <form method="post">
-	<select name="searchWord">
+	<select name="searchWord" class="jc_select_left selectfont">
 		<option value="title" seleted>책제목</option>
 		<option value="author">작가명</option>
 		<option value="publisher">출판사</option>
-		<option value="isbn">isbn번호</option>
+		<option value="isbn">ISBN번호</option>
 		<option value="bookcode">책코드</option>
 	</select>
 	<!-- <input type="text" name="optionCode"> -->
-	<input type="text" name="keyword" /> <input type="submit" value="검색">
+	<input type="text" name="keyword" class="inputtext_color4"
+		style="border-radius: 0px 7px 7px 0px; width: 78%" /> <input
+		type="submit" value="검색" class="color4_btn custom_btn"
+		style="width: 9%">
 </form>
 <hr>
 <c:if test="${bookList.isEmpty()}">
-	<h1>해당결과글 찾을 수 없습니다.</h1>
+	<h1>해당 도서를 찾을 수 없습니다.</h1>
 </c:if>
 <c:if test="${!bookList.isEmpty()}">
-	<table>
+	<table class="jc_table">
 		<tbody id="bookListView">
 			<c:forEach var="item" items="${bookList}">
 				<tr>
@@ -38,8 +41,12 @@
 					<td width="200"><c:if test="${item.book_exist eq 0}">
 							<b>대출 중인 도서입니다.</b>
 						</c:if> <c:if test="${item.book_exist eq 1}">
-							<input type="button" value="삭제"
-								onclick="deleteBook('${item.book_code}')">
+							<%-- <input type="button" value="삭제"
+								onclick="deleteBook('${item.book_code}')"> --%>
+							<button type="submit" class="color3_btn btn"
+								onclick="deleteBook('${item.book_code}')" style="color: white">
+								<i class="fas fa-book"></i> 삭제
+							</button>
 						</c:if></td>
 				</tr>
 				<tr>
@@ -53,6 +60,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
 </c:if>
 
 <script>
@@ -67,7 +75,7 @@
 					contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
 					dataType : 'json',
 					success : function(data) {
-						alert('삭제하였습니다');
+						alert('삭제하였습니다.');
 						var bookListView = '';
 						var url = '${pageContext.request.contextPath}/admin/book/bookDelete';
 						$
@@ -82,7 +90,7 @@
 														+ '\')">';
 
 											} else {
-												exist = '<b>대출 중인 도서 입니다.</b>'
+												exist = '<b>현재 대출 중인 도서 입니다.</b>'
 											}
 
 											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
@@ -97,6 +105,8 @@
 											bookListView += '<td width="200">'
 													+ exist + '</td></tr>';
 											bookListView += '<tr><td width="200">'
+													+ item.price
+													+ '</td><td width="200">'
 													+ item.book_publisher
 													+ '</td>';
 											bookListView += '<td width="200">'

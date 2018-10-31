@@ -50,10 +50,17 @@ public class BorrowDao {
         return sqlSessionTemplate.update(mapperPath+".updateExtension",mybookList);
     }
 
-    public List<Borrow> selectListExtension(){
+    public List<MybookList> selectListExtension(){
         return sqlSessionTemplate.selectList(mapperPath+".selectListExtension");
     }
     public int countExtension(){
         return sqlSessionTemplate.selectOne(mapperPath+".countExtension");
+    }
+    public MybookList myBook(String bookcode){
+        return sqlSessionTemplate.selectOne(mapperPath+".myBook",bookcode);
+    }
+
+    public void updateExtensionreturndate(MybookList mybookList) {
+       sqlSessionTemplate.update(mapperPath+".updateExtensionreturndate",mybookList);
     }
 }
