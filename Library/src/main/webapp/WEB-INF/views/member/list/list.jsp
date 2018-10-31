@@ -44,7 +44,7 @@ h1 {
 	<div id="list">
 		<button onclick="location.href='writeForm'" id="write" type="button"
 			class="btn btn-rounded btn-blue-grey">
-			<i class="fa fa-floppy-o pr-2" aria-hidden="true"></i>글쓰기
+			<i class="far fa-edit" aria-hidden="true"></i> 글쓰기
 		</button>
 		<table id="list" class="table table-striped table-hover text-center">
 			<thead>

@@ -38,17 +38,17 @@ html, body {
 		<c:if test="${memberLoginInfo.name == listInfo.list_name}">
 			<!-- Send button -->
 			<button onclick="location.href='update?idx=${listInfo.idx}'"
-				id="write" type="button" class="btn btn-rounded btn-blue-grey">
+				id="write" type="button" class="btn btn-rounded btn-success" >
 				<i class="fa fa-eraser" aria-hidden="true"></i> 수정
 			</button>
 			<button onclick="delchk()" id="write" type="button"
 				class="btn btn-rounded btn-danger">
-				<i class="fa fa-close" aria-hidden="true"></i> 삭제
+				<i class="far fa-trash-alt" aria-hidden="true"></i> 삭제
 			</button>
 		</c:if>
 		<button onclick="location.href='view/page/${listInfo.idx}'"
-			type="button" class="btn btn-rounded btn-amber" id="write">
-			<i class="fa fa-th-list pr-2" aria-hidden="true"></i> 목록
+			type="button" class="btn btn-rounded btn-warning" style="color: white" id="write">
+			<i class="far fa-list-alt"  aria-hidden="true"></i> 목록
 		</button>
 
 		<input type="hidden" name="list_name" value="${listInfo.list_name }" />

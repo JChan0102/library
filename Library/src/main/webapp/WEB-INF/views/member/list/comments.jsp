@@ -24,7 +24,7 @@
                             <label for="replyText">Your comment</label>
                             <textarea name="replytext" class="form-control" id="replyText" rows="5"></textarea>
                             <div class="text-center my-4">
-                                <button type="button" class="btn btn-primary btn-sm" onclick="replyInsert(${listInfo.idx})">Post</button>
+                                <button type="button" class="btn btn-primary" STYLE="width: 120px" onclick="replyInsert(${listInfo.idx})">POST</button>
                             </div>
                         </div>
                         <input type="hidden" name="idx" value="${listInfo.idx}" /> <input type="hidden" name="replyer" value="${memberLoginInfo.name}" />
@@ -40,7 +40,7 @@
                             <label for="replyText">Your comment</label>
                             <textarea onclick="location.href='${pageContext.request.contextPath}/member/memberAccount/login'" placeholder="로그인 후 이용해주세요." readonly="readonly" name="replytext" class="form-control" id="replyText" rows="5"></textarea>
                             <div class="text-center my-4">
-                                <button type="button" class="btn btn-primary btn-sm" onclick="replyInsert(${listInfo.idx})">Post</button>
+                                <button type="button" class="btn btn-primary" STYLE="width: 120px"  onclick="replyInsert(${listInfo.idx})">POST</button>
                             </div>
                         </div>
                         <input type="hidden" name="idx" value="${listInfo.idx}" /> <input type="hidden" name="replyer" value="${memberLoginInfo.name}" />
