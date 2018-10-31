@@ -16,7 +16,7 @@
         </div>
         <form style="float: left" method="post" id="booksub">
             <input type="hidden" name="member.member_id" value="${member.member_id}">
-            <button type="submit"class="color3_btn custom_btn btn_borrow" STYLE="" > <i class="fas fa-clipboard-check"></i> </button>
+            <button type="submit" id="submitbtn" class="color3_btn custom_btn" disabled="disabled" STYLE="width: 80px; height: 67px" > <i class="fas fa-clipboard-check"></i> </button>
         </form>
         </div>
 
@@ -83,6 +83,7 @@
             function submitt(obj) {
                 console.log(obj);
                 if (count < amount) {
+                    $('#submitbtn').attr("disabled",false);
                     $('#countt').text("");
                     $('#booksub').append(
                         '<input type="hidden" class="booklist" name="booklist[' + count + ']" value="' + obj.value + '" readonly >');

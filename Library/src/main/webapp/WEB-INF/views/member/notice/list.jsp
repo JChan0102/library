@@ -7,9 +7,25 @@
 <h1 class="page_title color5">공지사항</h1>
 <hr class="my-4">
 <style>
-a:hover {
-	text-decoration: none;
-}
+	a {
+		color: #999;
+		text-decoration: none;
+	}
+
+	a:link {
+		color: #999;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	a:visited {
+		color: #999;
+		text-decoration: none;
+	}
+
 </style>
 <table class="jc_table" width="100%">
 	<tr>

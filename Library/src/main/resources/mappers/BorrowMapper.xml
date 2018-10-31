@@ -6,7 +6,7 @@
 <mapper namespace="mappers.BorrowMapper">
     <insert id="insert" parameterType="com.bit.lib.system.model.Borrow">
         insert into borrow
-        values (#{book_code}, #{member_id}, #{borrowDate}, #{returnDate})
+        values (#{book_code}, #{member_id}, #{borrowDate}, #{returnDate}, 0)
     </insert>
 
     <select id="selectByBook_code" resultType="com.bit.lib.system.model.Borrow">
