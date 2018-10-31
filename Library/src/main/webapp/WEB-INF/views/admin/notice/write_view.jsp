@@ -3,26 +3,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
-
-	<table width="500" cellpadding="0" cellspacing="0" border="1">
-		<form  method="post">
-			<tr>
-				<td> 이름 </td>
-				<td> <input type="text" name="bName" size = "50"> </td>
-			</tr>
-			<tr>
-				<td> 제목 </td>
-				<td> <input type="text" name="bTitle" size = "50"> </td>
-			</tr>
-			<tr>
-				<td> 내용 </td>
-				<td> <textarea name="bContent" rows="10" ></textarea> </td>
-			</tr>
-			<tr >
-				<td colspan="2"> <input type="submit" value="입력"> </td>
-			</tr>
-		</form>
+<hr class="my-4">
+<h1 class="page_title color5">공지사항 : 작성</h1>
+<hr class="my-4">
+<form method="post">
+	<table class="jc_table" width="100%"
+		style="border-top: 2px solid #547980; border-bottom: 2px solid #547980;">
+		<tr>
+			<th width="120">이름</th>
+			<td><input type="text" name="bName" size="50"
+				class="form-control"></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td><input type="text" name="bTitle" size="50"
+				class="form-control"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><textarea name="bContent" rows="10" class="form-control"></textarea></td>
+		</tr>
 	</table>
-	
+	<br> <input type="submit" value="입력" class="btn btn-dark">
+</form>
+
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

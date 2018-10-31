@@ -6,28 +6,31 @@
 <hr class="my-4">
 <h1 class="page_title color5">공지사항</h1>
 <hr class="my-4">
-<table  class="jc_table" width="100%" cellpadding="0" cellspacing="0" border="1">
+<style>
+a:hover {
+	text-decoration: none;
+}
+</style>
+<table class="jc_table" width="100%">
 	<tr>
-		<th>번호</th>
-		<th>이름</th>
+		<th width="80">번호</th>
 		<th>제목</th>
-		<th>날짜</th>
+		<th width="150">이름</th>
+		<th width="210">날짜</th>
 	</tr>
 	<c:forEach items="${list}" var="dto">
 		<tr>
 			<td>${dto.bId}</td>
-			<td>${dto.bName}</td>
 			<td><a
 				href="${pageContext.request.contextPath}/admin/notice/viewLink?bId=${dto.bId}">${dto.bTitle}</a></td>
+			<td>${dto.bName}</td>
 			<td>${dto.bDate}</td>
 		</tr>
 	</c:forEach>
-	<tr>
-		<td colspan="5"><a
-			href="${pageContext.request.contextPath}/admin/notice/write">글쓰기</a>
-		</td>
-	</tr>
 </table>
+<br>
+<a href="${pageContext.request.contextPath}/admin/notice/write"><button
+		type="button" class="btn btn-dark">글 작성</button></a>
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
