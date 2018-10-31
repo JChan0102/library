@@ -7,7 +7,10 @@
 	</select>
 
 	<select id="getList" resultType="ListInfo">
-		select * from freelist order by idx desc limit #{num1}, #{num2}
+		<!-- select * from freelist order by idx desc limit #{num1}, #{num2} -->
+		
+select cnt, fl.idx, list_title, list_date, list_name from (
+select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc limit #{num1}, #{num2};
 	</select>
 
 	<insert id="write" parameterType="ListInfo">

@@ -56,10 +56,10 @@ h1 {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="message" items="${viewInfo}">
+				<c:forEach var="message" items="${viewInfo}" varStatus="status">
 					<tr>
 						<td scope="row">${message.idx}</td>
-						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}</td>
+						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}&nbsp[${message.cnt}]</td>
 						<td>${message.list_name}</td>
 						<td>${message.list_date}</td>
 					</tr>
