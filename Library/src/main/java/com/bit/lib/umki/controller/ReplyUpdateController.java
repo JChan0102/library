@@ -22,10 +22,7 @@ public class ReplyUpdateController {
 	@RequestMapping(value = "/member/home/view/replyUpdate", method =RequestMethod.POST)
 	@ResponseBody
 	public int update(@RequestParam("r_idx") int r_idx, @RequestParam("val") String val) {
-		
-		
 		int check = service.replyUpdate(r_idx, val);
-		
 		
 		return check;
 	}
