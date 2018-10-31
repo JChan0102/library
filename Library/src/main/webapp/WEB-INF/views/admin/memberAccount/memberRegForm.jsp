@@ -4,20 +4,26 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 <script type="text/javascript">
+
 	$(document).ready(function() {
 		$("#phone").change(function() {
 			$("#password").val($("#phone").val());
 		});
-
 		$("#member_id").keyup(function() {
 			$.ajax({
 				type : 'GET',
 				url : "${pageContext.request.contextPath}/admin/memberAccount/memberDuplCheck?member=" + $('#member_id').val(),
 				success : function(data) {
-					if(data == true){
-						$("#msg").html(" : 이미 존재하는 아이디입니다.");
-					} else {			
+					if(data == false && $('#member_id').val() != ''){
+						$('#idReg').prop("disabled", false);
 						$("#msg").html(" : 사용가능한 아이디입니다.");
+					} else {
+						if ($('#member_id').val() == ''){
+							$("#msg").html(" : 아이디를 입력해주세요.");
+						} else{
+							$("#msg").html(" : 이미 존재하는 아이디입니다.");
+						}
+						$('#idReg').prop("disabled", true);
 					}
 				},
 				error : function(error) {
@@ -59,7 +65,7 @@
 			name="totoverduedays" value="0" /> <input type="hidden"
 			name="possibledate" value="POSSIBLE" />
 
-		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2"  type="submit">회원 등록</button>
+		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2" type="submit" id="idReg">회원 등록</button>
 	</div>
 </form>
 

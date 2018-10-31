@@ -23,10 +23,16 @@
 				type : 'GET',
 				url : "${pageContext.request.contextPath}/admin/adminAccount/adminDuplCheck?admin=" + $('#admin_id').val(),
 				success : function(data) {
-					if(data == true){
-						$("#msg").html(" : 이미 존재하는 아이디입니다.");
-					} else {						
+					if(data == false && $('#admin_id').val() != ''){
+						$('#idReg').prop("disabled", false);
 						$("#msg").html(" : 사용가능한 아이디입니다.");
+					} else {
+						if ($('#admin_id').val() == ''){
+							$("#msg").html(" : 아이디를 입력해주세요.");
+						} else{
+							$("#msg").html(" : 이미 존재하는 아이디입니다.");
+						}
+						$('#idReg').prop("disabled", true);
 					}
 				},
 				error : function(error) {
@@ -43,9 +49,9 @@
 	<div class="alert alert-light">
 
 		<div class="form-group">
-			<label>아이디</label><label id="msg"></label><input type="text" name="admin_id" id="admin_id"
-				class="form-control form-control-lg" placeholder="ID"
-				required="required" autofocus="autofocus" />
+			<label>아이디</label><label id="msg"></label><input type="text"
+				name="admin_id" id="admin_id" class="form-control form-control-lg"
+				placeholder="ID" required="required" autofocus="autofocus" />
 		</div>
 		<div class="form-group">
 			<label>비밀번호</label><input type="text" id="password" name="password"
@@ -56,17 +62,21 @@
 			<label>권한</label>
 			<div class="custom-control custom-checkbox">
 				<c:set var="count" value="0" scope="page" />
-				<c:forEach var="item" items="${permissions}">
-					<c:set var="count" value="${count+1}" scope="page" />
-					<input type="checkbox" id="permission${count}" value="T">
-					<label for="permission${count}"> ${item}</label>
-				</c:forEach>
-				<input type="hidden" id="permission" name="permission"
-					value="FFFFF" />
+				<table width="100%">
+					<tr>
+						<c:forEach var="item" items="${permissions}">
+							<td style="padding-right: 20px;"><c:set var="count"
+									value="${count+1}" scope="page" /> <input type="checkbox"
+								id="permission${count}" value="T"> <label
+								for="permission${count}"> ${item}</label></td>
+						</c:forEach>
+					<tr>
+				</table>
+				<input type="hidden" id="permission" name="permission" value="FFFFF" />
 			</div>
 		</div>
-		<button class="color4_btn custom_btn btn-block" style="color:#F5FFD2" type="submit">관리자
-			등록</button>
+		<button class="color4_btn custom_btn btn-block" style="color: #F5FFD2"
+			type="submit" id="idReg">관리자 등록</button>
 	</div>
 </form>
 

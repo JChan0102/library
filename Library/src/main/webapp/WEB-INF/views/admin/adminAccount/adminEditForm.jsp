@@ -45,31 +45,40 @@
 		</div>
 		<c:choose>
 			<c:when test="${'admin' eq av.admin_id}">
-							관리자 'admin' 계정의 경우 권한을 수정할 수 없습니다.
+				<table width="100%">
+					<tr>
+						<td>관리자 'admin' 계정의 경우 권한을 수정할 수 없습니다.</td>
+					</tr>
+				</table>
 			</c:when>
 			<c:otherwise>
 				<div class="form-group">
-					<label>권한</label> ${av.permission}
+					<label>권한</label>
 					<c:set var="permission" value="${av.permission}" />
 					<c:set var="permissionSize" value="${fn:length(permission)}" />
-					${permissionSize}
+
 					<div class="custom-control custom-checkbox">
 						<c:set var="count" value="0" scope="page" />
-						<c:forEach var="item" items="${permissions}">
-							<c:set var="count" value="${count+1}" scope="page" />
-							<input type="checkbox" id="permission${count}"
-								value="${fn:substring(permission, count-1, count)}">
-							<label for="permission${count}"> ${item}</label>
-						</c:forEach>
-						<input type="hidden" id="permission" name="permission"
-							value="${av.permission}" />
+						<table width="100%">
+							<tr>
+								<c:forEach var="item" items="${permissions}">
+									<c:set var="count" value="${count+1}" scope="page" />
+									<td style="padding-right: 20px;"><input type="checkbox"
+										id="permission${count}"
+										value="${fn:substring(permission, count-1, count)}"> <label
+										for="permission${count}"> ${item}</label></td>
+								</c:forEach>
+								<input type="hidden" id="permission" name="permission"
+									value="${av.permission}" />
+							</tr>
+						</table>
 					</div>
 				</div>
 			</c:otherwise>
 		</c:choose>
 
 		<button class="color4_btn custom_btn btn-block" style="color: #F5FFD2"
-			type="submit">관리자 등록</button>
+			type="submit">관리자 수정</button>
 	</div>
 </form>
 
