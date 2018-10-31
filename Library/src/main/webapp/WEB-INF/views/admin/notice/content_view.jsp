@@ -4,7 +4,7 @@
 <jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
 
-	<table width="500" cellpadding="0" cellspacing="0" border="1">
+	<table class="jc_table" width="100%" cellpadding="0" cellspacing="0" border="1">
 		
 			
 			<tr>
