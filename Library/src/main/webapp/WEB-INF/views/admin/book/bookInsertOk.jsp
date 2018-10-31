@@ -14,6 +14,8 @@
 		<i class="fas fa-plus-square"></i> 책 등록
 	</button>
 </a>
+<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook">
+		<button class="color4_btn custom_btn btn_borrow"><i class="fas fa-minus-square"></i> 책 삭제</button></a>
 
 <jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
 <jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>

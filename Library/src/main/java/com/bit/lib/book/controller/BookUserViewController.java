@@ -1,5 +1,7 @@
 package com.bit.lib.book.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +30,11 @@ public class BookUserViewController {
 			
 			BookInfo bookInfo = service.bookView(book_isbn);
 			String bookExist = service.bookExist(book_isbn);
+			List<BookInfo> list = service.bookCodeList(book_isbn);
 			
 			modelAndView.addObject("bookInfo", bookInfo);
 			modelAndView.addObject("bookExist", bookExist);
+			modelAndView.addObject("bookCodeList", list);
 			
 		} catch (Exception e) {}
 		

@@ -1,5 +1,8 @@
 package com.bit.lib.book.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.Document;
@@ -60,6 +63,15 @@ public class BookUserViewService {
 			result = "대출불가능";
 		}
 		return result;
+	}
+	public List<BookInfo> bookCodeList(String book_isbn){
+		interfaceDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
+		
+		List<BookInfo> list = new ArrayList<BookInfo>();
+		
+		list = interfaceDao.bookCodeSelect(book_isbn);
+		
+		return list;
 	}
 
 	// tag값의 정보를 가져오는 메서드

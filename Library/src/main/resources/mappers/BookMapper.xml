@@ -107,5 +107,10 @@
 		select count(*) from book
 		where book_code = #{book_code}
 	</select>
+	<select id="bookCodeSelect" resultType="com.bit.lib.book.model.BookInfo">
+		select book_code,book_exist
+		from book
+		where book_isbn = #{book_isbn}
+	</select>
 	
 </mapper>

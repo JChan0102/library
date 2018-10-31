@@ -20,5 +20,6 @@ public interface BookInterfaceDao {
 	public List<BookInfo> selectNewTopTen();
 	public List<BookInfo> selectAllBookList();
 	public int bookCodeCheck(@Param("book_code")String book_code);
+	public List<BookInfo> bookCodeSelect(@Param("book_isbn")String book_isbn);
 }
 //주석

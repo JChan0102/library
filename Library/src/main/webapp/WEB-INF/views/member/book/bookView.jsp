@@ -12,8 +12,21 @@
 		<td rowspan="3"><img src="${bookInfo.book_image}"></td>
 		<td rowspan="2" width="800">${bookInfo.book_name}</td>
 		<td width="200">${bookInfo.book_writer}</td>
-		<td width="200"><b>${bookInfo.book_code}</b></td>
-		<td width="200"><b>${bookExist}</b></td>
+		<td>${bookExist}</td>
+		<td width="430">
+			<select name="bookcode" class="form-control">
+			
+			<c:forEach var="item" items="${bookCodeList}">
+				<c:if test="${item.book_exist eq 1 }">
+					<option>${item.book_code}(대출가능)</option>
+				</c:if>
+				<c:if test="${item.book_exist eq 0 }">
+					<option>${item.book_code}(대출블가능)</option>
+				</c:if>
+			</c:forEach>
+			</select>
+		</td>
+		
 	</tr>
 	<tr>
 		<td width="200">${bookInfo.book_price}</td>
