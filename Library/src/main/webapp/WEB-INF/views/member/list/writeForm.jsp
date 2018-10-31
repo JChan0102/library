@@ -21,7 +21,7 @@ html, body{
 <script>
 $(document).ready(function() {
 	$('#submitBtn').click(function() {
-		$('#list_content').val($('#list_content').val().replace(/\n/g, '<br>'));
+		$('#list_content').val($('#list_content').val().replace(/\r\n/g, '<br>'));
 		$('#target').submit();
 	});
 });

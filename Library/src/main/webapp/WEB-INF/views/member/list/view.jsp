@@ -20,6 +20,13 @@ html, body {
 	transform: translate(-50%, -50%);
 }
 </style>
+<script>
+
+/* $(document).ready(function() {
+		$('#exampleFormControlTextarea2').val($('#exampleFormControlTextarea2').val().replace(/(\n|\r\n)/g, '<br>');
+
+}); */
+</script>
 
 	<div id="wrap"
 		class="border border-light p-5 smooth-scroll">
@@ -31,8 +38,8 @@ html, body {
 		<div class="form-group"></div>
 
 		<div class="form-group">
-			<label style="height: 500px" class="form-control rounded-0"
-				id="exampleFormControlTextarea2" rows="3">${listInfo.list_content}</label>
+			<textarea readonly="readonly" style="height: 500px; background-color : white" class="form-control rounded-0"
+				id="exampleFormControlTextarea2" rows="3">${listInfo.list_content}</textarea>
 			<%-- <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea> --%>
 		</div>
 		<c:if test="${memberLoginInfo.name == listInfo.list_name}">
@@ -62,6 +69,7 @@ html, body {
 
 <script>
 replyList(${listInfo.idx});
+
 	function delchk() {
 		if (confirm("삭제하시겠습니까?")) {
 			location.href = "delete?idx=${listInfo.idx}";

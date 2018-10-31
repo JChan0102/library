@@ -21,10 +21,7 @@ html, body{
 </style>
 <script>
 $(document).ready(function() {
-	$('#submitBtn').click(function() {
-		$('#list_content').val($('#list_content').val().replace(/\n/g, '<br>'));
-		$('#target').submit();
-	});
+		$('#exampleFormControlTextarea2').val($('#exampleFormControlTextarea2').val().replace(/(<br>|<br\/>|<br \/>)/g, '\r\n'));
 });
 </script>
 <div id="wrap">	
@@ -40,7 +37,7 @@ $(document).ready(function() {
     <!-- Subject -->
     <!-- Message -->
     <div class="form-group">
-        <textarea name="list_content" id="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea>
+        <textarea name="list_content" style="height: 500px" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="내용">${listInfo.list_content}</textarea>
     </div>
 
     <!-- Send button -->
