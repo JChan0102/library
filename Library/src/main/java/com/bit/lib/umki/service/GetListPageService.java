@@ -25,7 +25,6 @@ public class GetListPageService {
 		try {
 			totalCnt = dao.count();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
@@ -17,6 +18,7 @@ public class GetWriteContentService {
 	ListInfo listInfo = null;
 	List<ReplyInfo> replyInfo = null;
 	
+	@Transactional
 	public ListInfo getContent(String list_name) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
@@ -28,6 +30,7 @@ public class GetWriteContentService {
 		return listInfo;
 	}
 
+	@Transactional
 	public List<ReplyInfo> getReplyContent(int idx) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		

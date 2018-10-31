@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
@@ -20,6 +21,7 @@ public class GetListService {
 	List<ListInfo> list = null;
 	List<ReplyInfo> replyInfo = null;
 
+	@Transactional
 	public List<ListInfo> getList(int page) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		num1 = ( page -1 ) * MESSAGE_COUNT_PER_PAGE;
@@ -34,6 +36,7 @@ public class GetListService {
 		return list;
 	}
 
+	@Transactional
 	public List<ReplyInfo> getReplyList(int idx) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		try {

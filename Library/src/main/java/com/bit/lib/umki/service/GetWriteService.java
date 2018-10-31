@@ -3,6 +3,7 @@ package com.bit.lib.umki.service;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 import com.bit.lib.umki.model.ListInfo;
@@ -18,6 +19,7 @@ public class GetWriteService {
 	
 	int check = 0;
 	
+	@Transactional
 	public void write(ListInfo listInfo) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		
@@ -28,6 +30,7 @@ public class GetWriteService {
 		}
 	}
 
+	@Transactional
 	public int replyWrite(ReplyInfo replyInfo) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		

@@ -2,6 +2,7 @@ package com.bit.lib.umki.service;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bit.lib.umki.dao.ListDaoInterface;
 
@@ -13,6 +14,7 @@ public class GetPageService {
 	int rank = 1;
 	int page = 1;
 
+	@Transactional
 	public String getPage(int idx) {
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		try {

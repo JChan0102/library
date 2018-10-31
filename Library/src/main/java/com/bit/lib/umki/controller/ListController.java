@@ -35,6 +35,7 @@ public class ListController {
 		modelAndView.addObject("viewInfo", viewInfo);
 		modelAndView.addObject("page", page);
 		
+		
 		return modelAndView;
 	}
 }
