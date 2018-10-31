@@ -1,38 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
+<!-- 네비 사용 시작  -->
+<jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Bootstrap core CSS -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css"
-	rel="stylesheet">
-<!-- JQuery -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
+
 <style>
 body, html {
 	height: 100%;
+	background-color: white;
 }
 
 h1 {
@@ -40,7 +17,7 @@ h1 {
 }
 
 #list {
-	padding: 0 200px;
+	/* padding: 0 200px; */
 }
 
 #pageNum {
@@ -61,10 +38,8 @@ h1 {
 	cursor: pointer;
 }
 </style>
-</head>
 
-<body>
-	<h1>자유 게시판</h1>
+	<h2>자유 게시판</h2>
 
 	<div id="list">
 		<button onclick="location.href='writeForm'" id="write" type="button"
@@ -75,15 +50,15 @@ h1 {
 			<thead>
 				<tr>
 					<th scope="col" style="width: 10%">#</th>
-					<th scope="col" style="width: 60%">제목</th>
-					<th scope="col" style="width: 10%">작성자</th>
+					<th scope="col" style="width: 50%">제목</th>
+					<th scope="col" style="width: 20%">작성자</th>
 					<th scope="col" style="width: 20%">작성일</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="message" items="${viewInfo}">
 					<tr>
-						<th scope="row">${message.idx}</th>
+						<td scope="row">${message.idx}</td>
 						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}</td>
 						<td>${message.list_name}</td>
 						<td>${message.list_date}</td>
@@ -122,6 +97,7 @@ h1 {
 			</c:choose>
 		</div>
 	</div>
-</body>
 
-</html>
+<jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
+<!-- 네비 사용 끝 -->
+<jsp:include page="/resources/common/memberFooter.jsp"></jsp:include>

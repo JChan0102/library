@@ -1,50 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Bootstrap core CSS -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-	rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css"
-	rel="stylesheet">
-<!-- JQuery -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/js/mdb.min.js"></script>
+<jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
+<!-- 네비 사용 시작  -->
+<jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
+
 <style>
 html, body {
-	height: 100%
+	height: 100%;
+	background-color: white;
 }
 
 #wrap {
 	position: absolute;
 	height: 100%;
-	top: 50%;
+	top: 60%;
 	left: 50%;
 	width: 70%;
 	transform: translate(-50%, -50%);
 }
 </style>
-</head>
-<body>
+
 	<div id="wrap"
 		class="text-center border border-light p-5 smooth-scroll">
 		<!-- Default form contact -->
@@ -81,8 +57,7 @@ html, body {
 
 		<%@ include file="comments.jsp"%>
 	</div>
-</body>
-</html>
+
 
 
 <script>
@@ -96,3 +71,6 @@ replyList(${listInfo.idx});
 		}
 	}
 </script>
+<jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
+<!-- 네비 사용 끝 -->
+<jsp:include page="/resources/common/memberFooter.jsp"></jsp:include>

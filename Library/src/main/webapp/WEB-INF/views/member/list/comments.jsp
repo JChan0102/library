@@ -80,9 +80,9 @@
                                             value.replyer +
                                             '</a> </h5>';
 
-                                        reply += '<input type="text" readonly style="border: 0px; width:100%" id=' + key + ' value= "' + value.replytext + '">';
+                                        reply += '<input type="text" readonly style="border: 0px; width:100%; margin-bottom:10px" id=' + key + ' value= "' + value.replytext + '">';
                                         if('${memberLoginInfo.name}' == value.replyer){
-                                        reply += '<button type="button" class="btn btn-primary btn-sm"';
+                                        reply += '<button style="margin-right:10px" type="button" class="btn btn-primary btn-sm"';
                                         reply += 'onclick="replyDelete(' + value.idx + ',' + value.r_idx + ')">삭제</button>';
                                         reply += '<button type="button" class="btn btn-primary btn-sm" onclick="replyUpdate(this, ' + key + ','+ value.idx + ',' + value.r_idx + ')">수정</button>'
                                         }
