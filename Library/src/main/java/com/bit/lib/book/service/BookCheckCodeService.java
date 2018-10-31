@@ -12,18 +12,16 @@ public class BookCheckCodeService {
 	
 	private BookInterfaceDao bookDao;
 	
-	public String bookCodeCheck(String book_code) {
+	public int bookCodeCheck(String book_code) {
 		
 		bookDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
 		
-		String result = "사용 가능한 북 코드 입니다.";
+		//String result = "사용 가능한 북 코드 입니다.";
 		int bookCheck = bookDao.bookCodeCheck(book_code);
-		System.out.println("bookCheck"+bookCheck);
-		if(bookCheck>0) {
+		/*if(bookCheck>0) {
 			result = "사용 불가능한 북코드 입니다!!!";
-		}
-		System.out.println("서비스 ="+result);
-		return result;
+		}*/
+		return bookCheck;
 	}
 	//주석
 }

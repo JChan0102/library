@@ -19,9 +19,18 @@ public class BookCheckCodeController {
 	@RequestMapping(method=RequestMethod.GET,produces = "text/json; charset=UTF-8")
 	@ResponseBody
 	public String bookCodeCheck(@RequestParam("book_code")String book_code) {
-		String result = "{\"result\":\""+service.bookCodeCheck(book_code)+"\"}";
-		System.out.println("컨트롤러"+result);
-		return result;
+		//"{\"resultCnt\":\""+service.bookCodeCheck(book_code)+"\"}";
+		int resultCnt = service.bookCodeCheck(book_code);
+		String resultMsg = "사용가능한 북코드 입니다.";
+		if(resultCnt>0) {
+			resultMsg = "사용 !불가능한! 북코드 입니다.";
+		}
+		String resultJson = "{\"resultCnt\":\""+resultCnt+"\""
+							+",\"resultMsg\":\""+resultMsg
+							+"\"}";
+		
+		System.out.println("컨트롤러"+resultJson);
+		return resultJson;
 	}
 	
 	//주석
