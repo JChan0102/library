@@ -23,6 +23,7 @@ public class BookSearchUserOrderController {
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseBody
 	public List<BookInfo> bookOrderList(OrderParam orderParam){
+		System.out.println(orderParam);
 		
 		List<BookInfo> bookList = service.bookList(orderParam);
 		

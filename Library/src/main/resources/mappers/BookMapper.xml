@@ -38,23 +38,23 @@
 		select
 		book_code,book_isbn,book_name,book_writer,book_publisher,book_image
 		from book
-		<where>
-			<if test='searchWord.equals("title")'>
-				book_name like CONCAT('%',#{keyword},'%')
+		<trim prefix="WHERE"  prefixOverrides="AND">
+			<if test="searchWord == 'title'">
+				AND book_name like CONCAT('%',#{keyword},'%')
 			</if>
-			<if test='searchWord.equals("author")'>
+			<if test="searchWord == 'author'">
 				AND book_writer like CONCAT('%',#{keyword},'%')
 			</if>
-			<if test='searchWord.equals("publisher")'>
+			<if test="searchWord == 'publisher'">
 				AND book_publisher like CONCAT('%',#{keyword},'%')
 			</if>
-			<if test='searchWord.equals("isbn")'>
+			<if test="searchWord == 'isbn'">
 				AND book_isbn like CONCAT('%',#{keyword},'%')
 			</if>
-			<if test='searchWord.equals("bookcode")'>
+			<if test="searchWord == 'bookcode'">
 				AND book_code like CONCAT('%',#{keyword},'%')
 			</if>
-		</where>
+		</trim>
 		group by book_isbn
 		<trim prefix="ORDER BY">
 			<if test="orderBy == 'book_time'"> book_time DESC </if>

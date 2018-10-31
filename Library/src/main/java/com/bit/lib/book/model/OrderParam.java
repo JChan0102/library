@@ -1,16 +1,17 @@
 package com.bit.lib.book.model;
 
 public class OrderParam {
-	private String SearchWord;
+	private String searchWord;
 	private String orderBy;
 	private int listCnt;
 	private String keyword;
 	
+	
 	public String getSearchWord() {
-		return SearchWord;
+		return searchWord;
 	}
 	public void setSearchWord(String searchWord) {
-		SearchWord = searchWord;
+		this.searchWord = searchWord;
 	}
 	public String getOrderBy() {
 		return orderBy;
@@ -32,7 +33,7 @@ public class OrderParam {
 	}
 	@Override
 	public String toString() {
-		return "OrderParam [SearchWord=" + SearchWord + ", orderBy=" + orderBy + ", listCnt=" + listCnt + ", keyword="
+		return "OrderParam [searchWord=" + searchWord + ", orderBy=" + orderBy + ", listCnt=" + listCnt + ", keyword="
 				+ keyword + "]";
 	}
 	
