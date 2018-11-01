@@ -88,9 +88,10 @@
 
 											var exist = '';
 											if (item.book_exist == 1) {
-												exist = '<input type="button" value="삭제" onclick="deleteBook(\''
-														+ item.book_code
-														+ '\')">';
+												exist = '<button type="submit" class="color3_btn btn"';
+												exist += 'onclick="deleteBook('+item.book_code+')" style="color: white">';
+												exist += '<i class="fas fa-book"></i> 삭제'
+											    exist += '</button>';
 
 											} else {
 												exist = '<b>현재 대출 중인 도서 입니다.</b>'
