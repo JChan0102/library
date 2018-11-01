@@ -17,7 +17,7 @@ public class PageInfo {
 		return totalPageNum;
 	}
 	public void setTotalPageNum() {
-		if(totalRowNum/pagePerNum==0) {
+		if(totalRowNum%pagePerNum==0) {
 			this.totalPageNum = totalRowNum/pagePerNum;
 		}else {
 			this.totalPageNum = totalRowNum/pagePerNum + 1;
@@ -63,3 +63,4 @@ public class PageInfo {
 	}	
 	
 }
+//주석

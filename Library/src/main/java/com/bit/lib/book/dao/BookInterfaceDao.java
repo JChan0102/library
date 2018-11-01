@@ -25,4 +25,3 @@ public interface BookInterfaceDao {
 	public int bookCountAll();
 	public int bookCountGroupByAll(@Param("keyword")String keyword);
 }
-//주석

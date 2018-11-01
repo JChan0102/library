@@ -39,3 +39,4 @@ public class BookSearchUserService {
 		return pageInfo.getTotalPageNum();
 	}
 }
+//주석

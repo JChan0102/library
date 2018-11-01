@@ -81,7 +81,7 @@
 </c:if>
 
 <script>
-	
+	/* 주석 */
 
 	$(function() {
 		$("input:text").keydown(function(evt) {
@@ -139,6 +139,7 @@
 					}
 				});
 	}
+
 </script>
 <hr class="my-4">
 <jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
