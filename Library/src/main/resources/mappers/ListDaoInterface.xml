@@ -47,15 +47,15 @@ select idx, count(*) cnt from freelist_reply group by idx) flr right outer join 
 	<select id="getSearchList" parameterType="java.lang.String" resultType="ListInfo">
 		select * from (
 		select cnt, fl.idx, list_title, list_content, list_date, list_name from (
-		select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc limit 0, 15) as temp
+		select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc) as temp  
 		<choose>
-			<when test="selec=='titleCon'">
+			<when test="select=='titleCon'">
 				where list_title like #{con} or list_content like #{con}
 			</when>
-			<when test="selec == 'title'">
+			<when test="select == 'title'">
 		    	where list_title like #{con}
 			</when>
-			<when test="selec == 'writer'">
+			<when test="select == 'writer'">
 			where list_name like #{con}
 			</when>
 		</choose>

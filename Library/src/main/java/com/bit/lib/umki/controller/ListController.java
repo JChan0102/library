@@ -43,11 +43,12 @@ public class ListController {
 	@RequestMapping(value="/member/home/list", method = RequestMethod.POST)
 	public ModelAndView getSearchList(@RequestParam("content") String content, @RequestParam("select") String select) {
 		ModelAndView modelAndView = new ModelAndView();
-		System.out.println(content);
-		System.out.println(select);
-		
+		int pageNum = 1;
 		List<ListInfo> viewInfo = listService.getSearchList(select, content);
-		
+		ViewInfo page = pageService.getSearchPageTotalNum(pageNum);
+		modelAndView.setViewName("member/list/list");
+		modelAndView.addObject("viewInfo", viewInfo);
+		modelAndView.addObject("page", page);
 		
 		return modelAndView;
 	}
