@@ -89,7 +89,7 @@
 											var exist = '';
 											if (item.book_exist == 1) {
 												exist = '<button type="submit" class="color3_btn btn"';
-												exist += 'onclick="deleteBook('+item.book_code+')" style="color: white">';
+												exist += 'onclick="deleteBook(\''+item.book_code+'\')" style="color: white" value="삭제">';
 												exist += '<i class="fas fa-book"></i> 삭제'
 											    exist += '</button>';
 
