@@ -130,8 +130,11 @@
 		select count(*) from book
 	</select>
 	<select id="bookCountGroupByAll" resultType="int">
-		select count(*) as c
-		from
-		(select count(*) from book group by book_isbn)as a;
+		select count(DISTINCT book_isbn)
+		from book
+		where 
+		 book_name like CONCAT('%',#{keyword},'%') OR
+	     book_writer like CONCAT('%',#{keyword},'%') OR
+	 	 book_publisher like CONCAT('%',#{keyword},'%')
 	</select>
 </mapper>

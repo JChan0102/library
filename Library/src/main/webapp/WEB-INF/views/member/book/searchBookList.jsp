@@ -81,7 +81,14 @@
 </c:if>
 
 <script>
+	
 
+	$(function() {
+		$("input:text").keydown(function(evt) {
+			if (evt.keyCode == 13)
+				return false;
+		});
+	});
 
 	function bookOrderFn() {
 		var value = $('#bookOrder').serialize();

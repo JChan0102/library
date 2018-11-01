@@ -22,8 +22,8 @@ public class BookSearchUserService {
 		
 		bookDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
 		
-		int totalRowNum = bookDao.bookCountGroupByAll();
-		 pageInfo = new PageInfo();
+		int totalRowNum = bookDao.bookCountGroupByAll(keyword);
+		pageInfo = new PageInfo();
 		
 		pageInfo.setNowPageNum(nowPageNum);
 		pageInfo.setTotalRowNum(totalRowNum);

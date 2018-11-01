@@ -23,6 +23,6 @@ public interface BookInterfaceDao {
 	public int bookCodeCheck(@Param("book_code")String book_code);
 	public List<BookInfo> bookCodeSelect(@Param("book_isbn")String book_isbn);
 	public int bookCountAll();
-	public int bookCountGroupByAll();
+	public int bookCountGroupByAll(@Param("keyword")String keyword);
 }
 //주석
