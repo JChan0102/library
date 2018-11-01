@@ -70,14 +70,14 @@ html, body {
 <script>
 replyList(${listInfo.idx});
 
-	function delchk() {
-		if (confirm("삭제하시겠습니까?")) {
-			location.href = "delete?idx=${listInfo.idx}";
-			return true;
-		} else {
-			return false;
-		}
+function delchk() {
+	if (confirm("삭제하시겠습니까?")) {
+		location.href = "delete?idx=${listInfo.idx}";
+		return true;
+	} else {
+		return false;
 	}
+}
 </script>
 <jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
 <!-- 네비 사용 끝 -->

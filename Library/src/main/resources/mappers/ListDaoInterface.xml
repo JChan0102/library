@@ -44,6 +44,24 @@ select idx, count(*) cnt from freelist_reply group by idx) flr right outer join 
 	select count(*)+1 from freelist where idx > (select idx from freelist where idx=#{idx})
 	</select>
 	
+	<select id="getSearchList" resultType="ListInfo">
+select * from (
+select cnt, fl.idx, list_title, list_date, list_name from (
+select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc limit 0, 15) as temp
+	
+		<choose>
+			<when test="select==titleCon">
+				where list_title like '%#{con}%' or list_content like '%con%'
+			</when>
+			<when test="select==title">
+			where list_title like '%#{con}%'
+			</when>
+			<when test="select==writer">
+			where list_name like '%#{con}%'
+			</when>
+		</choose>
+	</select>
+	
 	
 	
 	<!-- 댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글 -->
@@ -77,4 +95,7 @@ select idx, count(*) cnt from freelist_reply group by idx) flr right outer join 
 	<update id="replyUpdate">
 		UPDATE freelist_reply SET replytext = #{val} WHERE r_idx = #{r_idx}
 	</update>
+	
+	
+	
 </mapper>

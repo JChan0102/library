@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +22,7 @@ public class ListController {
 	@Autowired
 	GetListPageService pageService;
 		
-	@RequestMapping("/member/home/list")
+	@RequestMapping(value="/member/home/list", method = RequestMethod.GET)	
 	public ModelAndView getList(@RequestParam(value="page", required=false) String pageStr) {
 		ModelAndView modelAndView = new ModelAndView();
 		int pageNum = 1;
@@ -34,6 +35,18 @@ public class ListController {
 		modelAndView.setViewName("member/list/list");
 		modelAndView.addObject("viewInfo", viewInfo);
 		modelAndView.addObject("page", page);
+		
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/member/home/list", method = RequestMethod.POST)
+	public ModelAndView getSearchList(@RequestParam("content") String content, @RequestParam("select") String select) {
+		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(content);
+		System.out.println(select);
+		
+		List<ListInfo> viewInfo = listService.getSearchList(select, content);
 		
 		
 		return modelAndView;

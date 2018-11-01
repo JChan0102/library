@@ -35,4 +35,6 @@ public interface ListDaoInterface {
 	public List<ReplyInfo> getReplyList(int idx) throws Exception;
 	
 	public int replyUpdate(@Param("r_idx") int r_idx, @Param("val") String val) throws Exception;
+
+	public List<ListInfo> getSearchList(@Param("select") String select, @Param("con") String content) throws Exception;
 }

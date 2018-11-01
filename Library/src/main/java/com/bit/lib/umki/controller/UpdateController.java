@@ -30,6 +30,7 @@ public class UpdateController {
 		modelAndView.addObject("listInfo", listInfo);
 		return modelAndView;
 	}
+	
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView update(ListInfo listInfo) {
 		ModelAndView modelAndView = new ModelAndView();

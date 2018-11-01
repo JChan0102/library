@@ -19,6 +19,7 @@ public class GetListService {
 	int num1 = 0;
 	int num2 = 0;
 	List<ListInfo> list = null;
+	List<ListInfo> searchList = null;
 	List<ReplyInfo> replyInfo = null;
 
 	@Transactional
@@ -46,5 +47,19 @@ public class GetListService {
 		} 
 		
 		return replyInfo;
+	}
+
+	@Transactional
+	public List<ListInfo> getSearchList(String select, String content) {
+		System.out.println(select);
+		System.out.println(content);
+		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		try {
+			searchList = dao.getSearchList(select, content);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(searchList);
+		return null;
 	}
 }

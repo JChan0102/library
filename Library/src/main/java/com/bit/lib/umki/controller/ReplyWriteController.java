@@ -25,7 +25,6 @@ public class ReplyWriteController {
 	public int write(ReplyInfo replyInfo) {
 		int check = service1.replyWrite(replyInfo);
 		System.out.println(check);
-//		List<ReplyInfo> replyInfo2 = service2.getReplyContent(replyInfo.getIdx());
 		return check;
 	}
 }

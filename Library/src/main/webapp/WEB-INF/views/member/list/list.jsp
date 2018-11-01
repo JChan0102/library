@@ -18,6 +18,7 @@ h1 {
 
 #list {
 	/* padding: 0 200px; */
+	
 }
 
 #pageNum {
@@ -39,64 +40,77 @@ h1 {
 }
 </style>
 
-	<h2>자유 게시판</h2>
+<h2>자유 게시판</h2>
 
-	<div id="list">
-		<button onclick="location.href='writeForm'" id="write" type="button"
-			class="btn btn-rounded btn-blue-grey">
-			<i class="far fa-edit" aria-hidden="true"></i> 글쓰기
-		</button>
-		<table id="list" class="table table-striped table-hover">
-			<thead>
+<div id="list">
+
+	<button onclick="location.href='writeForm'" id="write" type="button"
+		class="btn btn-rounded btn-blue-grey">
+		<i class="far fa-edit" aria-hidden="true"></i> 글쓰기
+	</button>
+	<form method="post">
+	<button type="submit" id="write" type="button"
+		class="btn btn-rounded btn-blue-grey">
+		<i class="far fa-search" aria-hidden="true"></i> 검색
+	</button>
+	<input name="content" style="float: right" type="text" />
+	<select name="select" style="float: right" name="searchType" id="">
+		<option value="titleCon">제목+내용</option>
+		<option value="title">제목</option>
+		<option value="writer">작성자</option>
+	</select>
+	</form>
+	<table id="list" class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th scope="col" style="width: 10%; text-align: center;">#</th>
+				<th scope="col" style="width: 60%; text-align: center;">제목</th>
+				<th scope="col" style="width: 12%; text-align: center;">작성자</th>
+				<th scope="col" style="width: 18%; text-align: center;">작성일</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="message" items="${viewInfo}" varStatus="status">
 				<tr>
-					<th scope="col" style="width: 10%; text-align: center;">#</th>
-					<th scope="col" style="width: 60%; text-align: center;">제목</th>
-					<th scope="col" style="width: 12%; text-align: center;">작성자</th>
-					<th scope="col" style="width: 18%; text-align: center;">작성일</th>
+					<td scope="row" style="text-align: center;">${message.idx}</td>
+					<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}&nbsp[${message.cnt}]</td>
+					<td style="text-align: center;">${message.list_name}</td>
+					<td style="text-align: center;">${message.list_date}</td>
 				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="message" items="${viewInfo}" varStatus="status">
-					<tr>
-						<td scope="row" style="text-align: center;">${message.idx}</td>
-						<td id="title" onclick="location.href='view?idx=${message.idx}'">${message.list_title}&nbsp[${message.cnt}]</td>
-						<td style="text-align: center;">${message.list_name}</td>
-						<td style="text-align: center;">${message.list_date}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-
-		<div id="pageNum">
-			<c:choose>
-				<c:when test="${page.currentPageNumber > 1}">
-					<a style="color: black" href="list?page=1">[ << ]</a>
-					<a style="color: black"
-						href="list?page=${page.currentPageNumber-1}">[ < ]</a>
-				</c:when>
-			</c:choose>
-			<c:forEach var="num" begin="${page.startPageNum}"
-				end="${page.lastPageNum}">
-				<c:choose>
-					<c:when test="${page.currentPageNumber==num}">
-						<a style="color: red" href="list?page=${num}">[${num}]</a>
-					</c:when>
-					<c:otherwise>
-						<a style="color: black" href="list?page=${num}">[${num}]</a>
-					</c:otherwise>
-				</c:choose>
 			</c:forEach>
+		</tbody>
+	</table>
 
+	<div id="pageNum">
+		<c:choose>
+			<c:when test="${page.currentPageNumber > 1}">
+				<a style="color: black" href="list?page=1">[ << ]</a>
+				<a style="color: black" href="list?page=${page.currentPageNumber-1}">[
+					< ]</a>
+			</c:when>
+		</c:choose>
+		<c:forEach var="num" begin="${page.startPageNum}"
+			end="${page.lastPageNum}">
 			<c:choose>
-				<c:when test="${page.currentPageNumber < page.pageTotalCount}">
-					<a style="color: black"
-						href="list?page=${page.currentPageNumber+1}">[ > ]</a>
-					<a style="color: black" href="list?page=${page.pageTotalCount}">[
-						>> ]</a>
+				<c:when test="${page.currentPageNumber==num}">
+					<a style="color: red" href="list?page=${num}">[${num}]</a>
 				</c:when>
+				<c:otherwise>
+					<a style="color: black" href="list?page=${num}">[${num}]</a>
+				</c:otherwise>
 			</c:choose>
-		</div>
+		</c:forEach>
+
+		<c:choose>
+			<c:when test="${page.currentPageNumber < page.pageTotalCount}">
+				<a style="color: black" href="list?page=${page.currentPageNumber+1}">[
+					> ]</a>
+				<a style="color: black" href="list?page=${page.pageTotalCount}">[
+					>> ]</a>
+			</c:when>
+		</c:choose>
 	</div>
+</div>
 
 <jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
 <!-- 네비 사용 끝 -->
