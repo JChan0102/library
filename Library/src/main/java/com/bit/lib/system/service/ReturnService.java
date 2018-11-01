@@ -46,25 +46,25 @@ public class ReturnService {
                 map.put("msg", day + "일 연체되었으며");
                 DateFormat dateFormat;
                 dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Calendar caldate = Calendar.getInstance();
-                member.setTotoverduedays(member.getTotoverduedays()+day);
-                if (!("possible".toUpperCase().equals(member.getPossibledate().toUpperCase()))) {
-                    Date date = dateFormat.parse(member.getPossibledate());
-                    caldate.setTime(date);
-                }
-                caldate.add(Calendar.DATE, day);
-                member.setPossibledate(dateFormat.format(new Date(caldate.getTimeInMillis())));
-                map.put("msg", day + "일 연체되었으며"+member.getPossibledate()+"에 대여가능합니다.");
-                borrowDao.updatePossible(member);
-            } else {
-                map.put("msg", "정상적으로 반납이 완료 되었습니다 ");
+            Calendar caldate = Calendar.getInstance();
+            member.setTotoverduedays(member.getTotoverduedays()+day);
+            if (!("possible".toUpperCase().equals(member.getPossibledate().toUpperCase()))) {
+                Date date = dateFormat.parse(member.getPossibledate());
+                caldate.setTime(date);
             }
+            caldate.add(Calendar.DATE, day);
+            member.setPossibledate(dateFormat.format(new Date(caldate.getTimeInMillis())));
+            map.put("msg", day + "일 연체되었으며"+member.getPossibledate()+"에 대여가능합니다.");
+            borrowDao.updatePossible(member);
+        } else {
+            map.put("msg", "정상적으로 반납이 완료 되었습니다 ");
+        }
 
-            member.setTotborrowDays(member.getTotborrowDays()+allBorrwDay+1);
-            availAmountUpdate(member);
-            book_existUpdate(book_code);
-            borrowDao.delete(borrow);
-        }else{
+        member.setTotborrowDays(member.getTotborrowDays()+allBorrwDay+1);
+        availAmountUpdate(member);
+        book_existUpdate(book_code);
+        borrowDao.delete(borrow);
+    }else{
             map.put("msg","대여 중인 북코드가 아닙니다.");
         }
         return map;

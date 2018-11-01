@@ -17,11 +17,13 @@ public class MemberBorrowController {
     @Autowired
     private BorrowService service;
 
+    //유저 검색 폼.jsp
     @RequestMapping(value = "/admin/borrow/membersearch",method = RequestMethod.GET)
     public String getSearchForm(){
         return "admin/borrow/search";
     }
 
+    //memberid 검색 id 값을 re
     @RequestMapping(value = "/admin/borrow/membersearch",method = RequestMethod.POST)
     public ModelAndView memberSelectList(@RequestParam("member_id") String member_id){
         List<MemberVO> list= service.searchMember(member_id);
