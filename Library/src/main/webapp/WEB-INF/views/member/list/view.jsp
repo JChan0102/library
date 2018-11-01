@@ -22,10 +22,7 @@ html, body {
 </style>
 <script>
 
-/* $(document).ready(function() {
-		$('#exampleFormControlTextarea2').val($('#exampleFormControlTextarea2').val().replace(/(\n|\r\n)/g, '<br>');
 
-}); */
 </script>
 
 	<div id="wrap"

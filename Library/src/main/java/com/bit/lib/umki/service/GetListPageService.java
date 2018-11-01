@@ -13,6 +13,7 @@ public class GetListPageService {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	ListDaoInterface dao;
+	ViewInfo viewInfo = null;
 
 	int totalCnt = 0;
 	private static final int MESSAGE_COUNT_PER_PAGE = 15;
@@ -28,8 +29,23 @@ public class GetListPageService {
 			e.printStackTrace();
 		}
 
-		ViewInfo viewInfo = new ViewInfo(totalCnt, pageNum, MESSAGE_COUNT_PER_PAGE);
+		viewInfo = new ViewInfo(totalCnt, pageNum, MESSAGE_COUNT_PER_PAGE);
 
 		return viewInfo;
 	}
+
+	public ViewInfo getSearchPageTotalNum(int pageNum) {
+		try {
+			totalCnt = dao.searchCount();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		viewInfo = new ViewInfo(totalCnt, pageNum, MESSAGE_COUNT_PER_PAGE);
+		return viewInfo;
+	}
+	
+	
+	
 }
