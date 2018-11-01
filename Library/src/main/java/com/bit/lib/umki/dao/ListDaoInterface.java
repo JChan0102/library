@@ -36,5 +36,5 @@ public interface ListDaoInterface {
 	
 	public int replyUpdate(@Param("r_idx") int r_idx, @Param("val") String val) throws Exception;
 
-	public List<ListInfo> getSearchList(@Param("select") String select, @Param("con") String content) throws Exception;
+	public List<ListInfo> getSearchList(@Param("selec") String select, @Param("con") String content) throws Exception;
 }

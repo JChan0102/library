@@ -53,6 +53,7 @@ public class GetListService {
 	public List<ListInfo> getSearchList(String select, String content) {
 		System.out.println(select);
 		System.out.println(content);
+		content="%"+content+"%";
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
 		try {
 			searchList = dao.getSearchList(select, content);
