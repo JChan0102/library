@@ -45,7 +45,7 @@ public class ListController {
 		ModelAndView modelAndView = new ModelAndView();
 		int pageNum = 1;
 		List<ListInfo> viewInfo = listService.getSearchList(select, content);
-		ViewInfo page = pageService.getSearchPageTotalNum(pageNum);
+		ViewInfo page = new ViewInfo(1, pageNum, 15);
 		modelAndView.setViewName("member/list/list");
 		modelAndView.addObject("viewInfo", viewInfo);
 		modelAndView.addObject("page", page);
