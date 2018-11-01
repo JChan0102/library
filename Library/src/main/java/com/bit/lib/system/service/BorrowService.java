@@ -55,9 +55,11 @@ public class BorrowService {
 
         DateFormat dateFormat;
         dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         Calendar today = Calendar.getInstance();
         Date d = new Date(today.getTimeInMillis());
         borrow.setBorrowDate(dateFormat.format(d));
+
         today.add(Calendar.DATE, 7);
         d = new Date(today.getTimeInMillis());
         borrow.setReturnDate(dateFormat.format(d));
