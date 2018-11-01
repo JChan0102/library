@@ -1,30 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
 <!-- 네비 사용 시작  -->
 <jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 <style>
-	a {
-		color: #999;
-		text-decoration: none;
-	}
+a {
+	color: #999;
+	text-decoration: none;
+}
 
-	a:link {
-		color: #999;
-		text-decoration: none;
-	}
+a:link {
+	color: #999;
+	text-decoration: none;
+}
 
-	a:hover {
-		text-decoration: none;
-	}
+a:hover {
+	text-decoration: none;
+}
 
-	a:visited {
-		color: #999;
-		text-decoration: none;
-	}
-
+a:visited {
+	color: #999;
+	text-decoration: none;
+}
 </style>
 <hr class="my-4">
 <h1 class="page_title color5">신간도서</h1>
@@ -122,37 +121,50 @@
 
 <c:set var="count" value="0" scope="page" />
 <c:forEach var="item" items="${bookList}">
+	<%-- <c:forEach var="items" items="${ads}"> --%>
 	<c:set var="count" value="${count + 1}" scope="page" />
 	<script>
-        $('#thumb${count}')
-            .html(
-                '<a href="${pageContext.request.contextPath}/member/book/bookView?book_isbn=${item.book_isbn}"><img src="${item.book_image}" style="width: 100%; padding-left: 10px; padding-right: 10px; text-align: center;" id="img${count}"></a>');
-        $('#img${count}').height($('#thumb1').width() * 1.3);
-        // $('#detail_name_${count}').html('${item.book_name}');
-        $('#detail_name_${count}').html('<a href="${pageContext.request.contextPath}/member/book/bookView?book_isbn=${item.book_isbn}">${item.book_name}</a>');
-        $('#detail_writer_${count}').html('${item.book_writer}');
-        $('#detail_publisher_${count}').html('${item.book_publisher}');
+		$('#thumb${count}')
+			    .html(
+			        '<a href="${pageContext.request.contextPath}/member/book/bookView?book_isbn=${item.book_isbn}"><img src="${item.book_image}" style="width: 100%; padding-left: 10px; padding-right: 10px; text-align: center;" id="img${count}"></a>');
+			$('#img${count}').height($('#thumb1').width() * 1.3);
+			// $('#detail_name_${count}').html('${item.book_name}');
+			$('#detail_name_${count}')
+					.html(
+							'<a href="${pageContext.request.contextPath}/member/book/bookView?book_isbn=${item.book_isbn}">${item.book_name}</a>');
+			$('#detail_writer_${count}').html('${item.book_writer}');
+			$('#detail_publisher_${count}').html('${item.book_publisher}');
+		</script>
+	<%-- ISBN/${item.book_isbn}/${fn:substring(item.book_isbn,11,24)} --%><br>
+	<%-- </c:forEach> --%>
+</c:forEach>
+<c:set var="thumbcount" value="0" scope="page" />
+<c:forEach var="items" items="${ads}">
+	<c:set var="thumbcount" value="${thumbcount + 1}" scope="page" />
+	<script>
+		$('#img${thumbcount}').attr('src', '${items.cover}');
 	</script>
-	ISBN/${item.book_isbn}/${fn:substring(item.book_isbn,11,24)}<br>
 </c:forEach>
 
 <script>
-    var myIndex = 0;
-    carousel();
 
-    function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        myIndex++;
-        if (myIndex > x.length) {
-            myIndex = 1
-        }
-        x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000); // Change image every 2 seconds
-    }
+	// 슬라이드 부분
+	var myIndex = 0;
+	carousel();
+
+	function carousel() {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		myIndex++;
+		if (myIndex > x.length) {
+			myIndex = 1
+		}
+		x[myIndex - 1].style.display = "block";
+		setTimeout(carousel, 4000); // Change image every 2 seconds
+	}
 </script>
 
 

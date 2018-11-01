@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/resources/common/adminHeader.jsp"></jsp:include>
-<jsp:include page="/resources/common/adminNavOpen.jsp"></jsp:include>
+<jsp:include page="/resources/common/memberHeader.jsp"></jsp:include>
+<jsp:include page="/resources/common/memberNavOpen.jsp"></jsp:include>
 <hr class="my-4">
 <h1 class="page_title color5">나의 정보 수정</h1>
 <hr class="my-4">
@@ -39,5 +39,5 @@
 	</div>
 </form>
 
-<jsp:include page="/resources/common/adminNavClose.jsp"></jsp:include>
-<jsp:include page="/resources/common/adminFooter.jsp"></jsp:include>
+<jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
+<jsp:include page="/resources/common/memberFooter.jsp"></jsp:include>

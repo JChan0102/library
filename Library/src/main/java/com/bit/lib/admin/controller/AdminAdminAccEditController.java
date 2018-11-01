@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bit.lib.admin.model.AdminVO;
 import com.bit.lib.admin.service.AdminEditService;
 import com.bit.lib.admin.service.AdminPermissionService;
-import com.bit.lib.member.model.MemberVO;
 
 @Controller
 @RequestMapping("/admin/adminAccount/adminEdit")
