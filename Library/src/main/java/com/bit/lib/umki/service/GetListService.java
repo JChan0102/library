@@ -18,6 +18,7 @@ public class GetListService {
 	private static final int MESSAGE_COUNT_PER_PAGE = 15;
 	int num1 = 0;
 	int num2 = 0;
+	int totalCnt = 0;
 	List<ListInfo> list = null;
 	List<ListInfo> searchList = null;
 	List<ReplyInfo> replyInfo = null;
@@ -51,16 +52,14 @@ public class GetListService {
 
 	@Transactional
 	public List<ListInfo> getSearchList(String select, String content) {
-		System.out.println(select);
-		System.out.println(content);
 		content="%"+content+"%";
 		dao = sqlSessionTemplate.getMapper(ListDaoInterface.class);
+		
 		try {
 			searchList = dao.getSearchList(select, content);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(searchList);
-		return null;
+		return searchList;
 	}
 }

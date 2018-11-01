@@ -16,8 +16,8 @@
     </select>
 
     <select id="getDay" resultType="int">
-        select to_days(sysdate()) - to_days(STR_TO_DATE(#{returnDate}, '%Y-%m-%d'))
-    </select>
+    select to_days(sysdate()) - to_days(STR_TO_DATE(#{returnDate}, '%Y-%m-%d'))
+   </select>
 
     <select id="getBook_code" resultType="com.bit.lib.book.model.BookInfo">
         select *
