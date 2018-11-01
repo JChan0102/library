@@ -6,7 +6,6 @@
 <form class="formLogin" method="post">
 	<div class="alert alert-light">
 		<h1 class="h3 mb-4 font-weight-normal">회원 로그인</h1>
-		<h1>${msg}</h1>
 		<div class="form-group">
 			<label>아이디</label><input type="text" name="member_id"
 				class="form-control form-control-lg" placeholder="ID"

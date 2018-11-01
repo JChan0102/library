@@ -38,7 +38,10 @@ public class MemberDao {
 	}
 
 	public boolean matchPassword(String member_id, String password) {
-		return password.equals(selectOneMember(member_id).getPassword());
+		if (selectOneMember(member_id) != null) {
+			return password.equals(selectOneMember(member_id).getPassword());
+		}
+		return false;
 	}
 
 	// 대여 요구사항

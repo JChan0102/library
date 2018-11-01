@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.bit.lib.admin.dao.AdminDao;
 import com.bit.lib.admin.model.AdminVO;
-import com.bit.lib.member.dao.MemberDao;
-import com.bit.lib.member.model.MemberVO;
 
 @Service
 public class AdminRegService {
