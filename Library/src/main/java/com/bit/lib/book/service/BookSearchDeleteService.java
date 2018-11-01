@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bit.lib.book.dao.BookInterfaceDao;
 import com.bit.lib.book.model.BookInfo;
+import com.bit.lib.book.model.PageInfo;
 
 public class BookSearchDeleteService {
 
@@ -15,6 +16,8 @@ public class BookSearchDeleteService {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	private BookInterfaceDao bookDao;
+	
+	private PageInfo pageInfo;
 
 	public List<BookInfo> searchBook(String searchWord, String keyword) {
 
@@ -28,16 +31,27 @@ public class BookSearchDeleteService {
 		return list;
 	}
 
-	public List<BookInfo> searchBookAll() {
+	public List<BookInfo> searchBookAll(int page) {
 
 		
 		List<BookInfo> list = new ArrayList<BookInfo>();
 
 		bookDao = sqlSessionTemplate.getMapper(BookInterfaceDao.class);
+		int totalRowNum = bookDao.bookCountAll();
+		pageInfo = new PageInfo();
+		
+		pageInfo.setNowPageNum(page);
+		pageInfo.setTotalRowNum(totalRowNum);
+		System.out.println(pageInfo);
 
-		list = bookDao.selectAllBookList();
+		list = bookDao.selectAllBookList(pageInfo);
 
 		return list;
+	}
+	
+	public int pageNumber() {	
+	
+		return pageInfo.getTotalPageNum();
 	}
 
 }

@@ -21,9 +21,11 @@ public class BookSearchDeleteController {
 	private BookSearchDeleteService service;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String searchBookList(Model model) {
-		List<BookInfo> list= service.searchBookAll();
+	public String searchBookList(@RequestParam(value="page",required=false,defaultValue="1")int page,Model model) {
+		List<BookInfo> list= service.searchBookAll(page); 
+		int totalPageNum = service.pageNumber();
 		model.addAttribute("bookList", list);
+		model.addAttribute("totalPageNum", totalPageNum);
 		return "admin/book/searchBookDeleteView";
 	}
 	@RequestMapping(method=RequestMethod.POST)

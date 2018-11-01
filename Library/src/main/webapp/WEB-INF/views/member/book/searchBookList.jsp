@@ -35,7 +35,7 @@
 	<input type="text" class="form-control mr-sm-2" name="keyword"
 		id="keyword" value="${keyword}" />
 	<!-- <input type="button" onclick="bookOrderFn()" value="검색"> -->
-	<input type="button" class="btn btn-dark mr-sm-2" onclick="bookOrderFn()" value="검색"/>
+	<input type="button" class="btn btn-dark mr-sm-2" onclick="bookOrderFn()"  value="검색"/>
 		<!-- <i class="fas fa-search"></i> 검색 -->
 
 </form>
@@ -75,9 +75,14 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<c:forEach var="num" begin="1" end="${bookCount}">
+			<a href="${pageContext.request.contextPath}/member/book/searchBook?keyword=${keyword}&nowPageNum=${num}" class="pageNum">[${num}]</a>
+	</c:forEach>
 </c:if>
 
 <script>
+
+
 	function bookOrderFn() {
 		var value = $('#bookOrder').serialize();
 		$
@@ -91,23 +96,35 @@
 						console.log(data);
 						var bookListView = '';
 						var url = '${pageContext.request.contextPath}/member/book/bookView';
-						$.each(data,function(index, item) {
-							bookListView += '<tr><td rowspan="2" width="90"><img src="'+item.book_image+'"alt="이미지 없음"></td>';
-							bookListView += '<td>'+item.book_name+'</td>';
-							bookListView += '<td width="170">'+item.book_code+'</td>';
-							bookListView += '<td width="150">';
-							bookListView += '<a href="'+url+'?book_isbn='+item.book_isbn+'">';
-							bookListView += '<button  class="color3_btn btn"';
+						$
+								.each(
+										data,
+										function(index, item) {
+											bookListView += '<tr><td rowspan="2" width="90"><img src="'+item.book_image+'"alt="이미지 없음"></td>';
+											bookListView += '<td>'
+													+ item.book_name + '</td>';
+											bookListView += '<td width="170">'
+													+ item.book_code + '</td>';
+											bookListView += '<td width="150">';
+											bookListView += '<a href="' + url
+													+ '?book_isbn='
+													+ item.book_isbn + '">';
+											bookListView += '<button  class="color3_btn btn"';
 							bookListView += 'style="color: white"><i class="fas fa-book"></i> 상세보기</button></a></td>';
-							bookListView += '</tr><tr>';
-							bookListView += '<td>'+item.book_writer+'</td>';
-							bookListView += '<td>'+item.book_publisher+'</td>';
-							bookListView += '<td>'+item.book_isbn+'</td>';
-							bookListView += '</tr>';
-							bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
-						
+											bookListView += '</tr><tr>';
+											bookListView += '<td>'
+													+ item.book_writer
+													+ '</td>';
+											bookListView += '<td>'
+													+ item.book_publisher
+													+ '</td>';
+											bookListView += '<td>'
+													+ item.book_isbn + '</td>';
+											bookListView += '</tr>';
+											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
 
-						});
+										});
+						$('.pageNum').html('');
 						$('#bookListView').html(bookListView);
 					},
 					error : function() {

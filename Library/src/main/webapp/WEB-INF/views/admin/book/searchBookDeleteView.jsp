@@ -60,6 +60,9 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<c:forEach var="num" begin="1" end="${totalPageNum}">
+			<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook?page=${num}" class="pageNum">[${num}]</a>
+	</c:forEach>
 	<br>
 </c:if>
 
@@ -115,6 +118,7 @@
 											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
 
 										});
+						//$('.pageNum').html('');
 						$('#bookListView').html(bookListView);
 					},
 					error : function() {

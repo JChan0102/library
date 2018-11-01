@@ -38,7 +38,7 @@
 		select
 		book_code,book_isbn,book_name,book_writer,book_publisher,book_image
 		from book
-		<trim prefix="WHERE"  prefixOverrides="AND">
+		<trim prefix="WHERE" prefixOverrides="AND">
 			<if test="searchWord == 'title'">
 				AND book_name like CONCAT('%',#{keyword},'%')
 			</if>
@@ -67,15 +67,20 @@
 	</select>
 
 	<select id="selectUserBook"
+		parameterType="com.bit.lib.book.model.PageInfo"
 		resultType="com.bit.lib.book.model.BookInfo">
 		select
 		book_isbn,book_code,book_name,book_writer,book_image,book_publisher
 		from book
-		where (book_name like CONCAT('%',#{keyword},'%') OR book_writer like
+		where (book_name like CONCAT('%',#{keyword},'%') OR
+		book_writer like
 		CONCAT('%',#{keyword},'%') OR
-		book_publisher like CONCAT('%',#{keyword},'%'))
+		book_publisher like
+		CONCAT('%',#{keyword},'%'))
 		group by book_isbn
 		order by book_name
+		limit
+		#{startRowNum},#{pagePerNum}
 	</select>
 
 	<update id="updateBook_exist"
@@ -91,26 +96,42 @@
 		select count(*) from book
 		where book_isbn = #{book_isbn} AND book_exist = 1
 	</select>
-	<select id="afterDelete" resultType="com.bit.lib.book.model.BookInfo">
-		select * from book order by book_time desc
+	<select id="afterDelete"
+		resultType="com.bit.lib.book.model.BookInfo">
+		select * from book order by book_time desc limit 0,10
 	</select>
-	<select id="selectNewTopTen" resultType="com.bit.lib.book.model.BookInfo">
+	<select id="selectNewTopTen"
+		resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
 		group by book_isbn
-		order by book_time desc limit 0,10
+		order by book_time desc
+		limit 0,10
 	</select>
-	<select id="selectAllBookList" resultType="com.bit.lib.book.model.BookInfo">
+	<select id="selectAllBookList"
+		parameterType="com.bit.lib.book.model.PageInfo"
+		resultType="com.bit.lib.book.model.BookInfo">
 		select * from book
-		order by book_time desc 
+		order by book_time desc
+		limit
+		#{startRowNum},#{pagePerNum}
 	</select>
 	<select id="bookCodeCheck" resultType="int">
 		select count(*) from book
 		where book_code = #{book_code}
 	</select>
-	<select id="bookCodeSelect" resultType="com.bit.lib.book.model.BookInfo">
+	<select id="bookCodeSelect"
+		resultType="com.bit.lib.book.model.BookInfo">
 		select book_code,book_exist
 		from book
-		where book_isbn = #{book_isbn}
+		where book_isbn =
+		#{book_isbn}
 	</select>
-	
+	<select id="bookCountAll" resultType="int">
+		select count(*) from book
+	</select>
+	<select id="bookCountGroupByAll" resultType="int">
+		select count(*) as c
+		from
+		(select count(*) from book group by book_isbn)as a;
+	</select>
 </mapper>
