@@ -59,7 +59,8 @@ public class ReturnService {
             } else {
                 map.put("msg", "정상적으로 반납이 완료 되었습니다 ");
             }
-            member.setTotborrowDays(member.getTotoverduedays()+allBorrwDay);
+
+            member.setTotborrowDays(member.getTotborrowDays()+allBorrwDay+1);
             availAmountUpdate(member);
             book_existUpdate(book_code);
             borrowDao.delete(borrow);

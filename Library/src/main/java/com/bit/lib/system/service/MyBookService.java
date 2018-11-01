@@ -20,7 +20,8 @@ public class MyBookService {
        MemberVO member= (MemberVO) session.getAttribute("memberLoginInfo");
 
        String member_id=  member.getMember_id();
-
-    return borrowDao.myBookList(member_id);
+       MybookList mybookList = new MybookList();
+       mybookList.setMember_id(member_id);
+    return borrowDao.myBookList(mybookList);
     }
 }

@@ -30,7 +30,7 @@ public class ExtensionService {
         return borrowDao.updateExtension(mybookList);
     }
     public List<MybookList> getList() {
-        return borrowDao.selectListExtension();
+        return borrowDao.myBookList(new MybookList());
     }
 
     public int getCount() {
@@ -38,7 +38,10 @@ public class ExtensionService {
     }
 
     public void extensionOk(String book_code) {
-        MybookList mybookList = borrowDao.myBook(book_code);
+        MybookList mybookList = new MybookList();
+        mybookList.setBook_code(book_code);
+        List<MybookList> list = borrowDao.myBookList(mybookList);
+        mybookList = list.get(0);
         DateFormat dateFormat;
         dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar caldate = Calendar.getInstance();

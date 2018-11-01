@@ -37,28 +37,37 @@
                 member_id=#{member_id};
     </update>
 
-    <select id="myBookList" resultType="com.bit.lib.system.model.MybookList">
-        select b.book_name , bo.borrowdate , bo.returndate, bo.extension, bo.book_code from book b inner join borrow bo on b.book_code = bo.book_code where member_id=#{member_id};
+    <select id="myBookList" parameterType="com.bit.lib.system.model.MybookList" resultType="com.bit.lib.system.model.MybookList">
+        select b.book_name , bo.borrowdate , bo.returndate, bo.extension, bo.book_code, member_id from book b inner join borrow bo on b.book_code = bo.book_code where
+                <choose>
+                    <when test="member_id != null">
+                        member_id=#{member_id};
+                    </when>
+                    <when test="book_code != null">
+                        bo.book_code=#{book_code}
+                    </when>
+                    <otherwise>
+                        extension=1
+                    </otherwise>
+                </choose>
     </select>
 
-    <select id="myBook" resultType="com.bit.lib.system.model.MybookList">
-        select b.book_name , bo.borrowdate , bo.returndate, bo.extension, bo.book_code from book b inner join borrow bo on b.book_code = bo.book_code where bo.book_code=#{book_code};
-    </select>
+
+
 
     <update id="updateExtension" parameterType="com.bit.lib.system.model.MybookList">
         update borrow set extension=#{extension} where book_code=#{book_code}
     </update>
 
-    <select id="selectListExtension" resultType="com.bit.lib.system.model.MybookList">
-        select  b.book_name , bo.borrowdate , bo.returndate, bo.extension, bo.book_code, member_id from book b inner join borrow bo on b.book_code = bo.book_code where extension=1;
-    </select>
+
 
     <select id="countExtension" resultType="int">
-
         select count(*) from borrow where extension=1;
     </select>
+
 
     <update id="updateExtensionreturndate" parameterType="com.bit.lib.system.model.MybookList">
         update borrow set extension=#{extension}, returndate=#{returnDate} where book_code=#{book_code}
     </update>
+
 </mapper>
