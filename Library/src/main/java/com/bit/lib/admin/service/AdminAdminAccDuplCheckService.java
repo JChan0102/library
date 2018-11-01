@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.lib.admin.dao.AdminDao;
+import com.bit.lib.admin.model.AdminVO;
 import com.bit.lib.member.dao.MemberDao;
 
 @Service
@@ -13,6 +14,11 @@ public class AdminAdminAccDuplCheckService {
 	AdminDao adminDao;
 
 	public boolean isExistID(String admin_id) {
-		return (adminDao.selectOneAdmin(admin_id) != null);
+		// 동적
+		// return (adminDao.selectOneAdmin(admin_id) != null);
+		AdminVO av = new AdminVO();
+		av.setAdmin_id(admin_id);
+		System.out.println(!adminDao.selectAdmin(av).isEmpty());
+		return (!adminDao.selectAdmin(av).isEmpty());
 	}
 }

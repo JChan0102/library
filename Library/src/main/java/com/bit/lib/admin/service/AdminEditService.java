@@ -13,7 +13,11 @@ public class AdminEditService {
 	AdminDao adminDao;
 
 	public AdminVO getEditAdmin(String admin_id) {
-		return adminDao.selectOneAdmin(admin_id);
+		// 동적
+		// return adminDao.selectOneAdmin(admin_id);
+		AdminVO av = new AdminVO();
+		av.setAdmin_id(admin_id);
+		return adminDao.selectAdmin(av).get(0);
 	}
 
 	public int editAdmin(AdminVO av) {

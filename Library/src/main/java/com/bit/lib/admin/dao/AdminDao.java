@@ -20,15 +20,22 @@ public class AdminDao {
 		return sqlSessionTemplate.update(mapperPath + "insertAdmin", av);
 	}
 
-	// 확인
-	public AdminVO selectOneAdmin(String admin_id) {
-		return sqlSessionTemplate.selectOne(mapperPath + "selectOneAdmin", admin_id);
+	public List<AdminVO> selectAdmin(AdminVO av){
+		return sqlSessionTemplate.selectList(mapperPath + "selectAdmin", av);
 	}
+	// 비밀번호 찾기
+	public boolean matchPassword(AdminVO av, String password) {
+		return password.equals(selectAdmin(av).get(0).getPassword());
+	}
+	// 확인
+//	public AdminVO selectOneAdmin(String admin_id) {
+//		return sqlSessionTemplate.selectOne(mapperPath + "selectOneAdmin", admin_id);
+//	}
 
 	// 확인
-	public List<AdminVO> selectAllAdmin() {
-		return sqlSessionTemplate.selectList(mapperPath + "selectAllAdmin");
-	}
+//	public List<AdminVO> selectAllAdmin() {
+//		return sqlSessionTemplate.selectList(mapperPath + "selectAllAdmin");
+//	}
 
 	// 확인
 	public List<String> selectAllAdminId() {
@@ -44,9 +51,9 @@ public class AdminDao {
 	}
 
 	// 확인
-	public boolean matchPassword(String admin_id, String password) {
-		return password.equals(selectOneAdmin(admin_id).getPassword());
-	}
+//	public boolean matchPassword(String admin_id, String password) {
+//		return password.equals(selectOneAdmin(admin_id).getPassword());
+//	}
 	
 	public List<String> selectPermissionDetail() {
 		return sqlSessionTemplate.selectList(mapperPath + "selectPermissionDetail");

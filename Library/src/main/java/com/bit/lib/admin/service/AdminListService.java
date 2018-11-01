@@ -15,7 +15,10 @@ public class AdminListService {
 	AdminDao adminDao;
 
 	public List<AdminVO> getAllAdmin() {
-		return adminDao.selectAllAdmin();
+		// 동적
+		// return adminDao.selectAllAdmin();
+		AdminVO av = new AdminVO();
+		return adminDao.selectAdmin(av);
 	}
 
 }

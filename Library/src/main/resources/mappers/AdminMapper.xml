@@ -11,23 +11,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO `librarydb`.`admin` (`admin_id`, `password`,
 		`permission`) VALUES (#{admin_id}, #{password}, #{permission})
 	</insert>
-	<!-- 확인 -->
-	<select id="selectOneAdmin" parameterType="java.lang.String"
+
+	<!-- selects -->
+	<select id="selectAdmin" parameterType="com.bit.lib.admin.model.AdminVO" resultType="com.bit.lib.admin.model.AdminVO">
+		SELECT * FROM `librarydb`.`admin` 
+		<if test="admin_id != null">
+			WHERE admin_id = #{admin_id}
+		</if>
+		ORDER BY admin_id
+	</select>
+
+	<!-- <select id="selectOneAdmin" parameterType="java.lang.String"
 		resultType="com.bit.lib.admin.model.AdminVO">
 		SELECT * FROM `librarydb`.`admin` WHERE admin_id =
 		#{admin_id}
 	</select>
-	<!-- 확인 -->
+
 	<select id="selectAllAdmin"
 		resultType="com.bit.lib.admin.model.AdminVO">
 		SELECT * FROM `librarydb`.`admin` ORDER BY admin_id
-	</select>
-	<!-- 확인 -->
+	</select> -->
+
 	<select id="selectAllAdminId" resultType="java.lang.String">
 		SELECT admin_id FROM
 		`librarydb`.`admin` ORDER BY admin_id
-	</select>
-
+	</select> 
+	<!-- selects -->
 	<update id="updateAdmin"
 		parameterType="com.bit.lib.admin.model.AdminVO">
 		UPDATE `librarydb`.`admin` SET `password`=#{password},
