@@ -28,11 +28,36 @@ public class AladinBookAPIService {
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) node;
 
+				aladinDataVO.setISBN13(getTagValue("isbn13", eElement));
 				aladinDataVO.setLink(getTagValue("link", eElement));
 				aladinDataVO.setCover(getTagValue("cover", eElement));
+				aladinDataVO.setCustomerReviewRank(Integer.parseInt(getTagValue("customerReviewRank", eElement)));
 
 			}
 		}
+		nList = result.getElementsByTagName("aladinUsed");
+		for (int i = 0; i < nList.getLength(); i++) {
+			Node node = nList.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element eElement = (Element) node;
+
+				aladinDataVO.setUsedAladinUsedCount(Integer.parseInt(getTagValue("itemCount", eElement)));
+				aladinDataVO.setUsedAladinMinPrice(Integer.parseInt(getTagValue("minPrice", eElement)));
+				aladinDataVO.setUsedAladinLink(getTagValue("link", eElement));
+			}
+		}
+		nList = result.getElementsByTagName("userUsed");
+		for (int i = 0; i < nList.getLength(); i++) {
+			Node node = nList.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element eElement = (Element) node;
+
+				aladinDataVO.setUserUsedCount(Integer.parseInt(getTagValue("itemCount", eElement)));
+				aladinDataVO.setUserUsedMinPrice(Integer.parseInt(getTagValue("minPrice", eElement)));
+				aladinDataVO.setUserUsedLink(getTagValue("link", eElement));
+			}
+		}
+		System.out.println(aladinDataVO);
 		return aladinDataVO;
 	}
 
@@ -44,5 +69,5 @@ public class AladinBookAPIService {
 			return null;
 		}
 		return nValue.getNodeValue();
-	}// end getTagValue()
+	}
 }

@@ -10,7 +10,7 @@
 <hr class="my-4">
 <table class="jc_table">
 	<tr>
-		<td rowspan="3"><img src="${bookInfo.book_image}"></td>
+		<td rowspan="3"><img src="${ad.cover}"></td>
 		<td rowspan="2" width="800">${bookInfo.book_name}</td>
 		<td width="200">${bookInfo.book_writer}</td>
 		<td>${bookExist}</td>
@@ -38,35 +38,110 @@
 		<td colspan="5">${bookInfo.description}</td>
 	</tr>
 	<tr>
-		<td colspan="5" id="getAladin">이 책이 마음에 드셨나요? <a
-			href="${ad.link}">[온라인 서점 알라딘으로 구경가기]</a></td>
+		<td colspan="5">이 책의 평점 : <c:choose>
+				<c:when test="${10 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</c:when>
+				<c:when test="${9 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star-half-alt"></i>
+				</c:when>
+				<c:when test="${8 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${7 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star-half-alt"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${6 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${5 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star-half-alt"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${4 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${3 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star-half-alt"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${2 eq ad.customerReviewRank}">
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${1 eq ad.customerReviewRank}">
+					<i class="fas fa-star-half-alt"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+				<c:when test="${0 eq ad.customerReviewRank}">
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+					<i class="far fa-star"></i>
+				</c:when>
+			</c:choose><br>이 책이 마음에 드셨나요? <a href="${ad.link}" target="_blank"><button
+					class="btn btn-dark mr-sm-2" type="submit"
+					style="margin-left: 15px;">구경가기</button></a></td>
 	</tr>
-	<tr>
-		<td colspan="5" width="100%" bgcolor="pink"><span id="result"></span></td>
-	</tr>
+	<c:if test="${0 ne ad.usedAladinUsedCount}">
+		<tr>
+			<td colspan="5">해당 도서의 <font style="color: red;">알라딘 직배송 중고책</font>이 ${ad.usedAladinUsedCount}권 있네요!<br>
+				최저가는 ${ad.usedAladinMinPrice}원 입니다. 구경하러 가시겠어요? <a
+				href="${ad.usedAladinLink}" target="_blank"><button
+						class="btn btn-dark mr-sm-2" type="submit"
+						style="margin-left: 15px;">구경가기</button></a>
+			</td>
+		</tr>
+	</c:if>
+	<c:if test="${0 ne ad.userUsedCount}">
+		<tr>
+			<td colspan="5">해당 도서의 <font style="color: red;">알라딘 회원 중고책</font>이 ${ad.userUsedCount}권 있네요!<br>
+				최저가는 ${ad.userUsedMinPrice}원 입니다. 구경하러 가시겠어요? <a
+				href="${ad.userUsedLink}" target="_blank"><button
+						class="btn btn-dark mr-sm-2" type="submit"
+						style="margin-left: 15px;">구경가기</button></a>
+			</td>
+		</tr>
+	</c:if>
 </table>
-<script type="text/javascript">
-	/* $(document)
-			.ready(
-					function() {
-						//$("#member_id").keyup(function() {
-						$
-								.ajax({
-									type : 'GET',
-									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
-									// url: 'http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?ttbkey=ttbbombstar1951001&itemIdType=ISBN13&ItemId=9788931587012&output=xml&Version=20131101&OptResult=ebookList,usedList,reviewList',
-									url : "${pageContext.request.contextPath}/member/aladin/getAladinData?isbn13=${fn:substring(bookInfo.book_isbn,11,24)}",
-									success : function(data) {
-										console.log(data);
-										$('#result').html(data);
-									},
-									error : function(error) {
-										console.log("error : " + error);
-									}
-								});
-						//});
-					}); */
-</script>
+
 <jsp:include page="/resources/common/memberNavClose.jsp"></jsp:include>
 <!-- 네비 사용 끝 -->
 <jsp:include page="/resources/common/memberFooter.jsp"></jsp:include>

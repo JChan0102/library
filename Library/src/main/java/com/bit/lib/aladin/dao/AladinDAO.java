@@ -13,8 +13,6 @@ import org.w3c.dom.Document;
 public class AladinDAO {
 
 	// 알라딘 책 가져오기
-	// private String isbn13 = "9788931587012";
-
 	private String baseURL = "http://www.aladin.co.kr/ttb/api/ItemLookUp.aspx?";
 	private String ttbkey = "ttbkey=" + "ttbbombstar1951001";
 	private String itemIdType = "&itemIdType=" + "ISBN13";
@@ -22,14 +20,12 @@ public class AladinDAO {
 	private String output = "&output=" + "xml";
 	private String version = "&Version=" + "20131101";
 	private String cover = "&Cover=" + "Big";
-	private String optResult = "&OptResult=ebookList,usedList,reviewList";
+	private String optResult = "&OptResult=ebookList,usedList";
 
 	private Document doc;
 
 	public Document getBookList(String book_isbn13) throws Exception {
 
-		// private String requestAddr = baseURL + ttbkey + itemIdType + ItemId + output
-		// + version + result;
 		String apiURL = baseURL + ttbkey + itemIdType + ItemId + book_isbn13 + output + version + cover + optResult;
 		URL url = new URL(apiURL);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();

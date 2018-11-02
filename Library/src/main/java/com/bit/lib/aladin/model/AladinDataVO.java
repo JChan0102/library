@@ -2,14 +2,26 @@ package com.bit.lib.aladin.model;
 
 public class AladinDataVO {
 
+	private String ISBN13;
 	private String link;
 	private String cover;
+	private int customerReviewRank;
+	
 	private int usedAladinUsedCount;
 	private int usedAladinMinPrice;
 	private String usedAladinLink;
+	
 	private int userUsedCount;
 	private int userUsedMinPrice;
 	private String userUsedLink;
+
+	public String getISBN13() {
+		return ISBN13;
+	}
+
+	public void setISBN13(String iSBN13) {
+		ISBN13 = iSBN13;
+	}
 
 	public String getLink() {
 		return link;
@@ -25,6 +37,14 @@ public class AladinDataVO {
 
 	public void setCover(String cover) {
 		this.cover = cover;
+	}
+
+	public int getCustomerReviewRank() {
+		return customerReviewRank;
+	}
+
+	public void setCustomerReviewRank(int customerReviewRank) {
+		this.customerReviewRank = customerReviewRank;
 	}
 
 	public int getUsedAladinUsedCount() {
@@ -77,10 +97,10 @@ public class AladinDataVO {
 
 	@Override
 	public String toString() {
-		return "AladinDataVO [link=" + link + ", cover=" + cover + ", usedAladinUsedCount=" + usedAladinUsedCount
-				+ ", usedAladinMinPrice=" + usedAladinMinPrice + ", usedAladinLink=" + usedAladinLink
-				+ ", userUsedCount=" + userUsedCount + ", userUsedMinPrice=" + userUsedMinPrice + ", userUsedLink="
-				+ userUsedLink + "]";
+		return "AladinDataVO [ISBN13=" + ISBN13 + ", link=" + link + ", cover=" + cover + ", customerReviewRank="
+				+ customerReviewRank + ", usedAladinUsedCount=" + usedAladinUsedCount + ", usedAladinMinPrice="
+				+ usedAladinMinPrice + ", usedAladinLink=" + usedAladinLink + ", userUsedCount=" + userUsedCount
+				+ ", userUsedMinPrice=" + userUsedMinPrice + ", userUsedLink=" + userUsedLink + "]";
 	}
 
 }
