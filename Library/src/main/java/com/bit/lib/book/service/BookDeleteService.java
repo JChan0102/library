@@ -31,4 +31,7 @@ public class BookDeleteService {
 		System.out.println("서비스 :"+list);
 		return list;
 	}
+	/*public int bookCountAll() {
+		return bookDao.bookCountAll();
+	}*/
 }

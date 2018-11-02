@@ -61,7 +61,9 @@
 		</tbody>
 	</table>
 	<c:forEach var="num" begin="1" end="${totalPageNum}">
+	<h5 id="pageDiv" style="float:left">
 			<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook?page=${num}" class="pageNum">[${num}]</a>
+	</h5>
 	</c:forEach>
 	<br>
 </c:if>
@@ -81,10 +83,8 @@
 						alert('삭제하였습니다.');
 						var bookListView = '';
 						var url = '${pageContext.request.contextPath}/admin/book/bookDelete';
-						$
-								.each(
-										data,
-										function(index, item) {
+						var cnt = 0;
+						$.each(data,function(index, item) {
 
 											var exist = '';
 											if (item.book_exist == 1) {
@@ -117,10 +117,18 @@
 													+ item.book_isbn + '</td>';
 											bookListView += '</tr>'
 											bookListView += '<tr><td colspan="5" width="100%" bgcolor="pink"></td></tr>';
-
+											cnt++;
 										});
 						//$('.pageNum').html('');
 						$('#bookListView').html(bookListView);
+						//페이징 처리
+						console.log('cnt'+cnt);
+						var tpageNum = cnt%10==0?cnt/10:cnt/10+1;
+						var pageHtml = '';
+						for(var i=1;i<=tpageNum;i++){
+							pageHtml += '<a href="${pageContext.request.contextPath}/admin/book/searchDeleteBook?page='+i+'" class="pageNum">['+i+']</a>';
+						};
+						$('#pageDiv').html(pageHtml);
 					},
 					error : function() {
 						alert('오류발생');

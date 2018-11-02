@@ -11,7 +11,7 @@ public class BookInfo {
 	private String book_isbn;// 도서번호 isbn
 	private String description;// 상세정보
 	private int book_exist;
-
+	
 	public String getBook_code() {
 		return book_code;
 	}
