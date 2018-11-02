@@ -28,8 +28,6 @@ public interface ListDaoInterface {
 
 	public int replyWrite(ReplyInfo replyInfo) throws Exception;
 
-//	public List<ReplyInfo> getReplyContent(int idx) throws Exception;
-
 	public int replyDelete(int r_idx) throws Exception;
 	
 	public List<ReplyInfo> getReplyList(int idx) throws Exception;
@@ -38,5 +36,10 @@ public interface ListDaoInterface {
 
 	public List<ListInfo> getSearchList(@Param("select") String select, @Param("con") String content) throws Exception;
 
-	public int searchCount();
+	public int searchCount() throws Exception;
+
+	public int getIdx(@Param("idx") int idx, @Param("check") String check) throws Exception;
+
+	public String getIdxNP(@Param("idx") int idx, @Param("check") String check) throws Exception;
+
 }

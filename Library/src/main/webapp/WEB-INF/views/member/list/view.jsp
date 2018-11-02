@@ -54,7 +54,20 @@ html, body {
 			type="button" class="btn btn-rounded btn-warning" style="color: white" id="write">
 			<i class="far fa-list-alt"  aria-hidden="true"></i> 목록
 		</button>
-
+		<div style="float: right">
+		<c:if test="${check!='pn'}">
+		<button onclick="location.href='<%=request.getContextPath()%>/member/home/view?idx=${listInfo.idx-1}&check=p'"
+			type="button" class="btn btn-rounded " style="color: white; background-color: black" id="prev">
+			<i class="far fa-list-alt"  aria-hidden="true"></i> 이전
+		</button>
+		</c:if>
+		<c:if test="${check!='nn'}">
+		<button onclick="location.href='<%=request.getContextPath()%>/member/home/view?idx=${listInfo.idx+1}&check=n'"
+			type="button" class="btn btn-rounded " style="color: white; background-color: black" id="next">
+			<i class="far fa-list-alt"  aria-hidden="true"></i> 다음
+		</button>
+		</c:if>
+</div>
 		<input type="hidden" name="list_name" value="${listInfo.list_name }" />
 		<input type="hidden" name="idx" value="${listInfo.idx}" />
 

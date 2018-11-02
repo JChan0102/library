@@ -12,8 +12,8 @@
 		background-color: white;
 	}
 
-	h1 {
-		padding: 40px 200px;
+	h2 {
+		padding: 40px 0;
 	}
 
 	#list {

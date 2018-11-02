@@ -23,15 +23,23 @@ public class ViewController {
 	GetContentService service;
 	@Autowired
 	GetWriteContentService service2;
+	int nextCk = 1;
+	int prevCk = 1;
+	String check1 = "";
+	
 	
 	@RequestMapping("member/home/view")
-	public ModelAndView view(@RequestParam("idx") int idx) {
+	public ModelAndView view(@RequestParam("idx") int idx, @RequestParam(value="check", required=false) String check) {
+		
 		ModelAndView modelAndView = new ModelAndView();
-		ListInfo listInfo = service.getContentIdx(idx);
+		ListInfo listInfo = service.getContentIdxNext(idx, check);
 		List<ReplyInfo> replyInfo = service2.getReplyContent(idx); //댓글처리
+		check = service.getNextPreInfo(idx);
+		
 		modelAndView.setViewName("member/list/view");
 		modelAndView.addObject("listInfo", listInfo);
 		modelAndView.addObject("replyInfo", replyInfo);
+		modelAndView.addObject("check", check);
 		
 		return modelAndView;
 	}

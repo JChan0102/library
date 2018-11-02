@@ -47,7 +47,7 @@ select idx, count(*) cnt from freelist_reply group by idx) flr right outer join 
 	<select id="getSearchList" parameterType="java.lang.String" resultType="ListInfo">
 		select * from (
 		select cnt, fl.idx, list_title, list_content, list_date, list_name from (
-		select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc) as temp  
+		select idx, count(*) cnt from freelist_reply group by idx) flr right outer join freelist fl on fl.idx=flr.idx order by idx desc) as temp
 		<choose>
 			<when test="select=='titleCon'">
 				where list_title like #{con} or list_content like #{con}
@@ -60,6 +60,31 @@ select idx, count(*) cnt from freelist_reply group by idx) flr right outer join 
 			</when>
 		</choose>
 	</select>
+	
+	<select id="getIdx"  resultType="int">
+		select idx from freelist 
+		<choose>
+			<when test="param2 == 'p'.toString()">
+				where idx <![CDATA[<]]> #{param1} order by idx desc limit 0,1
+			</when>
+			<otherwise>
+				where idx <![CDATA[>]]> #{param1} order by idx limit 0,1
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getIdxNP" resultType="String">
+		select idx from freelist 
+		<choose>
+			<when test="param2 == 'p'.toString()">
+				where idx <![CDATA[<]]> #{param1} order by idx desc limit 0,1
+			</when>
+			<otherwise>
+				where idx <![CDATA[>]]> #{param1} order by idx limit 0,1
+			</otherwise>
+		</choose>
+	</select>
+	
 	
 	
 	
