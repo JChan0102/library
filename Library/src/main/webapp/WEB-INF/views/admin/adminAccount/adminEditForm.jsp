@@ -48,6 +48,8 @@
 				<table width="100%">
 					<tr>
 						<td>관리자 'admin' 계정의 경우 권한을 수정할 수 없습니다.</td>
+							<input type="hidden" id="permission" name="permission"
+									value="${av.permission}" />
 					</tr>
 				</table>
 			</c:when>
